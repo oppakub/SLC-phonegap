@@ -15,4 +15,5 @@
     <content src="auth.html" />
     <access origin="*" />
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
+    <plugin name="Storage" value="org.apache.cordova.Storage" />
 </widget>
