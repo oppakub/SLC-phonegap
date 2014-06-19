@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>SLC</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css"/>
     <link rel="stylesheet" href="css/style.css"/>
@@ -24,7 +24,7 @@
                 }
             }
         }*/
-    </script>
+    </script>-->
 </head>
 <body>
 
@@ -36,23 +36,34 @@
     <!-- /header -->
 
     <div data-role="content">
-        <p align="center"><img src="img/slc_test_logo.png"/></p>
-        <fieldset class="ui-grid-a">
-            <div class="ui-block-b"><a href="student/index.html" data-transition="none"
-                                       class="ui-link-inherit">
-                <button data-theme="a">Student</button>
-            </a></div>
-            <div class="ui-block-b"><a href="teacher_main.html" data-transition="none"
-                                       class="ui-link-inherit">
-                <button data-theme="a">Teacher</button>
-            </a></div>
-        </fieldset>
-        <p align="center">Support Learning in Classroom</p>
+        <div id="main_content">
+            <center><img src="img/slc_test_logo.png" class="img-shadow img-radius"/></center>
+            <fieldset class="ui-grid-a main_field">
+                <div class="ui-block-b"><a href="student/index.html" data-transition="none" class="ui-link-inherit">
+                    <button data-theme="a">Student</button>
+                </a></div>
+                <div class="ui-block-b"><a href="teacher_main.html" data-transition="none" class="ui-link-inherit">
+                    <button data-theme="a">Teacher</button>
+                </a></div>
+            </fieldset>
+            <p align="center">Support Learning in Classroom</p>
 
-        <p align="center">Android Application Contest 2014</p>
+            <p align="center">Android Application Contest 2014</p>
+
+            <p align="center">Night_Fury_TE@M</p>
+        </div>
+
     </div>
     <!-- /content -->
-
+    <script type="text/javascript" charset="utf-8">
+        if(window.innerWidth > 480){
+            $("#main_content").css({"width":window.innerWidth,"height":"800px","position":"absolute","left":"0px","right":"0px","top":"0px","bottom":"0px","margin":"auto"});
+            $(".main_field").css("margin","150px 0px 250px 0px");
+        }else if(window.innerWidth <= 480){
+            $(".main_field").css("margin-top","30px");
+            $("#main_content").css("margin-top","30px");
+        }
+    </script>
 </div>
 <!-- /page -->
 

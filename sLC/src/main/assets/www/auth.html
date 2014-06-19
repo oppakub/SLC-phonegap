@@ -21,7 +21,7 @@
 
     <div data-role="content" data-theme="b" class="login-shadow" id="auth_login" style="position:absolute;top:0px;bottom:0px;left:0px;right:0px;margin:auto;">
             <center><img id="auth_login_img" src="img/login-icon.png"></center>
-            <form action="main.html" method="post" id="auth_form">
+            <form action="main.html" method="post" id="auth_form" data-transition="none">
                 <div data-role="fieldcontain" class="ui-hide-label" id="auth_login_user">
                     <label for="auth_username">Username:</label>
                     <input type="text" name="auth_username" id="auth_username" value="" placeholder="Username" data-clear-btn="true" />
@@ -30,16 +30,16 @@
                     <label for="auth_password">Password:</label>
                     <input type="password" name="auth_password" id="auth_password" value="" placeholder="Password" data-clear-btn="true" />
                 </div>
-                <p style="text-align:right;"><a href="#RecoverPassword">Don't know your password?</a></p>
+                <p style="text-align:right;"><a href="main.html" data-transition="none">Don't know your password?</a></p>
                 <div class="auth_login_submit">
-                    <input data-theme="b" type="submit" value="Log In" id="auth_submit" />
+                    <input data-theme="b" type="submit" value="Log In" id="auth_submit"/>
                 </div>
             </form>
     </div>
     <!-- /content -->
 
     <div data-role="footer" id="auth_footer" data-position="fixed">
-        <h1 id="af_dis">Night Fury Team</h1>
+        <h1 id="af_dis">Night_Fury_TE@M</h1>
     </div>
     <!-- /footer -->
 </div>
