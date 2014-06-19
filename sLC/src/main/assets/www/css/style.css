@@ -1,0 +1,33 @@
+@media screen and (max-width: 1280px){
+    #auth_login{
+        width:400px;
+        height:300px;
+    }
+    #auth_login_img{
+        width:30%;
+    }
+    .auth_login_user,.auth_login_pass{
+        margin-top:20px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    #auth_login{
+        width:300px;
+        height:350px;
+    }
+    #auth_login_img{
+        width:20%;
+    }
+    .auth_login_submit{
+        margin-top:50px;
+    }
+}
+
+#auth_login{
+    border-radius: 5px;
+}
+
+.login-shadow{
+    box-shadow: 0px 2px 5px #888888;
+}
