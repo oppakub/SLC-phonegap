@@ -29,9 +29,22 @@
 <body>
 
 <div data-role="page" id="main">
+    <div data-role="panel" id="main_panel">
+        <!-- panel content goes here -->
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a" style="width:35%;"><img src="img/icon-user-default.png" class="img-radius img-shadow" style="width:100%;"><center><a>Edit</a></center></div>
+            <div class="ui-block-b" style="width:65%;padding-left:10px;">
+                <p>Username</p>
+                <p>Name</p>
+            </div>
+        </fieldset>
+    </div>
+    <!-- /panel -->
 
     <div data-role="header" data-position="fixed">
+        <a href="#main_panel" data-role="button" data-theme="a" data-icon="bars" data-inline="true">User</a>
         <h1>SLC</h1>
+        <a href="#logout" data-role="button" data-theme="a" data-inline="true" class="ui-btn-right">Log Out</a>
     </div>
     <!-- /header -->
 
