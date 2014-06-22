@@ -27,39 +27,37 @@
 <body>
 <div data-role="page" id="student">
     <div data-role="header" data-position="fixed">
-            <a href="../main.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-            <h1>Teacher</h1>
-            <a href="#" data-role="button" data-theme="a" data-icon="edit" data-iconpos="right">Edit</a>
+        <a href="../main.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
+        <h1>Student</h1>
+        <a href="#" data-role="button" data-theme="a" data-icon="edit" data-iconpos="right">Edit</a>
     </div><!-- /header -->
     <div data-role="content">
         <ul data-role="listview" data-autodividers="true" data-filter="true" id="tea_con_list">
-            <li><a href="#">Basic Computer</a></li>
+            <li><a href="#">Information Science</a></li>
             <li><a href="#">Mathematic 2</a></li>
-            <li><a href="#">BMW</a></li>
         </ul>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
-        <a href="#" data-role="button" data-theme="c" data-transition="none" id="teacher_footer_addButton" style="position:absolute;bottom:35px;width:100%;">Add</a>
+        <a href="add_course.html" data-role="button" data-theme="c" data-transition="none" id="student_footer_addButton" style="position:absolute;bottom:35px;width:100%;">Add</a>
         <div data-role="navbar">
             <ul>
-                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_foot_t">Teacher</a></li>
-                <li><a href="../main.html" data-transition="none" id="tea_foot_h">Home</a></li>
-                <li><a href="../student/student.html" data-transition="none" id="tea_foot_s">Student</a></li>
+                <li><a href="../teacher/teacher.html" data-transition="none" id="stu_foot_t">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="stu_foot_h">Home</a></li>
+                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="stu_foot_s">Student</a></li>
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
     <script type="text/javascript" charset="utf-8">
-        //alert("You are Student!!");
         if(window.innerWidth > 480){
             var tablet_footer_t = "<h3>Teacher</h3>";
             var tablet_footer_h = "<h3>Home</h3>";
             var tablet_footer_s = "<h3>Student</h3>";
             var tablet_footer_a = "<h3>Add</h3>";
-            $("#tea_foot_t").html(tablet_footer_t);
-            $("#tea_foot_h").html(tablet_footer_h);
-            $("#tea_foot_s").html(tablet_footer_s);
-            $("#teacher_footer_addButton").html(tablet_footer_a);
-            $("#teacher_footer_addButton").css("bottom","65px");
+            $("#stu_foot_t").html(tablet_footer_t);
+            $("#stu_foot_h").html(tablet_footer_h);
+            $("#stu_foot_s").html(tablet_footer_s);
+            $("#student_footer_addButton").html(tablet_footer_a);
+            $("#student_footer_addButton").css("bottom","65px");
         }
     </script>
 </div>
