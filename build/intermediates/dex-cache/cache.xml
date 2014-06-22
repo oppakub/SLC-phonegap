@@ -2,10 +2,10 @@
 <pre-dex-items>
 
     <item
-        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\classes-5d04aa7f7afc4ec3bd5e7ab4641e42c0974edf6a.jar"
-        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\SLC-phonegap\sLCCordovaLib\unspecified\classes.jar"
+        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-d76baf6ff644aed30d5703c109a8424b51784902.jar"
+        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/SLC/sLCCordovaLib/unspecified/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="c8f7a9e5338e6eb738a7841bfa6a5eee25a09571"/>
+        sha1="6913cd9cf42be9f5df6f6813380482fbc39b2d73"/>
 
 </pre-dex-items>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div data-role="page">
+    <script type="text/javascript" charset="utf-8" src="../js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/student/script_add_course.js"></script>
+    <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back" data-icon="arrow-l" data-role="button">Back</a>
+        <h1>Add Course</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content">
+        <div id="box_add_course">
+            <form action="http://service.oppakub.me/SLC/chk_coursecode.php" method="post"
+                  id="student_add_course_form" data-transition="none">
+                <input type="text" name="coursecode" id="student_course_code" value=""
+                       placeholder="Enter your course code" data-clear-btn="true"/>
+                <input data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext=""  type="submit" value="Add Course" id="student_btn_add_course"/>
+            </form>
+        </div>
+        <div id="box_show_course" style="display:none;">
+            <h2>Course Detail</h2>
+            <p id="detail_course_name"></p>
+            <p id="detail_course_des"></p>
+            <p id="detail_course_code"></p>
+            <p id="detail_course_teachername"></p>
+            <input data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext=""  type="button" value="Join this course" id="student_join_course"/>
+        </div>
+    </div>
+    <!-- /content -->
+</div>
+<!-- /page -->
+</body>
+</html>
