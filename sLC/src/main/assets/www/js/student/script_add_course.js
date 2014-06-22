@@ -88,8 +88,8 @@ function successCB() {
    // db.transaction(queryDB, errorCB);
    //alert("eiei");
     //alert('Joined this course');
-	$(location).attr('href','main.html');
-	//$.mobile.changePage('main.html', { transition: "none", changeHash: false });
+	$(location).attr('href','student.html');
+	//$.mobile.changePage('student.html', { transition: "none", changeHash: false });
 }
 
 // Query the success callback
@@ -97,7 +97,7 @@ function querySuccessCourse(tx, results) {
 	var len = results.rows.length;
 	if(len > 0) {
 		toast('You already joined this course.');
-		$.mobile.changePage('main.html', { transition: "none", changeHash: false });
+		$.mobile.changePage('student.html', { transition: "none", changeHash: false });
 	} else {
 		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
 		db.transaction(queryUserDB, errorCB);
