@@ -27,19 +27,18 @@
 <body>
 <div data-role="page" id="student">
     <div data-role="header" data-position="fixed">
-            <a href="../main.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
+            <a href="teacher.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
             <h1>Teacher</h1>
-            <a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>
+            <a href="#Submit Change" data-role="button" data-theme="a">Done</a>
     </div><!-- /header -->
     <div data-role="content">
         <ul data-role="listview" data-autodividers="true" data-filter="true" id="tea_con_list">
-            <li><a href="#">Basic Computer</a></li>
-            <li><a href="#">Mathematic 2</a></li>
-            <li><a href="#">BMW</a></li>
+            <li data-icon="delete"><a href="#">Basic Computer</a></li>
+            <li data-icon="delete"><a href="#">Mathematic 2</a></li>
+            <li data-icon="delete"><a href="#">BMW</a></li>
         </ul>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
-        <a href="#" data-role="button" data-theme="c" data-transition="none" id="teacher_footer_addButton" style="position:absolute;bottom:35px;width:100%;">Add</a>
         <div data-role="navbar">
             <ul>
                 <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_foot_t">Teacher</a></li>
@@ -54,12 +53,16 @@
             var tablet_footer_t = "<h3>Teacher</h3>";
             var tablet_footer_h = "<h3>Home</h3>";
             var tablet_footer_s = "<h3>Student</h3>";
-            var tablet_footer_a = "<h3>Add</h3>";
             $("#tea_foot_t").html(tablet_footer_t);
             $("#tea_foot_h").html(tablet_footer_h);
             $("#tea_foot_s").html(tablet_footer_s);
-            $("#teacher_footer_addButton").html(tablet_footer_a);
-            $("#teacher_footer_addButton").css("bottom","65px");
+        }
+        function course_edit(x){
+            alert(x);
+            var c_edit_form = '<a href="#">'+
+            '555'+
+            '</a>';
+            $("#course_list_"+x).html(c_edit_form);
         }
     </script>
 </div>
