@@ -10,9 +10,30 @@
     <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.3.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" charset="utf-8" src="js/oppa_script.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_auth.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/toast.js"></script>
 </head>
 <body>
+
+<div data-role="page" id="check_session_page">
+
+    <div data-role="header" data-position="fixed">
+        <h1>SLC</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content" >
+       <p>Loading...</p>
+    </div>
+    <!-- /content -->
+
+    <div data-role="footer" data-position="fixed">
+        <h1 id="af_dis">Night_Fury_TE@M</h1>
+    </div>
+    <!-- /footer -->
+</div>
+<!-- /page -->
 
 <div data-role="page" id="auth_page">
 
@@ -23,7 +44,7 @@
 
     <div data-role="content" data-theme="b" class="login-shadow" id="auth_login" style="position:absolute;top:0px;bottom:0px;left:0px;right:0px;margin:auto;">
             <center><img id="auth_login_img" src="img/login-icon.png"></center>
-            <form action="main.html" method="post" id="auth_form" data-transition="none">
+            <form action="http://service.oppakub.me/SLC/auth.php" method="post" id="auth_form" data-transition="none">
                 <div data-role="fieldcontain" class="ui-hide-label" id="auth_login_user">
                     <label for="auth_username">Username:</label>
                     <input type="text" name="username" id="auth_username" value="" placeholder="Username" data-clear-btn="true" />

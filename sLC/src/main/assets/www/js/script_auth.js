@@ -11,7 +11,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
     
 // Cordova is ready
 function onDeviceReady() {
-	$("#auth_page").hide();
+	//$("#auth_page").hide();
 		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
 		db.transaction(queryDB, errorCB);
 }
@@ -42,13 +42,14 @@ function queryDB(tx) {
 
 //Show Login page if query errors    
 function showLoginPage() {
-	$("#auth_page").show();
+	//$("#auth_page").show();
+	$.mobile.changePage('#auth_page', "{transition: 'none', role: 'dialog'}");		
 }
 
 // Query the success callback
 function querySuccess(tx, results) {
 	var len = results.rows.length;
-	console.log("'+user_db+' table: " + len + " rows found.");
+	//console.log("'+user_db+' table: " + len + " rows found.");
 	var tmp_username = results.rows.item(0).username;
 	var tmp_session = results.rows.item(0).session;
 	$.ajax({
@@ -62,7 +63,8 @@ function querySuccess(tx, results) {
 				$(location).attr('href','main.html');
 			} else {
 				alert('Invalid session, please log in again.');
-				$("#auth_page").show();
+				//$("#auth_page").show();
+				$.mobile.changePage('#auth_page', "{transition: 'none', role: 'dialog'}");		
 			}
 				//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
 		}, //end success
@@ -125,7 +127,7 @@ $( document ).ready(function() {
 					} //end error         
 				});
 				e.preventDefault(); //Prevent Default action. 
-				e.unbind();
+				//e.unbind();
 			}); 
    });  
 });
