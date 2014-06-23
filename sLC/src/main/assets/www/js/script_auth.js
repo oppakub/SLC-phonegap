@@ -12,22 +12,15 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready
 function onDeviceReady() {
 	//$("#auth_page").hide();
-		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
-		db.transaction(queryDB, errorCB);
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
+	db.transaction(queryDB, errorCB);
 }
 
 // Populate the database
 function populateDB(tx) {
 	tx.executeSql('DROP TABLE IF EXISTS '+user_db+'');
     tx.executeSql('CREATE TABLE IF NOT EXISTS '+user_db+' (uid unique, username unique, firstname, lastname, email, phone , session)');
-    tx.executeSql('INSERT INTO '+user_db+' (uid, username, firstname, lastname, email, phone , session) VALUES ("'+uid+'", "'+username+'", "'+firstname+'", "'+lastname+'", "'+email+'", "'+phone+'", "'+session+'")');
-}
-
-//SuccessCB
-function successCB() {
-    //var db = window.openDatabase("Database", "1.0", "SLC", 1024000);
-   // db.transaction(queryDB, errorCB);
-   //alert("eiei");
+    tx.executeSql('INSERT INTO '+user_db+' (uid, username, firstname, lastname, email, phone , session) VALUES ("'+uid+'", "'+username+'", "'+firstname+'", "'+lastname+'", "'+email+'", "'+phone+'", "'+session+'")');    
 }
 
 //ErrorCB
@@ -65,8 +58,7 @@ function querySuccess(tx, results) {
 				alert('Invalid session, please log in again.');
 				//$("#auth_page").show();
 				$.mobile.changePage('#auth_page', "{transition: 'none', role: 'dialog'}");		
-			}
-				//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
+			}									
 		}, //end success
 			error: function(jqXHR, textStatus, errorThrown) {
 				//alert("ERROR");
@@ -79,7 +71,6 @@ function querySuccess(tx, results) {
             console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
         }*/
 }
-
 
 //jQuery    
 $( document ).ready(function() {
@@ -111,14 +102,13 @@ $( document ).ready(function() {
 							email = data.data.email;
 							phone = data.data.phone;
 							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
-        					db.transaction(populateDB, errorCB, successCB);
-							alert("welcome "+username);
-							$(location).attr('href','main.html');
+        					db.transaction(populateDB, errorCB);		
+        					alert("welcome "+username);
+							$(location).attr('href','main.html');					
 						} else {
 							//alert(data.message);
 							toast(data.message);
-						}
-						//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
+						}							
 					}, //end success
 					error: function(jqXHR, textStatus, errorThrown) {
 						//alert("ERROR");
@@ -127,7 +117,7 @@ $( document ).ready(function() {
 					} //end error         
 				});
 				e.preventDefault(); //Prevent Default action. 
-				//e.unbind();
+				e.unbind();
 			}); 
    });  
 });

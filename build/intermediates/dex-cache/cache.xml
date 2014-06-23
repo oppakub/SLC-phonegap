@@ -7,5 +7,11 @@
         jumboMode="false"
         revision="19.1.0"
         sha1="6913cd9cf42be9f5df6f6813380482fbc39b2d73"/>
+    <item
+        dex="/Users/oppakub/Developer/AndroidStudio/SLC-default/sLC/build/intermediates/pre-dexed/debug/classes-28051e8b6f851b441e5fac1f12f266455de0c720.jar"
+        jar="/Users/oppakub/Developer/AndroidStudio/SLC-default/build/intermediates/exploded-aar/SLC-default/sLCCordovaLib/unspecified/classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="3bc4b0c65ca3ae88bd8b9cb7a183635e39a07678"/>
 
 </pre-dex-items>

@@ -11,8 +11,6 @@
     <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/script_global_var.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/student/script_show_list_course.js"></script>
     <script type="text/javascript" charset="utf-8">
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
@@ -26,16 +24,17 @@
 </head>
 <body>
 <div data-role="page" id="student">
+    <script type="text/javascript" charset="utf-8" src="../js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_show_list_course.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_add_course.js"></script>
     <div data-role="header" data-position="fixed">
-            <a href="../main.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-            <h1>Teacher</h1>
-            <a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>
+        <a href="../main.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1>Teacher</h1>
+        <a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>
     </div><!-- /header -->
     <div data-role="content">
         <ul data-role="listview" data-autodividers="true" data-filter="true" id="tea_con_list">
             <li><a href="teacher_course.html" data-transition="none">Basic Computer</a></li>
-            <li><a href="#">Mathematic 2</a></li>
-            <li><a href="#">BMW</a></li>
         </ul>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">

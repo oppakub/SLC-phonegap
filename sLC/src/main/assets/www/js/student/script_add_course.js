@@ -6,9 +6,9 @@ var cdescription = undefined;
 var ccode = undefined;
 var stu_uid = undefined;
 var tea_uid = undefined;
-$( document ).ready(function() {
+$( document ).ready(function() {	
   //login form
-  $("#student_btn_add_course").click(function() {
+  $("#student_btn_add_course").click(function() {  		
   		$.mobile.loading('show');  		
 		//Callback handler for form submit event
 			$("#student_add_course_form").submit(function(e)
