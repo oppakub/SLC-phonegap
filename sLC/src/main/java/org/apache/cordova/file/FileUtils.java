@@ -74,7 +74,7 @@ public class FileUtils extends CordovaPlugin {
     private static FileUtils filePlugin;
 
     private interface FileOp {
-        void run() throws Exception;
+        void run(  ) throws Exception;
     }
     
     private ArrayList<Filesystem> filesystems;
@@ -571,10 +571,10 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param url of the file/directory to look up
      * @return a JSONObject representing a Entry from the filesystem
-     * @throws java.net.MalformedURLException if the url is not valid
-     * @throws java.io.FileNotFoundException if the file does not exist
-     * @throws java.io.IOException if the user can't read the file
-     * @throws org.json.JSONException
+     * @throws MalformedURLException if the url is not valid
+     * @throws FileNotFoundException if the file does not exist
+     * @throws IOException if the user can't read the file
+     * @throws JSONException
      */
     private JSONObject resolveLocalFileSystemURI(String url) throws IOException, JSONException {
     	LocalFilesystemURL inputURL;
@@ -625,9 +625,9 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param fileName the directory to read from
      * @return a JSONArray containing JSONObjects that represent Entry objects.
-     * @throws java.io.FileNotFoundException if the directory is not found.
-     * @throws org.json.JSONException
-     * @throws java.net.MalformedURLException
+     * @throws FileNotFoundException if the directory is not found.
+     * @throws JSONException
+     * @throws MalformedURLException 
      */
     private JSONArray readEntries(String baseURLstr) throws FileNotFoundException, JSONException, MalformedURLException {
         try {
@@ -652,10 +652,10 @@ public class FileUtils extends CordovaPlugin {
      * @param move if false do a copy, if true do a move
      * @return a Entry object
      * @throws NoModificationAllowedException
-     * @throws java.io.IOException
+     * @throws IOException
      * @throws InvalidModificationException
      * @throws EncodingException
-     * @throws org.json.JSONException
+     * @throws JSONException
      * @throws FileExistsException
      */
     private JSONObject transferTo(String srcURLstr, String destURLstr, String newName, boolean move) throws JSONException, NoModificationAllowedException, IOException, InvalidModificationException, EncodingException, FileExistsException {
@@ -688,7 +688,7 @@ public class FileUtils extends CordovaPlugin {
      * @return a boolean representing success of failure
      * @throws FileExistsException
      * @throws NoModificationAllowedException 
-     * @throws java.net.MalformedURLException
+     * @throws MalformedURLException 
      */
     private boolean removeRecursively(String baseURLstr) throws FileExistsException, NoModificationAllowedException, MalformedURLException {
         try {
@@ -718,7 +718,7 @@ public class FileUtils extends CordovaPlugin {
      * @return a boolean representing success of failure
      * @throws NoModificationAllowedException
      * @throws InvalidModificationException
-     * @throws java.net.MalformedURLException
+     * @throws MalformedURLException 
      */
     private boolean remove(String baseURLstr) throws NoModificationAllowedException, InvalidModificationException, MalformedURLException {
         try {
@@ -749,10 +749,10 @@ public class FileUtils extends CordovaPlugin {
      * @param directory if true look up directory, if false look up file
      * @return a Entry object
      * @throws FileExistsException
-     * @throws java.io.IOException
+     * @throws IOException
      * @throws TypeMismatchException
      * @throws EncodingException
-     * @throws org.json.JSONException
+     * @throws JSONException
      */
     private JSONObject getFile(String baseURLstr, String path, JSONObject options, boolean directory) throws FileExistsException, IOException, TypeMismatchException, EncodingException, JSONException {
         try {
@@ -775,8 +775,8 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param filePath
      * @return
-     * @throws org.json.JSONException
-     * @throws java.io.IOException
+     * @throws JSONException
+     * @throws IOException 
      */
     private JSONObject getParent(String baseURLstr) throws JSONException, IOException {
         try {
@@ -797,9 +797,9 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param filePath to entry
      * @return returns a JSONObject represent a W3C File object
-     * @throws java.io.FileNotFoundException
-     * @throws org.json.JSONException
-     * @throws java.net.MalformedURLException
+     * @throws FileNotFoundException
+     * @throws JSONException
+     * @throws MalformedURLException 
      */
     private JSONObject getFileMetadata(String baseURLstr) throws FileNotFoundException, JSONException, MalformedURLException {
         try {
@@ -820,8 +820,8 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param type of file system requested
      * @return a JSONObject representing the file system
-     * @throws java.io.IOException
-     * @throws org.json.JSONException
+     * @throws IOException
+     * @throws JSONException
      */
     private JSONObject requestFileSystem(int type) throws IOException, JSONException {
         JSONObject fs = new JSONObject();
@@ -847,8 +847,8 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param type of file system requested
      * @return a JSONObject representing the file system
-     * @throws java.io.IOException
-     * @throws org.json.JSONException
+     * @throws IOException
+     * @throws JSONException
      */
     private JSONArray requestAllFileSystems() throws IOException, JSONException {
         JSONArray ret = new JSONArray();
@@ -891,7 +891,7 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param file the File to convert
      * @return a JSON representation of the given File
-     * @throws org.json.JSONException
+     * @throws JSONException
      */
     public JSONObject getEntryForFile(File file) throws JSONException {
         JSONObject entry;
@@ -913,7 +913,7 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param file the File to convert
      * @return a JSON representation of the given File
-     * @throws org.json.JSONException
+     * @throws JSONException
      */
     @Deprecated
     public static JSONObject getEntry(File file) throws JSONException {
@@ -934,7 +934,7 @@ public class FileUtils extends CordovaPlugin {
      * @param encoding          The encoding to return contents as.  Typical value is UTF-8. (see http://www.iana.org/assignments/character-sets)
      * @param resultType        The desired type of data to send to the callback.
      * @return                  Contents of file.
-     * @throws java.net.MalformedURLException
+     * @throws MalformedURLException 
      */
     public void readFileAs(final String srcURLstr, final int start, final int end, final CallbackContext callbackContext, final String encoding, final int resultType) throws MalformedURLException {
         try {
@@ -1004,7 +1004,7 @@ public class FileUtils extends CordovaPlugin {
      * @param data				The contents of the file.
      * @param offset			The position to begin writing the file.
      * @param isBinary          True if the file contents are base64-encoded binary data
-     * @throws java.io.FileNotFoundException, IOException
+     * @throws FileNotFoundException, IOException
      * @throws NoModificationAllowedException
      */
     /**/
@@ -1028,7 +1028,7 @@ public class FileUtils extends CordovaPlugin {
      *
      * @param filename
      * @param size
-     * @throws java.io.FileNotFoundException, IOException
+     * @throws FileNotFoundException, IOException
      * @throws NoModificationAllowedException
      */
     private long truncateFile(String srcURLstr, long size) throws FileNotFoundException, IOException, NoModificationAllowedException {
