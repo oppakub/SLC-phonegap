@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/student/script_show_list_course.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="teacher_course_lesson">
+    <div data-role="header" data-position="fixed">
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
+        <h1>Basic Computer</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_less_head_1">Home</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_less_head_2">Question</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_less_head_3">Ask</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_less_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <h1 data-theme="a">Lesson 1</h1>
+        <div data-role="collapsible" data-collapsed="false" data-content-theme="b" id="tea_cou_con_coll_LessDes">
+            <h3>Lesson description</h3>
+            <p style="text-indent:20px;" id="tea_cou_less_des">
+                คาบเรียนนี้เรียนเกี่ยวกับประวัติของคอมพิวเตอร์
+            </p>
+            <a href="#" data-role="button" data-icon="edit" data-mini="true">Edit</a>
+        </div>
+        <div data-role="collapsible-set" id="tea_cou_less_con_coll">
+            <div data-role="collapsible" data-theme="a" id="tea_cou_less_con_coll_sheet">
+                <h3>Sheet</h3>
+                <ul data-role="listview" data-split-icon="delete" id="tea_cou_less_list_sheet">
+                    <li>
+                        <a href="#">History of computer</a><!--Go to this exam-->
+                        <a href="#del_sheetID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
+                        <div data-role="popup" data-position-to="window" id="del_sheetID_1">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#DeleteSheet1" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Sheet Popup-->
+                    </li>
+                    <li>
+                        <a href="#">Component of computer</a><!--Go to this exam-->
+                        <a href="#del_sheetID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
+                        <div data-role="popup" data-position-to="window" id="del_sheetID_2">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#DeleteSheet2" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Sheet Popup-->
+                    </li>
+                    <li data-icon="plus" data-theme="j"><a href="#">Add Sheet</a></li>
+                </ul>
+            </div><!--Sheet-->
+            <div data-role="collapsible" data-theme="a" id="tea_cou_less_con_coll_homework">
+                <h3>Homework</h3>
+                <ul data-role="listview" data-split-icon="delete" id="tea_cou_less_list_homework">
+                    <li>
+                        <a href="#">Homework 1</a>
+                        <a href="#del_HwIDinLess_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
+                        <div data-role="popup" data-position-to="window" id="del_HwIDinLess_1">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#DeleteHwInLess1" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Homework Popup-->
+                    </li>
+                    <li>
+                        <a href="#">Homework 2</a>
+                        <a href="#del_HwIDinLess_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
+                        <div data-role="popup" data-position-to="window" id="del_HwIDinLess_2">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#DeleteHwInLess2" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Homework Popup-->
+                    </li>
+                    <li data-icon="plus" data-theme="j"><a href="#">Add Homework</a></li>
+                </ul>
+            </div><!--Homework-->
+            <div data-role="collapsible" data-theme="a" data-content-theme="b" id="tea_cou_less_con_coll_exam">
+                <h3>Examination</h3>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <select name="select-exam-for-lesson" id="select-exam-for-lessonID">
+                        <option value="exam1">Exam 1</option>
+                        <option value="exam3">Exam 3</option>
+                        <option value="exam5">Exam 5</option>
+                    </select>
+                </div>
+            </div><!--Examination-->
+            <div data-role="collapsible" data-theme="a" data-content-theme="f" id="tea_cou_less_con_coll_set">
+                <h3>Setting</h3>
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="text-align:center;">
+                        <label for="lesson-setting-active">Active</label>
+                        <select name="lesson-setting-active" id="lesson-setting-active" data-role="slider">
+                            <option value="0">off</option>
+                            <option value="1">on</option>
+                        </select>
+                    </div>
+                    <div class="ui-block-b" style="text-align:center;">
+                        <label for="lesson-setting-show">Show</label>
+                        <select name="lesson-setting-show" id="lesson-setting-show" data-role="slider">
+                            <option value="0">off</option>
+                            <option value="1">on</option>
+                        </select>
+                    </div>
+                </div>
+            </div><!--Examination-->
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_less_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_less_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_less_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_less_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_less_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+        function book_active(x){
+            var b_theme = $("#bookID_"+x).attr("data-theme");
+            if(b_theme=="g"){
+                $("#bookID_"+x).removeClass("ui-btn-up-g");
+                $("#bookID_"+x+" > a[data-theme^=g]").removeClass("ui-btn-up-g");
+                $("#bookID_"+x).addClass("ui-btn-up-c");
+                $("#bookID_"+x+" > a[data-theme^=g]").addClass("ui-btn-up-c");
+                $("#bookID_"+x).attr("data-theme","c");
+                $("#bookID_"+x+" > a[data-theme^=g]").attr("data-theme","c");
+            }else{
+                $("#bookID_"+x).removeClass("ui-btn-up-c");
+                $("#bookID_"+x+" > a[data-theme^=c]").removeClass("ui-btn-up-c");
+                $("#bookID_"+x).addClass("ui-btn-up-g");
+                $("#bookID_"+x+" > a[data-theme^=c]").addClass("ui-btn-up-g");
+                $("#bookID_"+x).attr("data-theme","g");
+                $("#bookID_"+x+" > a[data-theme^=c]").attr("data-theme","g");
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
