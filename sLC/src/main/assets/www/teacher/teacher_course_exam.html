@@ -48,43 +48,67 @@
             <div data-role="content" data-theme="b">
                 <div data-role="collapsible-set">
 
-                    <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="question-1">
+                    <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="c-question-1">
                         <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร</h3>
-                        <div data-role="fieldcontain" class="ui-hide-label">
-                            <label for="question-1-input">Username:</label>
-                            <input type="text" name="question-1-input" id="question-1-input" value="คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร" placeholder="Question 1"/>
-                        </div>
-                        <div data-role="fieldcontain" id="question-1-choice-1">
-                            <label for="question-1-choice-1-input" style="width:10px;">1.</label>
-                            <input type="text" name="question-1-choice-1-input" id="question-1-choice-1-input" value="Apple I" placeholder="Choice 1"/>
-                        </div>
-                        <div data-role="fieldcontain" id="question-1-choice-2">
-                            <label for="question-1-choice-2-input" style="width:10px;">2.</label>
-                            <input type="text" name="question-1-choice-2-input" id="question-1-choice-2-input" value="ENIAC" placeholder="Choice 2"/>
-                        </div>
-                        <div data-role="fieldcontain" id="question-1-choice-3">
-                            <label for="question-1-choice-3-input" style="width:10px;">3.</label>
-                            <input type="text" name="question-1-choice-3-input" id="question-1-choice-3-input" value="Javis" placeholder="Choice 3"/>
-                        </div>
-                        <div data-role="fieldcontain" id="question-1-choice-4">
-                            <label for="question-1-choice-4-input" style="width:10px;">4.</label>
-                            <input type="text" name="question-1-choice-4-input" id="question-1-choice-4-input" value="sony vaio" placeholder="Choice 4"/>
-                        </div>
-                        <fieldset data-role="controlgroup" data-type="horizontal">
-                            <legend>Choose true answer:</legend>
-                            <input type="radio" name="question-1-radio" id="question-1-choice-1-radio" value="1" checked="checked" />
-                            <label for="question-1-choice-1-radio">1</label>
+                        <form action="#" method="post">
+                            <label for="c-question-1-input">Question:</label>
+                            <input type="text" name="c-question-1-input" id="c-question-1-input" value="คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร" placeholder="Question"/>
 
-                            <input type="radio" name="question-1-radio" id="question-1-choice-2-radio" value="ENIAC"  />
-                            <label for="question-1-choice-2-radio">2</label>
+                            <div data-role="fieldcontain" id="c-question-1-choice-1">
+                                <label for="c-question-1-choice-1-input" style="width:10px;">1.</label>
+                                <input type="text" name="c-question-1-choice-1-input" id="c-question-1-choice-1-input" value="Apple I" placeholder="Choice 1"/>
+                            </div>
+                            <div data-role="fieldcontain" id="c-question-1-choice-2">
+                                <label for="c-question-1-choice-2-input" style="width:10px;">2.</label>
+                                <input type="text" name="c-question-1-choice-2-input" id="c-question-1-choice-2-input" value="ENIAC" placeholder="Choice 2"/>
+                            </div>
+                            <div data-role="fieldcontain" id="c-question-1-choice-3">
+                                <label for="c-question-1-choice-3-input" style="width:10px;">3.</label>
+                                <input type="text" name="c-question-1-choice-3-input" id="c-question-1-choice-3-input" value="Javis" placeholder="Choice 3"/>
+                            </div>
+                            <div data-role="fieldcontain" id="c-question-1-choice-4">
+                                <label for="c-question-1-choice-4-input" style="width:10px;">4.</label>
+                                <input type="text" name="c-question-1-choice-4-input" id="c-question-1-choice-4-input" value="sony vaio" placeholder="Choice 4"/>
+                            </div>
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Choose true answer:</legend>
+                                <input type="radio" name="c-question-1-radio" id="c-question-1-choice-1-radio" value="1" checked="checked" />
+                                <label for="c-question-1-choice-1-radio">1</label>
 
-                            <input type="radio" name="question-1-radio" id="question-1-choice-3-radio" value="Javis"  />
-                            <label for="question-1-choice-3-radio">3</label>
+                                <input type="radio" name="c-question-1-radio" id="c-question-1-choice-2-radio" value="2"  />
+                                <label for="c-question-1-choice-2-radio">2</label>
 
-                            <input type="radio" name="question-1-radio" id="question-1-choice-4-radio" value="sony vaio"  />
-                            <label for="question-1-choice-4-radio">4</label>
-                        </fieldset>
-                    </div>
+                                <input type="radio" name="c-question-1-radio" id="c-question-1-choice-3-radio" value="3"  />
+                                <label for="c-question-1-choice-3-radio">3</label>
+
+                                <input type="radio" name="c-question-1-radio" id="c-question-1-choice-4-radio" value="4"  />
+                                <label for="c-question-1-choice-4-radio">4</label>
+                            </fieldset>
+                            <input type="submit" value="submit" data-mini="true"/>
+                        </form>
+                    </div><!--Do repeat for any choice question-->
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div data-role="header">
+                <h3>Writing Exam</h3>
+            </div>
+            <div data-role="content" data-theme="b">
+                <div data-role="collapsible-set">
+
+                    <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="w-question-1">
+                        <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร</h3>
+                        <form action="#" method="post">
+                            <label for="w-question-1-input">Question:</label>
+                            <input type="text" name="w-question-1-input" id="w-question-1-input" value="จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง" placeholder="Question"/>
+                            <label for="w-answer-1-input">Answer:</label>
+                            <input type="text" name="w-answer-1-input" id="w-answer-1-input" value="Central Processing Unit" placeholder="Answer"/>
+
+                            <input type="submit" value="submit" data-mini="true"/>
+                        </form>
+                    </div><!--Do repeat for any writing question-->
 
                 </div>
             </div>
