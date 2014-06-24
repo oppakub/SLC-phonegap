@@ -27,8 +27,8 @@
 <body>
 <div data-role="page" id="teacher_course">
     <div data-role="header" data-position="fixed">
-        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-        <h1>Basic Computer</h1>
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <h1>Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -40,26 +40,68 @@
         </div><!-- /navbar header -->
     </div><!-- /header -->
     <div data-role="content">
-        <h3>Course description</h3>
-        <div data-role="content" data-theme="b" class="ui-grid-solo" id="tea_cou_con_coll_CouDes">
-            <div class="ui-block-a">
+        <div class="ui-grid-a" id="tea_cou_name-1">
+            <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
+                <h1>Basic Computer</h1>
+            </div>
+            <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_name_edit()">
+                <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
+            </div>
+        </div>
+        <form action="#" method="post">
+        <div class="ui-grid-a" id="tea_cou_name-2" style="display:none;">
+                <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
+                    <h1 style="height:38px;"><input type="text" name="course-name-input" id="course-name-input" value="Basic Computer" placeholder="Course name" /></h1>
+                </div>
+                <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
+                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                </div>
+        </div>
+        </form>
+        <script type="text/javascript" charset="utf-8">
+            if(window.innerWidth > 480){
+                $("#tea_cou_name-1 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_name-1 > div.ui-block-b").css("width","7%");
+                $("#tea_cou_name-2 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_name-2 > div.ui-block-b").css("width","7%");
+            }
+            function course_name_edit(){
+                $("#tea_cou_name-1").css("display","none");
+                $("#tea_cou_name-2").css("display","block");
+            }
+        </script>
+        <div data-role="collapsible" data-collapsed="false" data-content-theme="b" id="tea_cou_con_coll_CouDes">
+            <h3>Course description</h3>
+            <div id="tea_cou_con_coll_CouDes-1">
                 <p style="text-indent:20px;" id="tea_cou_des">
                     วิชานี้สอนเกี่ยวกับคอมพิวเตอร์เบื้องต้น
                 </p>
-                <a href="#" data-role="button" data-icon="edit" data-mini="true">Edit</a>
-            </div>
+                <a href="#" data-role="button" data-icon="edit" data-mini="true" onclick="course_edit()">Edit</a>
+            </div><!--When pushed edit button the course edit form below will showed -->
+            <div id="tea_cou_con_coll_CouDes-2" style="display:none;">
+                <form action="#" method="post">
+                    <textarea name="course-description-textarea" id="course-description-textarea">วิชานี้สอนเกี่ยวกับคอมพิวเตอร์เบื้องต้น</textarea>
+                    <input type="submit" value="Submit" data-mini="true" />
+                </form>
+            </div><!--this form is hidden-->
         </div>
+        <script type="text/javascript" charset="utf-8">
+            function course_edit(){
+                $("#tea_cou_con_coll_CouDes-1").css("display","none");
+                $("#tea_cou_con_coll_CouDes-2").css("display","block");
+            }
+        </script><!--Script for show course edit form-->
         <div data-role="collapsible-set" id="tea_cou_con_coll">
             <div data-role="collapsible" data-theme="a" id="tea_cou_con_coll_lesson">
                 <h3>LESSON</h3>
                 <ul data-role="listview" id="tea_course_list_lesson">
-                    <li data-theme="i"><a href="teacher_course_lesson.html" data-transition="slide">Lesson 1</a></li>
-                    <li data-theme="i"><a href="#" data-transition="slide">Lesson 2</a></li>
-                    <li data-theme="i"><a href="#" data-transition="slide">Lesson 3</a></li>
-                    <li data-theme="h"><a href="#" data-transition="slide">Lesson 4</a></li>
-                    <li data-theme="c"><a href="#" data-transition="slide">Lesson 5</a></li>
-                    <li data-theme="c"><a href="#" data-transition="slide">Lesson 6</a></li>
-                    <li data-theme="c"><a href="#" data-transition="slide">Lesson 7 (final)</a></li>
+                    <li data-theme="i"><a href="teacher_course_lesson.html" data-transition="none">Lesson 1</a></li>
+                    <li data-theme="i"><a href="#" data-transition="none">Lesson 2</a></li>
+                    <li data-theme="i"><a href="#" data-transition="none">Lesson 3</a></li>
+                    <li data-theme="h"><a href="#" data-transition="none">Lesson 4</a></li>
+                    <li data-theme="c"><a href="#" data-transition="none">Lesson 5</a></li>
+                    <li data-theme="c"><a href="#" data-transition="none">Lesson 6</a></li>
+                    <li data-theme="c"><a href="#" data-transition="none">Lesson 7 (final)</a></li>
                     <li data-icon="plus" data-theme="j"><a href="#">Add Lesson</a></li>
                 </ul>
             </div><!--LESSON-->
@@ -130,7 +172,7 @@
                 <h3>EXAMINATION</h3>
                 <ul data-role="listview" data-split-icon="delete" id="tea_course_list_exam">
                     <li>
-                        <a href="#" data-transition="slide">Exam 1</a><!--Go to this exam-->
+                        <a href="teacher_course_exam.html" data-transition="none">Exam 1</a><!--Go to this exam-->
                         <a href="#del_ExamID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
                         <div data-role="popup" data-position-to="window" id="del_ExamID_1">
                             <div data-role="header" data-theme="f">
@@ -145,7 +187,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Exam 2</a>
+                        <a href="#" data-transition="none">Exam 2</a>
                         <a href="#del_ExamID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_2">
                             <div data-role="header" data-theme="f">
@@ -160,7 +202,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Exam 3</a>
+                        <a href="#" data-transition="none">Exam 3</a>
                         <a href="#del_ExamID_3" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_3">
                             <div data-role="header" data-theme="f">
@@ -175,7 +217,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Exam 4</a>
+                        <a href="#" data-transition="none">Exam 4</a>
                         <a href="#del_ExamID_4" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_4">
                             <div data-role="header" data-theme="f">
@@ -190,7 +232,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Exam 5</a>
+                        <a href="#" data-transition="none">Exam 5</a>
                         <a href="#del_ExamID_5" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_5">
                             <div data-role="header" data-theme="f">
@@ -205,7 +247,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Exam 6</a>
+                        <a href="#" data-transition="none">Exam 6</a>
                         <a href="#del_ExamID_6" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_6">
                             <div data-role="header" data-theme="f">
@@ -220,7 +262,7 @@
                         </div><!-- Delete Exam Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Final Exam</a>
+                        <a href="#" data-transition="none">Final Exam</a>
                         <a href="#del_ExamID_7" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_ExamID_7">
                             <div data-role="header" data-theme="f">
@@ -241,7 +283,7 @@
                 <h3>HOMEWORK</h3>
                 <ul data-role="listview" data-split-icon="delete" id="tea_course_list_homework">
                     <li>
-                        <a href="#" data-transition="slide">Homework 1</a>
+                        <a href="#" data-transition="none">Homework 1</a>
                         <a href="#del_HwID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_HwID_1">
                             <div data-role="header" data-theme="f">
@@ -256,7 +298,7 @@
                         </div><!-- Delete Homework Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Homework 3</a>
+                        <a href="#" data-transition="none">Homework 3</a>
                         <a href="#del_HwID_3" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_HwID_3">
                             <div data-role="header" data-theme="f">
@@ -271,7 +313,7 @@
                         </div><!-- Delete Homework Popup-->
                     </li>
                     <li>
-                        <a href="#" data-transition="slide">Homework 5</a>
+                        <a href="#" data-transition="none">Homework 5</a>
                         <a href="#del_HwID_5" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
                         <div data-role="popup" data-position-to="window" id="del_HwID_5">
                             <div data-role="header" data-theme="f">

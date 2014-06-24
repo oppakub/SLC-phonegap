@@ -39,3 +39,7 @@
 .img-radius{
     border-radius: 15px;
 }
+
+.e-hidden{
+    display:none;
+}
