@@ -40,8 +40,37 @@
         </div><!-- /navbar header -->
     </div><!-- /header -->
     <div data-role="content">
-        <h1 data-theme="a">Exam 1</h1>
-        <div>
+        <div class="ui-grid-a" id="tea_cou_exam_name-1">
+            <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
+                <h1>Exam 1</h1>
+            </div>
+            <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_exam_name_edit()">
+                <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
+            </div>
+        </div>
+        <form action="#" method="post">
+            <div class="ui-grid-a" id="tea_cou_exam_name-2" style="display:none;">
+                <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
+                    <h1 style="height:38px;"><input type="text" name="course-exam-name-input" id="course-exam-name-input" value="Exam 1" placeholder="Exam name" /></h1>
+                </div>
+                <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
+                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript" charset="utf-8">
+            if(window.innerWidth > 480){
+                $("#tea_cou_exam_name-1 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_exam_name-1 > div.ui-block-b").css("width","7%");
+                $("#tea_cou_exam_name-2 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_exam_name-2 > div.ui-block-b").css("width","7%");
+            }
+            function course_exam_name_edit(){
+                $("#tea_cou_exam_name-1").css("display","none");
+                $("#tea_cou_exam_name-2").css("display","block");
+            }
+        </script>
+        <div style="margin-top:15px;">
             <div data-role="header">
                 <h3>Choice Exam</h3>
             </div>
@@ -49,10 +78,10 @@
                 <div data-role="collapsible-set">
 
                     <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="c-question-1">
-                        <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร</h3>
+                        <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?</h3>
                         <form action="#" method="post">
                             <label for="c-question-1-input">Question:</label>
-                            <input type="text" name="c-question-1-input" id="c-question-1-input" value="คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร" placeholder="Question"/>
+                            <input type="text" name="c-question-1-input" id="c-question-1-input" value="คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?" placeholder="Question"/>
 
                             <div data-role="fieldcontain" id="c-question-1-choice-1">
                                 <label for="c-question-1-choice-1-input" style="width:10px;">1.</label>
@@ -88,10 +117,11 @@
                         </form>
                     </div><!--Do repeat for any choice question-->
 
+                    <a href="#" data-role="button" data-theme="g" data-mini="true">Add Question</a>
                 </div>
             </div>
         </div>
-        <div>
+        <div style="margin-top:15px;">
             <div data-role="header">
                 <h3>Writing Exam</h3>
             </div>
@@ -99,10 +129,10 @@
                 <div data-role="collapsible-set">
 
                     <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="w-question-1">
-                        <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร</h3>
+                        <h3>1. จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง?</h3>
                         <form action="#" method="post">
                             <label for="w-question-1-input">Question:</label>
-                            <input type="text" name="w-question-1-input" id="w-question-1-input" value="จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง" placeholder="Question"/>
+                            <input type="text" name="w-question-1-input" id="w-question-1-input" value="จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง?" placeholder="Question"/>
                             <label for="w-answer-1-input">Answer:</label>
                             <input type="text" name="w-answer-1-input" id="w-answer-1-input" value="Central Processing Unit" placeholder="Answer"/>
 
@@ -110,6 +140,7 @@
                         </form>
                     </div><!--Do repeat for any writing question-->
 
+                    <a href="#" data-role="button" data-theme="g" data-mini="true">Add Question</a>
                 </div>
             </div>
         </div>
