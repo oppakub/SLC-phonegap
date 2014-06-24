@@ -1,6 +1,11 @@
 $( document ).ready(function() {	
 	$("#teacher_footer_addButton").click(function() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
 		$("#tea_con_list").append('<li><input type="text" name="coursename" id="tea_add_new_course" value=""  placeholder="New Course" data-clear-btn="true"/>  <input id="teacher_btn_add_course" type="button" value="Add" /></li>'+"\n").listview('refresh'); 
+	} else {
+		toast('Please connect to the internet');
+	}
 	});
 	
 	$('#tea_con_list').on('click', '#teacher_btn_add_course', function() {

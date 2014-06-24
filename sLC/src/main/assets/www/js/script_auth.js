@@ -46,27 +46,33 @@ function querySuccess(tx, results) {
 	//console.log("'+user_db+' table: " + len + " rows found.");
 	var tmp_username = results.rows.item(0).username;
 	var tmp_session = results.rows.item(0).session;
-	$.ajax({
-			url: "http://service.oppakub.me/SLC/chk_session.php",
-			type: 'POST',
-			data:  "username="+tmp_username+"&session="+tmp_session,
-			dataType : "json",
-			async: false,
-			success: function(data, textStatus, jqXHR){
-			if(data.status == "OK") {
-				$(location).attr('href','main.html');
-			} else {
-				alert('Invalid session, please log in again.');
-				//$("#auth_page").show();
-				$.mobile.changePage('#auth_page', "{transition: 'none', role: 'dialog'}");		
-			}									
-		}, //end success
-			error: function(jqXHR, textStatus, errorThrown) {
-				//alert("ERROR");
-				alert(jqXHR.responseText);
-				//alert(thrownError);
-			} //end error         
-		});
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+				url: "http://service.oppakub.me/SLC/chk_session.php",
+				type: 'POST',
+				data:  "username="+tmp_username+"&session="+tmp_session,
+				dataType : "json",
+				async: false,
+				success: function(data, textStatus, jqXHR){
+				if(data.status == "OK") {
+					$(location).attr('href','main.html');
+				} else {
+					alert('Invalid session, please log in again.');
+					//$("#auth_page").show();
+					$.mobile.changePage('#auth_page', "{transition: 'none', role: 'dialog'}");		
+				}									
+			}, //end success
+				error: function(jqXHR, textStatus, errorThrown) {
+					//alert("ERROR");
+					alert(jqXHR.responseText);
+					//alert(thrownError);
+				} //end error         
+			});
+	} else {
+		alert("You are using offline mode");
+		$(location).attr('href','main.html');
+	}
         
        /* for (var i=0; i<len; i++){
             console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);

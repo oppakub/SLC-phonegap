@@ -8,51 +8,57 @@ var stu_uid = undefined;
 var tea_uid = undefined;
 $( document ).ready(function() {	
   //login form
-  $("#student_btn_add_course").click(function() {  		
-  		$.mobile.loading('show');  		
-		//Callback handler for form submit event
-			$("#student_add_course_form").submit(function(e)
-			{			 
-				var formObj = $(this);
-				var formURL = formObj.attr("action");
-				var formData = new FormData(this);
-				$.ajax({
-					url: formURL,
-					type: 'POST',
-					data:  formData,
-					mimeType:"multipart/form-data",
-					dataType : "json",
-					contentType: false,
-					cache: false,
-					processData:false,
-					async: false,
-					success: function(data, textStatus, jqXHR){						
-						if(data.status == "OK") {
-							course_code = data.data.ccode;
-							cid = data.data.cid;
-							$("#box_add_course").hide();
-							$("#box_show_course").show();
-							$("#detail_course_name").html("Course name : "+data.data.cname);
-							$("#detail_course_des").html("Course description : "+data.data.cdescription);
-							$("#detail_course_code").html("Course code : "+data.data.ccode);
-							$("#detail_course_teachername").html("Course teacher : "+data.data.firstname+" "+data.data.lastname);
-							//alert(data.message);
-						} else {
-							toast(data.message);
-						}
-						//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
-					}, //end success
-					error: function(jqXHR, textStatus, errorThrown) {
-						//$.mobile.loading( 'hide' );
-						//alert("ERROR");
-						toast(jqXHR.responseText);
-						//alert(thrownError);
-					} //end error         
-				});
-				$.mobile.loading('hide');
-				e.preventDefault(); //Prevent Default action. 
-				e.unbind();
-			}); 
+  $("#student_btn_add_course").click(function() {  
+	  var chk_connect = checkConnection();
+		if(chk_connect != "no") {		
+			$.mobile.loading('show');  		
+			//Callback handler for form submit event
+				$("#student_add_course_form").submit(function(e)
+				{			 
+					var formObj = $(this);
+					var formURL = formObj.attr("action");
+					var formData = new FormData(this);
+					$.ajax({
+						url: formURL,
+						type: 'POST',
+						data:  formData,
+						mimeType:"multipart/form-data",
+						dataType : "json",
+						contentType: false,
+						cache: false,
+						processData:false,
+						async: false,
+						success: function(data, textStatus, jqXHR){						
+							if(data.status == "OK") {
+								course_code = data.data.ccode;
+								cid = data.data.cid;
+								$("#box_add_course").hide();
+								$("#box_show_course").show();
+								$("#detail_course_name").html("Course name : "+data.data.cname);
+								$("#detail_course_des").html("Course description : "+data.data.cdescription);
+								$("#detail_course_code").html("Course code : "+data.data.ccode);
+								$("#detail_course_teachername").html("Course teacher : "+data.data.firstname+" "+data.data.lastname);
+								//alert(data.message);
+							} else {
+								toast(data.message);
+							}
+							//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
+						}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							//$.mobile.loading( 'hide' );
+							//alert("ERROR");
+							toast(jqXHR.responseText);
+							//alert(thrownError);
+						} //end error         
+					});
+					$.mobile.loading('hide');
+					e.preventDefault(); //Prevent Default action. 
+					e.unbind();
+				}); 
+			} else {
+				toast('Please connect to the internet.');
+				return false;
+			}
    });  
 });
 

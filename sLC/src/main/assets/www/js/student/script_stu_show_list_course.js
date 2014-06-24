@@ -28,35 +28,41 @@ function queryUserDB(tx) {
 function querySuccessUser(tx, results) {
 	var len = results.rows.length;
 	stu_uid = results.rows.item(0).uid;
-	$.ajax({
-				url: "http://service.oppakub.me/SLC/chk_stu_course.php",
-				type: 'POST',
-				data:  "stu_uid="+stu_uid,
-				dataType : "json",
-				async: false,
-				success: function(data, textStatus, jqXHR){
-				if(data.status == "OK") {
-					var data_len = data.data.length;					
-					for(var i =0;i<data_len;i++) {
-						//alert(data.data[i].cid);	
-						cid.push(data.data[i].cid);
-						cname.push(data.data[i].cname);
-						cdescription.push(data.data[i].cdescription);
-						ccode.push(data.data[i].ccode);
-						tea_uid.push(data.data[i].uid);					
-					}
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_stu_course.php",
+					type: 'POST',
+					data:  "stu_uid="+stu_uid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+							//alert(data.data[i].cid);	
+							cid.push(data.data[i].cid);
+							cname.push(data.data[i].cname);
+							cdescription.push(data.data[i].cdescription);
+							ccode.push(data.data[i].ccode);
+							tea_uid.push(data.data[i].uid);					
+						}
 					
-					var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
-					db.transaction(populateDB, errorCB);	
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(populateDB, errorCB);	
 					
-				} else {
-					toast(data.message);					
-				}								
-			}, //end success
-				error: function(jqXHR, textStatus, errorThrown) {
-					alert(jqXHR.responseText);
-				} //end error         
-	});
+					} else {
+						toast(data.message);					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryCourseDB, errorCB);	
+	}
 }
 
 // Populate the database
