@@ -2,16 +2,10 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-d76baf6ff644aed30d5703c109a8424b51784902.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/SLC/sLCCordovaLib/unspecified/classes.jar"
+        dex="/Users/oppakub/Developer/AndroidStudioProjects/SLC/sLC/build/intermediates/pre-dexed/debug/classes-a35a48ae66f3dfffa1953c7f1373d9763aadd5b9.jar"
+        jar="/Users/oppakub/Developer/AndroidStudioProjects/SLC/build/intermediates/exploded-aar/SLC/sLCCordovaLib/unspecified/classes.jar"
         jumboMode="false"
         revision="19.1.0"
-        sha1="6913cd9cf42be9f5df6f6813380482fbc39b2d73"/>
-    <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC-default/sLC/build/intermediates/pre-dexed/debug/classes-28051e8b6f851b441e5fac1f12f266455de0c720.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC-default/build/intermediates/exploded-aar/SLC-default/sLCCordovaLib/unspecified/classes.jar"
-        jumboMode="false"
-        revision="19.1.0"
-        sha1="3bc4b0c65ca3ae88bd8b9cb7a183635e39a07678"/>
+        sha1="c2a2847f1d880fa3de487debfc38eea687d2497c"/>
 
 </pre-dex-items>

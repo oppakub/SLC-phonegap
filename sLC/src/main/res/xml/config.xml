@@ -14,6 +14,13 @@
     </author>
     <content src="auth.html" />
     <access origin="*" />
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
     <plugin name="Storage" value="org.apache.cordova.Storage" />
 </widget>

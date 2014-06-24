@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SLC.iml" filepath="$PROJECT_DIR$/SLC.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SLC-phonegap.iml" filepath="$PROJECT_DIR$/SLC-phonegap.iml" />
       <module fileurl="file://$PROJECT_DIR$/sLC/sLC.iml" filepath="$PROJECT_DIR$/sLC/sLC.iml" />
       <module fileurl="file://$PROJECT_DIR$/sLCCordovaLib/sLCCordovaLib.iml" filepath="$PROJECT_DIR$/sLCCordovaLib/sLCCordovaLib.iml" />
     </modules>
