@@ -189,7 +189,6 @@ public class NetworkManager extends CordovaPlugin {
      */
     private JSONObject getConnectionInfo(NetworkInfo info) {
         String type = TYPE_NONE;
-        String extraInfo = "";
         if (info != null) {
             // If we are not connected to any network set type to none
             if (!info.isConnected()) {
@@ -198,8 +197,8 @@ public class NetworkManager extends CordovaPlugin {
             else {
                 type = getType(info);
             }
-            extraInfo = info.getExtraInfo();
         }
+        String extraInfo = info.getExtraInfo();
 
         Log.d("CordovaNetworkManager", "Connection Type: " + type);
         Log.d("CordovaNetworkManager", "Connection Extra Info: " + extraInfo);
@@ -270,3 +269,4 @@ public class NetworkManager extends CordovaPlugin {
         return TYPE_UNKNOWN;
     }
 }
+
