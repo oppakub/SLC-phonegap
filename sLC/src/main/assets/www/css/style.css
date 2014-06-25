@@ -43,3 +43,45 @@
 .e-hidden{
     display:none;
 }
+
+.q-name{
+    text-align:center;
+}
+
+.q-question{
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px #888888;
+    display: inline-flex;
+    background-color: #1E90FF;
+    color: white;
+}
+
+.q-time{
+    color:#777;
+}
+
+.q-answer{
+    padding: 5px 10px 5px 10px;
+    background-color: #ccc;
+    border-radius:5px;
+    box-shadow: 0px 2px 5px #888888;
+    text-align:left;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.q-edit{
+    //display: inline-block;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    background-color: #ccc;
+    box-shadow: 0px 2px 5px #888888;
+    cursor:pointer;
+    display:inline-block;
+}
+
+.no-p{
+    margin:0px;
+    padding:0px;
+}
