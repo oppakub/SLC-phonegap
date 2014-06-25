@@ -47,13 +47,14 @@
                 <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
             </div>
         </div>
-        <form action="#" method="post">
+        <form action="http://service.oppakub.me/SLC/edit_tea_cname.php" method="post" id="edit_cname_form">
+            <input type="hidden" class="hidden_ccode" name="course-code-input" />
         <div class="ui-grid-a" id="tea_cou_name-2" style="display:none;">
                 <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
                     <h1 style="height:38px;"><input type="text" name="course-name-input" id="course-name-input" value="Basic Computer" placeholder="Course name" /></h1>
                 </div>
                 <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
-                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                    <h1 style="height:38px;"><input type="submit" value="OK" id="edit_cname_btn_submit" data-mini="true" /></h1>
                 </div>
         </div>
         </form>
@@ -78,9 +79,10 @@
                 <a href="#" data-role="button" data-icon="edit" data-mini="true" onclick="course_edit()">Edit</a>
             </div><!--When pushed edit button the course edit form below will showed -->
             <div id="tea_cou_con_coll_CouDes-2" style="display:none;">
-                <form action="#" method="post">
+                <form action="http://service.oppakub.me/SLC/edit_tea_cdes.php" method="post" id="edit_cdes_form">
+                    <input type="hidden" class="hidden_ccode" name="course-code-input" />
                     <textarea name="course-description-textarea" id="course-description-textarea">วิชานี้สอนเกี่ยวกับคอมพิวเตอร์เบื้องต้น</textarea>
-                    <input type="submit" value="Submit" data-mini="true" />
+                    <input type="submit" value="Submit" id="edit_cdes_btn_submit" data-mini="true" />
                 </form>
             </div><!--this form is hidden-->
         </div>
