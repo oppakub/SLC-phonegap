@@ -47,9 +47,13 @@ function queryCourseDB(tx) {
 // Query the success callback
 function querySuccess(tx, results) {
 	var len = results.rows.length;
+	var count = 0;
 	//console.log("'+user_db+' table: " + len + " rows found.");
 	for (var i=0; i<len; i++){
             $("#tea_con_list").append('<li><a href="teacher_course.html" data-transition="none" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
+           // $("#tea_edit_con_list").append('<li><a href="teacher_course.html" data-transition="none" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
+            
+             $("#tea_edit_con_list").append('<li data-icon="delete"><a href="#del_t-courseID" data-rel="popup" data-transition="slidedown" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a>'+"\n").listview('refresh');
     }
 }
 
