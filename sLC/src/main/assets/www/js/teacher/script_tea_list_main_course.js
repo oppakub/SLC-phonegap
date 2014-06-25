@@ -65,3 +65,7 @@ function queryExamSuccess(tx, results) {
     }
     $("#tea_course_list_exam").append('<li data-icon="plus" data-theme="j"><a href="#">Add Examination</a></li>').listview('refresh');
 }
+
+
+/* ################################################################################################################ */
+
