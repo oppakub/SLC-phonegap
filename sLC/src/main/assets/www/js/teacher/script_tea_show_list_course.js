@@ -49,7 +49,7 @@ function querySuccess(tx, results) {
 	var len = results.rows.length;
 	//console.log("'+user_db+' table: " + len + " rows found.");
 	for (var i=0; i<len; i++){
-            $("#tea_con_list").append('<li><a href="#" data-transition="none" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
+            $("#tea_con_list").append('<li><a href="teacher_course.html" data-transition="none" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
     }
 }
 
@@ -93,6 +93,13 @@ function querySuccessUser(tx, results) {
 		db.transaction(queryCourseDB, errorCB);	
 	}
 }
+
+//jQuery    
+$( document ).ready(function() {
+	$(document).on("click", "#tea_con_list li a" ,function (event) {
+	send_coursecode = $(this).attr("name");
+	}); 
+});
 
 
 

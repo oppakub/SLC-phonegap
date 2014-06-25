@@ -5,3 +5,6 @@ var database_name = "Database";
 var database_version = "1.0";
 var database_displayname = "SLC";
 var database_size = 1024000; //byte
+
+//Apps
+var send_coursecode = undefined;
