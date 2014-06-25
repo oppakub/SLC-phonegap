@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/student/script_show_list_course.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="teacher_course_hw">
+    <div data-role="header" data-position="fixed">
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <h1>Basic Computer</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_hw_head_1">Home</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_hw_head_2">Question</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_hw_head_3">Ask</a></li>
+                <li><a href="#" data-transition="none" id="tea_cou_hw_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div class="ui-grid-a" id="tea_cou_hw_name-1">
+            <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
+                <h1>Homework 1</h1>
+            </div>
+            <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_hw_name_edit()">
+                <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
+            </div>
+        </div>
+        <form action="#" method="post">
+            <div class="ui-grid-a" id="tea_cou_hw_name-2" style="display:none;">
+                <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
+                    <h1 style="height:38px;"><input type="text" name="course-hw-name-input" id="course-hw-name-input" value="Homework 1" placeholder="Homework name" /></h1>
+                </div>
+                <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
+                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript" charset="utf-8">
+            if(window.innerWidth > 480){
+                $("#tea_cou_hw_name-1 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_hw_name-1 > div.ui-block-b").css("width","7%");
+                $("#tea_cou_hw_name-2 > div.ui-block-a").css("width","93%");
+                $("#tea_cou_hw_name-2 > div.ui-block-b").css("width","7%");
+            }
+            function course_hw_name_edit(){
+                $("#tea_cou_hw_name-1").css("display","none");
+                $("#tea_cou_hw_name-2").css("display","block");
+            }
+        </script>
+        <div style="margin-top:15px;">
+            <div data-role="header">
+                <h3>Choice Homework</h3>
+            </div>
+            <div data-role="content" data-theme="b">
+                <div data-role="collapsible-set">
+
+                    <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="hw-c-question-1">
+                        <h3>1. คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?</h3>
+                        <form action="#" method="post">
+                            <label for="hw-c-question-1-input">Question:</label>
+                            <input type="text" name="hw-c-question-1-input" id="hw-c-question-1-input" value="คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?" placeholder="Question"/>
+
+                            <div data-role="fieldcontain" id="hw-c-question-1-choice-1">
+                                <label for="hw-c-question-1-choice-1-input" style="width:10px;">1.</label>
+                                <input type="text" name="hw-c-question-1-choice-1-input" id="hw-c-question-1-choice-1-input" value="Apple I" placeholder="Choice 1"/>
+                            </div>
+                            <div data-role="fieldcontain" id="hw-c-question-1-choice-2">
+                                <label for="hw-c-question-1-choice-2-input" style="width:10px;">2.</label>
+                                <input type="text" name="hw-c-question-1-choice-2-input" id="hw-c-question-1-choice-2-input" value="ENIAC" placeholder="Choice 2"/>
+                            </div>
+                            <div data-role="fieldcontain" id="hw-c-question-1-choice-3">
+                                <label for="hw-c-question-1-choice-3-input" style="width:10px;">3.</label>
+                                <input type="text" name="hw-c-question-1-choice-3-input" id="hw-c-question-1-choice-3-input" value="Javis" placeholder="Choice 3"/>
+                            </div>
+                            <div data-role="fieldcontain" id="hw-c-question-1-choice-4">
+                                <label for="hw-c-question-1-choice-4-input" style="width:10px;">4.</label>
+                                <input type="text" name="hw-c-question-1-choice-4-input" id="hw-c-question-1-choice-4-input" value="sony vaio" placeholder="Choice 4"/>
+                            </div>
+                            <fieldset data-role="controlgroup" data-type="horizontal">
+                                <legend>Choose true answer:</legend>
+                                <input type="radio" name="hw-c-question-1-radio" id="hw-c-question-1-choice-1-radio" value="1" checked="checked" />
+                                <label for="hw-c-question-1-choice-1-radio">1</label>
+
+                                <input type="radio" name="hw-c-question-1-radio" id="hw-c-question-1-choice-2-radio" value="2"  />
+                                <label for="hw-c-question-1-choice-2-radio">2</label>
+
+                                <input type="radio" name="hw-c-question-1-radio" id="hw-c-question-1-choice-3-radio" value="3"  />
+                                <label for="hw-c-question-1-choice-3-radio">3</label>
+
+                                <input type="radio" name="hw-c-question-1-radio" id="hw-c-question-1-choice-4-radio" value="4"  />
+                                <label for="hw-c-question-1-choice-4-radio">4</label>
+                            </fieldset>
+                            <input type="submit" value="submit" data-mini="true"/>
+                        </form>
+                    </div><!--Do repeat for any choice question-->
+
+                    <a href="#" data-role="button" data-theme="g" data-mini="true">Add Question</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:15px;">
+            <div data-role="header">
+                <h3>Writing Homework</h3>
+            </div>
+            <div data-role="content" data-theme="b">
+                <div data-role="collapsible-set">
+
+                    <div data-role="collapsible" data-collapsed="false" data-content-theme="c" id="hw-w-question-1">
+                        <h3>1. จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง?</h3>
+                        <form action="#" method="post">
+                            <label for="hw-w-question-1-input">Question:</label>
+                            <input type="text" name="hw-w-question-1-input" id="hw-w-question-1-input" value="จงตอบชื่อเต็มของตัวย่อ 'CPU' ลงในช่องว่าง?" placeholder="Question"/>
+                            <label for="hw-w-answer-1-input">Answer:</label>
+                            <input type="text" name="hw-w-answer-1-input" id="hw-w-answer-1-input" value="Central Processing Unit" placeholder="Answer"/>
+
+                            <input type="submit" value="submit" data-mini="true"/>
+                        </form>
+                    </div><!--Do repeat for any writing question-->
+
+                    <a href="#" data-role="button" data-theme="g" data-mini="true">Add Question</a>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:15px;">
+            <div data-role="header">
+                <h3>Homework Document file</h3>
+            </div>
+            <div data-role="content" data-theme="d">
+                <ul data-role="listview" data-split-icon="delete">
+                    <li>
+                        <a href="#" data-transition="none">Acura</a>
+                        <a href="#del_HwDocID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
+                        <div data-role="popup" data-position-to="window" id="del_HwDocID_1">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Homework Popup-->
+                    </li>
+                    <li>
+                        <a href="#" data-transition="none">Audi</a>
+                        <a href="#del_HwDocID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
+                        <div data-role="popup" data-position-to="window" id="del_HwDocID_2">
+                            <div data-role="header" data-theme="f">
+                                <h1>Delete?</h1>
+                            </div><!--Header Delete Popup-->
+                            <div data-role="content">
+                                <h3>Are you sure to delete?</h3>
+                                <p>This action cannot be undone.</p>
+                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                            </div><!--Content Delete Popup-->
+                        </div><!-- Delete Homework Popup-->
+                    </li>
+                    <li data-icon="plus" data-theme="g"><a href="#" data-transition="none">Add file</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_hw_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_hw_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_hw_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_hw_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_hw_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

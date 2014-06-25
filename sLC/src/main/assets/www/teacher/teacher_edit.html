@@ -32,10 +32,49 @@
             <a href="#Submit Change" data-role="button" data-theme="a">Done</a>
     </div><!-- /header -->
     <div data-role="content">
-        <ul data-role="listview" data-autodividers="true" data-filter="true" id="tea_edit_con_list">
-            <li data-icon="delete"><a href="#">Basic Computer</a></li>
-            <li data-icon="delete"><a href="#">Mathematic 2</a></li>
-            <li data-icon="delete"><a href="#">BMW</a></li>
+        <ul data-role="listview" data-theme="h" data-autodividers="true" data-filter="true" id="tea_edit_con_list">
+            <li data-icon="delete">
+                <a href="#del_t-courseID_1" data-rel="popup" data-transition="slidedown">Basic Computer</a>
+                <div data-role="popup" data-position-to="window" id="del_t-courseID_1">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Course Popup-->
+            </li><!--Repeat this for any course-->
+            <li data-icon="delete">
+                <a href="#del_t-courseID_2" data-rel="popup" data-transition="slidedown">Mathematic 2</a>
+                <div data-role="popup" data-position-to="window" id="del_t-courseID_2">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Course Popup-->
+            </li>
+            <li data-icon="delete">
+                <a href="#del_t-courseID_3" data-rel="popup" data-transition="slidedown">BMW</a>
+                <div data-role="popup" data-position-to="window" id="del_t-courseID_3">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Course Popup-->
+            </li>
         </ul>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
