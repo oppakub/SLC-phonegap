@@ -10,7 +10,7 @@ $( document ).ready(function() {
 	}
 	});
 	
-	$('#tea_con_list').on('click', '#teacher_btn_add_course', function() {
+	$('#div-tea-NewCouse').on('click', '#teacher_btn_add_course', function() {
        var coursename = $("#tea_add_new_course").val();
 		   $.ajax({
 					url: "http://service.oppakub.me/SLC/tea_add_course.php",
@@ -20,7 +20,7 @@ $( document ).ready(function() {
 					async: false,
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {
-						alert("done!");
+						alert("completed!");
 						//$.mobile.changePage('teacher2.html', "{transition: 'pop', role: 'dialog'}");	
 						$(location).attr('href','teacher.html');
 					

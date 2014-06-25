@@ -30,7 +30,7 @@ function populateDB(tx) {
 	var data_len = cid.length;	 
 	tx.executeSql('CREATE TABLE IF NOT EXISTS '+course_db+' (cid , cname , cdescription, ccode , stu_uid, tea_uid , PRIMARY KEY (cid, ccode, stu_uid, tea_uid))');    
 	for(var i =0;i<data_len;i++) {	
-		tx.executeSql('INSERT INTO '+course_db+' (cid , cname , cdescription, ccode , stu_uid, tea_uid) VALUES ("'+cid[i]+'", "'+cname[i]+'", "'+cdescription[i]+'", "'+ccode[i]+'", "'+stu_uid+'" , "'+tea_uid[i]+'")');
+		tx.executeSql('INSERT OR IGNORE INTO '+course_db+' (cid , cname , cdescription, ccode , stu_uid, tea_uid) VALUES ("'+cid[i]+'", "'+cname[i]+'", "'+cdescription[i]+'", "'+ccode[i]+'", "'+stu_uid+'" , "'+tea_uid[i]+'")');
 		//$("#tea_con_list").append('<li><a href="#" data-transition="none" name="'+ccode[i]+'">'+cname[i]+'</a></li>'+"\n").listview('refresh'); 
     }  
     
