@@ -24,8 +24,9 @@
 </head>
 <body>
 <div data-role="page" id="teacher_course_exam">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_exam_get_data.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
         <h1>Basic Computer</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
@@ -40,19 +41,20 @@
     <div data-role="content">
         <div class="ui-grid-a" id="tea_cou_exam_name-1">
             <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
-                <h1>Exam 1</h1>
+                <h1 id="edit_exam_header">Exam 1</h1>
             </div>
             <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_exam_name_edit()">
                 <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
             </div>
         </div>
-        <form action="#" method="post">
+        <form action="http://service.oppakub.me/SLC/edit_tea_ename.php" method="post" id="edit_ename_form">
+            <input type="hidden" id="hidden_ename" name="course-exam-id-input" />
             <div class="ui-grid-a" id="tea_cou_exam_name-2" style="display:none;">
                 <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
                     <h1 style="height:38px;"><input type="text" name="course-exam-name-input" id="course-exam-name-input" value="Exam 1" placeholder="Exam name" /></h1>
                 </div>
                 <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
-                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                    <h1 style="height:38px;"><input type="submit" value="OK" id="edit_ename_btn_submit" data-mini="true" /></h1>
                 </div>
             </div>
         </form>

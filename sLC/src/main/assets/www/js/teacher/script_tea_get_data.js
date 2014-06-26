@@ -154,5 +154,10 @@ $( document ).ready(function() {
    });  
    //end of Edit Course Description Form
    
-});
+	$(document).on("click", "#tea_course_list_exam li a" ,function (event) {
+		send_eid = $(this).attr("name");
+		//alert(send_eid);
+	}); 
+   
+});  // end of jQuery
 

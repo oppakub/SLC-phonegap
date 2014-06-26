@@ -10,4 +10,5 @@ var database_size = 1024000; //byte
 //Sent data by AJAX variables
 var send_coursecode = undefined;
 var send_courseid = undefined;
+var send_eid = undefined;
 
