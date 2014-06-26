@@ -18,10 +18,14 @@
             navigator.app.overrideBackbutton(true);
             function backKeyDown() {
                 //alert($.mobile.activePage.attr("id"));
-                if(navigator.app){
-                        navigator.app.exitApp();
-                }else if(navigator.device){
-                        navigator.device.exitApp();
+                if($.mobile.activePage.attr("id") == "main") {
+                    if(navigator.app){
+                            navigator.app.exitApp();
+                    }else if(navigator.device){
+                            navigator.device.exitApp();
+                    }
+                } else {
+                    navigator.app.backHistory();
                 }
             }
         }
@@ -56,7 +60,7 @@
                 <div class="ui-block-b"><a href="student/student.html" target="_blank" data-transition="none" class="ui-link-inherit">
                     <button data-theme="a">Student</button>
                 </a></div>
-                <div class="ui-block-b"><a href="teacher/teacher.html" target="_blank" data-transition="none" class="ui-link-inherit">
+                <div class="ui-block-b"><a href="teacher/teacher.html" data-transition="none" class="ui-link-inherit">
                     <button data-theme="a">Teacher</button>
                 </a></div>
             </fieldset>
