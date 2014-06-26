@@ -4,9 +4,44 @@ var edit_ename = undefined;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
-function onDeviceReady() {           
-		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
-		db.transaction(queryExamDB, errorCB);
+function onDeviceReady() {   
+		$("#header_title").html(edit_cname);
+		if(send_eid != "new_exam") {     
+			var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
+			db.transaction(queryExamDB, errorCB);
+		} else {
+			setTheNewExam("Exam");
+		}
+}
+
+function setTheNewExam(ename) {
+var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/add_tea_ename.php",
+					type: 'POST',
+					data:  "ename="+ename+"&cid="+send_courseid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						send_eid = data.eid;
+						edit_ename = ename;
+						$("#hidden_ename").val(send_eid);
+						$("#edit_exam_header").html(edit_ename);
+						$("#course-exam-name-input").val(edit_ename);					
+					} else {
+						//toast(data.message);	
+						toast("AJAX Error! : Please try again.");					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		toast('Please connect to the internet');	
+	}
 }
 
 //ErrorCB
