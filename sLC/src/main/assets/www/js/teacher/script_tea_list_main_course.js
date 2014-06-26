@@ -53,7 +53,7 @@ function insertExamData(tx) {
 
 // Query the database
 function queryExamDB(tx) {
-	tx.executeSql('SELECT * FROM '+exam_db+' WHERE cid = "'+send_courseid+'" ORDER BY ename ASC', [], queryExamSuccess, errorCB);
+	tx.executeSql('SELECT * FROM '+exam_db+' WHERE cid = "'+send_courseid+'" ORDER BY ename DESC', [], queryExamSuccess, errorCB);
 }
 
 // Query the success callback
@@ -61,9 +61,9 @@ function queryExamSuccess(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){
            // $("#tea_course_list_exam").append('<li><a href="teacher_course.html" data-transition="none" name="'+results.rows.item(i).ccode+'" cid="'+results.rows.item(i).cid+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
-           $("#tea_course_list_exam").append('<li><a href="teacher_course_exam.html" data-transition="none" name="'+results.rows.item(i).eid+'">'+results.rows.item(i).ename+'</a> <!--Go to this exam--> <a href="#del_ExamID" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam--></li>'+"\n").listview('refresh');            
+           $("#tea_course_list_exam").prepend('<li><a href="teacher_course_exam.html" data-transition="none" name="'+results.rows.item(i).eid+'">'+results.rows.item(i).ename+'</a> <!--Go to this exam--> <a href="#del_ExamID" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam--></li>'+"\n").listview('refresh');            
     }
-    $("#tea_course_list_exam").append('<li data-icon="plus" data-theme="j"><a href="#">Add Examination</a></li>').listview('refresh');
+    
 }
 
 

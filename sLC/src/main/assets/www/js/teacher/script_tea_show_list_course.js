@@ -53,6 +53,7 @@ function querySuccess(tx, results) {
             
              $("#tea_edit_con_list").append('<li data-icon="delete"><a href="#del_t-courseID" data-rel="popup" data-transition="slidedown" name="'+results.rows.item(i).ccode+'" cid="'+results.rows.item(i).cid+'">'+results.rows.item(i).cname+'</a>'+"\n").listview('refresh');
     }
+
 }
 
 // Query the success callback
@@ -78,6 +79,7 @@ function querySuccessUser(tx, results) {
 							ccode.push(data.data[i].ccode);
 							tea_uid.push(data.data[i].uid);					
 						}
+
 					
 						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 						db.transaction(populateDB, errorCB);	
