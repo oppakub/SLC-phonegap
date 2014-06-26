@@ -25,8 +25,9 @@
 <body>
 <div data-role="page" id="teacher_course">
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_get_data.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_list_main_course.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
         <h1>Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
@@ -171,113 +172,18 @@
             </div>
             <div data-role="collapsible" data-theme="a" id="tea_cou_con_coll_exam">
                 <h3>EXAMINATION</h3>
+                <div data-role="popup" data-position-to="window" id="del_ExamID">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Exam Popup-->
                 <ul data-role="listview" data-split-icon="delete" id="tea_course_list_exam">
-                    <li>
-                        <a href="teacher_course_exam.html" data-transition="none">Exam 1</a><!--Go to this exam-->
-                        <a href="#del_ExamID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_1">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li><!--Do repeat for any examination-->
-                    <li>
-                        <a href="#" data-transition="none">Exam 2</a>
-                        <a href="#del_ExamID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_2">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Exam 3</a>
-                        <a href="#del_ExamID_3" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_3">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Exam 4</a>
-                        <a href="#del_ExamID_4" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_4">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Exam 5</a>
-                        <a href="#del_ExamID_5" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_5">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Exam 6</a>
-                        <a href="#del_ExamID_6" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_6">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Final Exam</a>
-                        <a href="#del_ExamID_7" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_ExamID_7">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Exam Popup-->
-                    </li>
-                    <li data-icon="plus" data-theme="j"><a href="#">Add Examination</a></li>
                 </ul>
             </div><!--EXAMINATION-->
             <div data-role="collapsible" data-theme="a" id="tea_cou_con_coll_homework">

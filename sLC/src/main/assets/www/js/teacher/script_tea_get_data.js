@@ -46,11 +46,12 @@ function querySuccess(tx, results) {
 	$("#course-name-input").val(edit_cname);
 	$("#tea_cou_des").html(edit_cdes);
 	$("#course-description-textarea").html(edit_cdes);
+	showListExam();
 	//alert(results.rows.item(0).ccode);
 }
 
 function execUpdateCname(tx) {
-	console.log("UPDATE "+course_db+" SET cname = '"+edit_cname+"' WHERE ccode = '"+send_coursecode+"'");
+	//console.log("UPDATE "+course_db+" SET cname = '"+edit_cname+"' WHERE ccode = '"+send_coursecode+"'");
 	tx.executeSql('UPDATE '+course_db+' SET cname = "'+edit_cname+'" WHERE ccode = "'+send_coursecode+'"');
 	$("#edit_cname").html(edit_cname);
 	$("#course-name-input").val(edit_cname);
@@ -59,7 +60,7 @@ function execUpdateCname(tx) {
 }
 
 function execUpdateCdes(tx) {
-	console.log("UPDATE "+course_db+" SET cdescription = '"+edit_cdes+"' WHERE ccode = '"+send_coursecode+"'");
+	//console.log("UPDATE "+course_db+" SET cdescription = '"+edit_cdes+"' WHERE ccode = '"+send_coursecode+"'");
 	tx.executeSql('UPDATE '+course_db+' SET cdescription = "'+edit_cdes+'" WHERE ccode = "'+send_coursecode+'"');
 	$("#tea_cou_des").html(edit_cdes);
 	$("#course-description-textarea").html(edit_cdes);
