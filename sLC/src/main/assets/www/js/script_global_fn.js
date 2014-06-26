@@ -1,6 +1,18 @@
+//Global Functions
+function refreshPage() {
+  $.mobile.changePage(
+    window.location.href,
+    {
+      allowSamePageTransition : true,
+      transition              : 'none',
+      showLoadMsg             : false,
+      reloadPage              : true
+    }
+  );
+}
+
 function checkConnection() {
         var networkState = navigator.connection.type;
-
         var states = {};
         states[Connection.UNKNOWN]  = 'Unknown connection';
         states[Connection.ETHERNET] = 'Ethernet connection';
@@ -12,6 +24,5 @@ function checkConnection() {
         states[Connection.NONE]     = 'no';
         
         return states[networkState];
-
         //alert('Connection type: ' + states[networkState]);
 }

@@ -4,7 +4,7 @@ $( document ).ready(function() {
 	if(chk_connect != "no") {
 		//$("#tea_con_list").append('<li><input type="text" name="coursename" id="tea_add_new_course" value=""  placeholder="New Course" data-clear-btn="true"/>  <input id="teacher_btn_add_course" type="button" value="Add" /></li>'+"\n").listview('refresh');
 		//$("#tea_con_list").append().listview('refresh');
-		teacher_add_course();
+		$("#div-tea-NewCouse").css("display","block");
 	} else {
 		toast('Please connect to the internet');
 	}
@@ -21,8 +21,16 @@ $( document ).ready(function() {
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {
 						alert("completed!");
-						//$.mobile.changePage('teacher2.html', "{transition: 'pop', role: 'dialog'}");	
-						$(location).attr('href','teacher.html');
+						$("#div-tea-NewCouse").css("display","none");
+						$("#tea_add_new_course").val("");
+						$("#tea_edit_con_list").empty();
+						$("#tea_con_list").empty();
+
+						onDeviceReady();
+						//$.mobile.changePage('teacher.html', "{transition: 'pop', role: 'dialog'}");	
+						//refreshPage();
+						//$(location).attr('href','teacher.html');
+						
 					
 					} else {
 						toast(data.message);					

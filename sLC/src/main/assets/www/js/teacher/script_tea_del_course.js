@@ -39,7 +39,15 @@ $( document ).ready(function() {
 // Populate the database
 function deleteCourseDB(tx) { 
 	tx.executeSql('DELETE FROM '+course_db+' WHERE ccode ="'+send_coursecode+'" ');	
+	
+	//$(location).attr('href','teacher_edit.html');	
+	//refreshPage($("#teacher_edit"));
+	$("#del_t-courseID").popup( "close" );
+	$("#tea_edit_con_list").empty();
+	$("#tea_con_list").empty();
 	alert(success_msg);	
-	$(location).attr('href','teacher_edit.html');	
+	//onDeviceReady();
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(queryCourseDB, errorCB);	
     
 }
