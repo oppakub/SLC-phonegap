@@ -1,6 +1,7 @@
 <div data-role="page" id="teacher_course">
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_get_data.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_list_main_course.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_del_main_course.js"></script>
     <div data-role="header" data-position="fixed">
         <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
         <h1>Course</h1>
@@ -153,8 +154,9 @@
                     </div><!--Header Delete Popup-->
                     <div data-role="content">
                         <h3>Are you sure to delete?</h3>
+                        <p>Exam : <i><span id="show_exam_name"></span></i></p>
                         <p>This action cannot be undone.</p>
-                        <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true" id="confirm_del_exam">Delete</a>
                         <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
                     </div><!--Content Delete Popup-->
                 </div><!-- Delete Exam Popup-->
