@@ -204,11 +204,11 @@ function showWriteQuestion(c,send_eid,write_mode,qNo,question,ans) {
                             <label for="ex-w-answer-'+c+'-input">Answer:</label>\
                             <input type="text" name="ex-w-answer-input" id="ex-w-answer-'+c+'-input" value="'+ans+'" placeholder="Answer"/>\
 \
-                            <input type="submit" value="Submit" class="btn_submit_write_question" choiceNo="'+c+'" data-mini="true"/>\
+                            <input type="submit" value="Save" class="btn_submit_write_question" choiceNo="'+c+'" data-mini="true"/>\
                         </form>\
                     </div><!--Do repeat for any writing question-->').trigger( "create" );
     	
-    	$( "#set_choice_question" ).collapsibleset( "refresh" );		
+    	$( "#set_write_question" ).collapsibleset( "refresh" );		
     	$("#exam_add_write_question").detach().appendTo( "#set_write_question" );
     	c++;
     	
