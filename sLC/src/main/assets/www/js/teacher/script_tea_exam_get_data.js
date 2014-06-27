@@ -1,4 +1,12 @@
 var edit_ename = undefined;
+var qNo = new Array();
+var question = new Array();
+var choice1 = new Array();
+var choice2 = new Array();
+var choice3 = new Array();
+var choice4 = new Array();
+var ans = new Array();
+var c = 1;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -12,6 +20,7 @@ function onDeviceReady() {
 		} else {
 			setTheNewExam("Exam");
 		}
+		getListExamChoice();
 }
 
 function setTheNewExam(ename) {
@@ -44,6 +53,55 @@ var chk_connect = checkConnection();
 	}
 }
 
+function getListExamChoice() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_tea_quest_choice.php",
+					type: 'POST',
+					data:  "eid="+send_eid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {						
+						//toast(data.message);		
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+								qNo.push(data.data[i].qNo);
+								question.push(data.data[i].question);
+								choice1.push(data.data[i].choice1);
+								choice2.push(data.data[i].choice2);
+								choice3.push(data.data[i].choice3);
+								choice4.push(data.data[i].choice4);
+								ans.push(data.data[i].ans);
+						}	
+						
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(insertExamChoiceDB, errorCB);
+						
+					}	
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		 var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryExamChoiceDB, errorCB);	
+	}
+}
+
+// Populate the database
+function insertExamChoiceDB(tx) {
+	var data_len = qNo.length;	 
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+exam_choice_db+' (qNo , question , choice1 , choice2 , choice3 , choice4 , ans , eid , PRIMARY KEY (qNo))');    
+	for(var i =0;i<data_len;i++) {	
+		tx.executeSql('INSERT OR IGNORE INTO '+exam_choice_db+' (qNo , question , choice1 , choice2 , choice3 , choice4 , ans , eid) VALUES ("'+qNo[i]+'", "'+question[i]+'", "'+choice1[i]+'", "'+choice2[i]+'", "'+choice3[i]+'" , "'+choice4[i]+'" , "'+ans[i]+'" , "'+send_eid+'")');
+    }  
+    var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(queryExamChoiceDB, errorCB);	
+}
+
 //ErrorCB
 function errorCB(err) {
     console.log("Error processing SQL: "+err.code);
@@ -52,6 +110,19 @@ function errorCB(err) {
 // Query the database
 function queryExamDB(tx) {
 	tx.executeSql('SELECT * FROM '+exam_db+' WHERE eid = "'+send_eid+'"', [], querySuccessExam, errorCB);
+}
+
+// Query the database
+function queryExamChoiceDB(tx) {
+	tx.executeSql('SELECT * FROM '+exam_choice_db+' WHERE eid = "'+send_eid+'"', [], querySuccessExamChoice, errorCB);
+}
+
+// Query the success callback
+function querySuccessExamChoice(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+		c = showChoiceQuestion(c,send_eid,"edit",results.rows.item(i).qNo,results.rows.item(i).question,results.rows.item(i).choice1,results.rows.item(i).choice2,results.rows.item(i).choice3,results.rows.item(i).choice4,results.rows.item(i).ans);
+	}
 }
 
 // Query the success callback
