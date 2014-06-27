@@ -4,6 +4,7 @@ var course_db = "SLC_COURSE";
 var exam_db = "SLC_EXAM";
 var exam_choice_db = "SLC_EXAM_CHOICE";
 var exam_write_db = "SLC_EXAM_WRITE";
+var hw_db = "SLC_HOMEWORK";
 var database_name = "Database";
 var database_version = "1.0";
 var database_displayname = "SLC";
@@ -13,6 +14,7 @@ var database_size = 1024000; //byte
 var send_coursecode = undefined;
 var send_courseid = undefined;
 var send_eid = undefined;
+var send_hid = undefined;
 
 
 

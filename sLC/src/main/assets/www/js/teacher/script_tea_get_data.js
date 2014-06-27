@@ -47,6 +47,7 @@ function querySuccess(tx, results) {
 	$("#tea_cou_des").html(edit_cdes);
 	$("#course-description-textarea").html(edit_cdes);
 	showListExam();
+	showListHW();
 	//alert(results.rows.item(0).ccode);
 }
 
@@ -156,6 +157,11 @@ $( document ).ready(function() {
    
 	$(document).on("click", "#tea_course_list_exam li a" ,function (event) {
 		send_eid = $(this).attr("name");
+		//alert(send_eid);
+	}); 
+	
+	$(document).on("click", "#tea_course_list_homework li a" ,function (event) {
+		send_hid = $(this).attr("name");
 		//alert(send_eid);
 	}); 
    
