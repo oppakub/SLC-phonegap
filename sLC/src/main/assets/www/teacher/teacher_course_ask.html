@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="teacher_course_askID">
+    <div data-role="header" data-position="fixed">
+        <a href="teacher_course.html" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <h1>Course</h1>
+        <a href="#askID_question" data-role="button" data-theme="a" data-icon="bars" data-iconpos="right">Question</a>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher_course.html" data-transition="none" id="tea_cou_ask_head_1">Home</a></li>
+                <li><a href="teacher_course_question_lesson.html" data-transition="none" id="tea_cou_ask_head_2">Question</a></li>
+                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_ask_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_ask_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="panel" data-theme="b" id="askID_question" data-position="right" data-display="push" style="border-left:1px solid #aaa;">
+        <div data-role="header">
+            <h3>Question</h3>
+        </div>
+        <div data-role="content" data-theme="l" id="panel_askID_question_display">
+            Select Question
+        </div>
+        <ul data-role="listview" data-split-icon="delete" style="margin-top:15px;" id="askID_question_ul">
+            <li>
+                <a href="#" onclick="question_select($(this))">คอมพิวเตอร์คำนวณโดยใช้เลขฐานใด?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <a href="#" onclick="question_select($(this))">DDR คืออะไร?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <a href="#" onclick="question_select($(this))">จงยกตัวอย่างของอุปกรณ์ที่จัดว่าเป็น ROM?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <a href="#" onclick="question_select($(this))">ก่อนที่จะมี PCI-Express เราใช้อะไร?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <a href="#" onclick="question_select($(this))">Window 7 32bit ใช้ RAM ได้ความจุสูงสุดเท่าใด?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <a href="#" onclick="question_select($(this))">Socket LGA 775 มีขาหรือไม่?</a>
+                <a href="#" data-theme="k">Del</a>
+            </li>
+            <li>
+                <input type="text" name="askID_question_quick_input" id="askID_question_quick_input" data-clear-btn="true" placeholder="New Question"/>
+            </li>
+            <li data-icon="plus" data-theme="j"><a href="#" data-theme="g">Add Question</a></li>
+        </ul>
+    </div><!--Display question of teacher for ask-->
+    <div data-role="content">
+        <div class="img-shadow">
+            <div data-role="header" data-theme="l">
+                <h3>Your question</h3>
+            </div>
+            <div data-role="content" data-theme="b">
+                <input type="text" name="askID_question_main_input" id="askID_question_input" data-clear-btn="true" placeholder="Question" />
+            </div>
+        </div>
+        <div class="ui-grid-a" id="tca_student_user">
+            <div class="ui-block-a">
+                <div class="img-shadow" style="margin:15px 10px 10px 0px;">
+                    <div data-role="header">
+                        <h3>Student</h3>
+                    </div>
+                    <div data-role="content" data-theme="b" style="padding:0px;" id="tca_student_user-a-content">
+
+                        <div class="ui-grid-a" id="tca_studentID-1" style="border-bottom: 2px solid #222;"><!--Replace studentID,1-->
+                            <div class="ui-block-a" id="tca_studentID-1-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))">
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ช.บอย</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-1-send" style="width:18%;cursor:pointer;text-align:center;">
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-2" style="border-bottom: 2px solid #222;"><!--Replace studentID,2-->
+                            <div class="ui-block-a" id="tca_studentID-2-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,2-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ช.อ๊อป</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-2-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,2-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-3" style="border-bottom: 2px solid #222;"><!--Replace studentID,3-->
+                            <div class="ui-block-a" id="tca_studentID-3-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,3-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ญ.เกด</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-3-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,3-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-4" style="border-bottom: 2px solid #222;"><!--Replace studentID,4-->
+                            <div class="ui-block-a" id="tca_studentID-4-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,4-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ช.เจม</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-4-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,4-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-5" style="border-bottom: 2px solid #222;"><!--Replace studentID,5-->
+                            <div class="ui-block-a" id="tca_studentID-5-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,5-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ญ.องุ่น</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-5-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,5-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-6" style="border-bottom: 2px solid #222;"><!--Replace studentID,6-->
+                            <div class="ui-block-a" id="tca_studentID-6-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,6-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ญ.ขวัญ</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-6-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,6-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+
+                        <div class="ui-grid-a" id="tca_studentID-7" style="border-bottom: 2px solid #222;"><!--Replace studentID,7-->
+                            <div class="ui-block-a" id="tca_studentID-7-focus" style="width:82%;background-color:#444;" onclick="user_active($(this))"><!--Replace studentID,7-->
+                                <div class="ui-grid-a">
+                                    <div class="ui-block-a" style="width:20%;padding:5px;">
+                                        <img src="../img/icon-user-default.png" style="width:100%;border-radius: 5px;"><!--Student image-->
+                                    </div>
+                                    <div class="ui-block-b" style="width:80%;color:#eee;">
+                                        <div style="margin:5px 0px 0px 5px;">
+                                            <p class="no-p">ด.ช.หยุ่น</p><!--Student name-->
+                                            <p class="no-p">Online</p><!--Student status-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui-block-b" id="tca_studentID-7-send" style="width:18%;cursor:pointer;text-align:center;"><!--Replace studentID,7-->
+                                <img src="../img/send_mail.png" style="width:80%;">
+                            </div><!--Send questing to student button-->
+                        </div><!--Repeat this for each student user in this course-->
+                        <a href="#" id="tca_student_user_broadcast" data-role="button" data-theme="f">Broadcast</a>
+                    </div>
+                </div>
+            </div><!--Display student user-->
+            <div class="ui-block-b">
+                <div class="img-shadow" style="margin:15px 0px 10px 10px;">
+                    <div data-role="header" id="tca_student_user-2-header" data-theme="f">
+                        <img src="../img/icon-user-default.png" id="tca_studentID_img" style="width:60px;position:relative;top:10px;left:10px;border-radius: 5px;">
+                        <p class="no-p" style="display:inline-block;margin-left: 20px;">Online</p>
+                        <p class="no-p" id="tca_studentID_name" style="margin-left: 10px;margin-top: 8px;">ด.ญ.เกด</p>
+                    </div>
+                    <div data-role="content" data-theme="b" id="tca_studentID_question">
+                        <div style="margin-top:5px;">
+                            <div style="background-color: #aaa;position: relative;left: -15px;padding: 5px;">DDR คืออะไร?</div>
+                            <p style="border-bottom: 1px solid #aaa;padding-bottom: 5px;">Double Data Rate เทคโนโลยีการส่งข้อมูลที่ใช้ใน RAM</p>
+                        </div><!--Repeat this for question is asked student-->
+                        <div style="margin-top:5px;">
+                            <div style="background-color: #aaa;position: relative;left: -15px;padding: 5px;">Window 7 32bit ใช้ RAM ได้ความจุสูงสุดเท่าใด?</div>
+                            <p style="border-bottom: 1px solid #aaa;padding-bottom: 5px;">...Waiting answer</p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--Display answer from student each user-->
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            if(window.innerWidth > 480){
+
+            }else{
+                var std_user_block_a = $("#tca_student_user > div.ui-block-a > div").html();
+                var std_user_block_b = $("#tca_student_user > div.ui-block-b > div").html();
+                $('<div class="img-shadow" id="tca_student_user-1" style="margin-top:15px;">'+std_user_block_a+'</div>').insertAfter("#tca_student_user");
+                $('<div class="img-shadow" id="tca_student_user-2" style="margin-top:15px;">'+std_user_block_b+'</div>').insertAfter("#tca_student_user-1");
+                $("#tca_student_user").css("display","none");
+            }
+            function question_select(x){
+                $("#panel_askID_question_display").text(x.text());
+                $("#askID_question_input").val(x.text());
+            }
+            function user_active(x){
+                var old_css = x.css("background-color");
+                x.css("background-color","#222");
+                setTimeout(function(){x.css("background-color",old_css)},300);
+            }
+        </script>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_ask_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_ask_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_ask_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_ask_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_ask_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
