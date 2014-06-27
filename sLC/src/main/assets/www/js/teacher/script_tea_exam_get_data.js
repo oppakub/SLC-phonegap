@@ -6,7 +6,13 @@ var choice2 = new Array();
 var choice3 = new Array();
 var choice4 = new Array();
 var ans = new Array();
+
+var wqNo = new Array();
+var wquestion = new Array();
+var wans = new Array();
+
 var c = 1;
+var w = 1;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -21,6 +27,7 @@ function onDeviceReady() {
 			setTheNewExam("Exam");
 		}
 		getListExamChoice();
+		getListExamWrite();
 }
 
 function setTheNewExam(ename) {
@@ -50,6 +57,7 @@ var chk_connect = checkConnection();
 		});
 	} else {
 		toast('Please connect to the internet');	
+		return false;
 	}
 }
 
@@ -91,6 +99,51 @@ function getListExamChoice() {
 	}
 }
 
+function getListExamWrite() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_tea_quest_write.php",
+					type: 'POST',
+					data:  "eid="+send_eid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {						
+						//toast(data.message);		
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+								wqNo.push(data.data[i].qNo);
+								wquestion.push(data.data[i].question);								
+								wans.push(data.data[i].ans);
+						}	
+						
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(insertExamWriteDB, errorCB);
+						
+					}	
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		 var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryExamWriteDB, errorCB);	
+	}
+}
+
+// Populate the database
+function insertExamWriteDB(tx) {
+	var data_len = wqNo.length;	 
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+exam_write_db+' (qNo , question , ans , eid , PRIMARY KEY (qNo))');    
+	for(var i =0;i<data_len;i++) {	
+		tx.executeSql('INSERT OR IGNORE INTO '+exam_write_db+' (qNo , question , ans , eid) VALUES ("'+wqNo[i]+'", "'+wquestion[i]+'", "'+wans[i]+'" , "'+send_eid+'")');
+    }  
+    var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(queryExamWriteDB, errorCB);	
+}
+
 // Populate the database
 function insertExamChoiceDB(tx) {
 	var data_len = qNo.length;	 
@@ -117,11 +170,24 @@ function queryExamChoiceDB(tx) {
 	tx.executeSql('SELECT * FROM '+exam_choice_db+' WHERE eid = "'+send_eid+'"', [], querySuccessExamChoice, errorCB);
 }
 
+// Query the database
+function queryExamWriteDB(tx) {
+	tx.executeSql('SELECT * FROM '+exam_write_db+' WHERE eid = "'+send_eid+'"', [], querySuccessExamWrite, errorCB);
+}
+
 // Query the success callback
 function querySuccessExamChoice(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){
 		c = showChoiceQuestion(c,send_eid,"edit",results.rows.item(i).qNo,results.rows.item(i).question,results.rows.item(i).choice1,results.rows.item(i).choice2,results.rows.item(i).choice3,results.rows.item(i).choice4,results.rows.item(i).ans);
+	}
+}
+
+// Query the success callback
+function querySuccessExamWrite(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+		w = showWriteQuestion(w,send_eid,"edit",results.rows.item(i).qNo,results.rows.item(i).question,results.rows.item(i).ans);
 	}
 }
 

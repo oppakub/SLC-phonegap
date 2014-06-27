@@ -3,6 +3,7 @@ var user_db = "SLC_USER";
 var course_db = "SLC_COURSE";
 var exam_db = "SLC_EXAM";
 var exam_choice_db = "SLC_EXAM_CHOICE";
+var exam_write_db = "SLC_EXAM_WRITE";
 var database_name = "Database";
 var database_version = "1.0";
 var database_displayname = "SLC";
