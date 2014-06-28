@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="student_course_ask_lesson">
+    <div data-role="header" data-position="fixed">
+        <a href="student_course_ask.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
+        <h1>Course</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="student_course.html" data-transition="none" id="std_cou_ask_less_head_1">Home</a></li>
+                <li><a href="student_course_question.html" data-transition="none" id="std_cou_ask_less_head_2">Question</a></li>
+                <li><a href="student_course_ask.html" data-transition="none" class="ui-btn-active ui-state-persist" id="std_cou_ask_less_head_3">Ask</a></li>
+                <li><a href="student_course_lesson.html" data-transition="none" id="std_cou_ask_less_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div class="img-shadow">
+            <div data-role="header">
+                <h3>Lesson 1</h3>
+            </div>
+            <div data-role="content">
+
+                <p style="color:#777;text-align:right;">16 June 2012</p>
+                <hr>
+
+                <div class="ui-grid-a" style="padding-bottom:15px;padding-top:10px;border-bottom: 1px solid #ddd;">
+                    <div class="ui-block-a" style="text-align:left;padding-right:10px;">
+                        <span class="q-time">10.30AM ครู </span><br>
+                        <div class="img-shadow" style="background-color: #1E90FF;padding: 5px;border-radius:10px;color:#eee;display:inline-block;">
+                            <p class="no-p">468 ขาครับ</p>
+                        </div>
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;padding-left:10px;">
+                        <span class="q-time">10.20AM</span><br>
+                        <div class="img-shadow" style="background-color: #aaa;padding: 5px;border-radius:10px;color:#222;display:inline-block;">
+                            <span>CPU Intel Pentium 4 มีกี่ขาครับ?</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui-grid-a" style="padding-bottom:15px;padding-top:10px;border-bottom: 1px solid #ddd;">
+                    <div class="ui-block-a" style="text-align:left;padding-right:10px;">
+                        <span class="q-time">11.30AM ครู </span><br>
+                        <div class="img-shadow" style="background-color: #1E90FF;padding: 5px;border-radius:10px;color:#eee;display:inline-block;">
+                            <p class="no-p">หากปราศจากไฟเลี้ยง RAM ไม่สามารถเก็บข้อมูลได้ครับ</p>
+                        </div>
+                    </div>
+                    <div class="ui-block-b" style="text-align:right;padding-left:10px;">
+                        <span class="q-time">11.20AM</span><br>
+                        <div class="img-shadow" style="background-color: #aaa;padding: 5px;border-radius:10px;color:#222;display:inline-block;">
+                            <span>RAM ถ้าไม่มีไฟเลี้ยงข้อมูลจะอยู่ไหมครับ?</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="content" style="padding-left:10px;padding-right:10px;" data-theme="d">
+            <form action="#" method="post" id="student_course_ask_lesson_question-form">
+                <div class="ui-grid-a">
+                    <div class="ui-block-a" style="width:80%;">
+                        <input type="text" name="student_course_ask_lesson_question-input" id="student_course_ask_lesson_question-input" data-clear-btn="true" placeholder="พิมพ์คำถาม" />
+                    </div>
+                    <div class="ui-block-b go-button" style="width:20%;">
+                        <input type="submit" value="GO" />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div data-role="navbar">
+            <ul>
+                <li><a href="../teacher/teacher.html" data-transition="none" id="std_cou_ask_less_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="std_cou_ask_less_foot_2">Home</a></li>
+                <li><a href="student.html" data-transition="none" id="std_cou_ask_less_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Lesson</h3>"];
+            for(i=1;i<=3;i++){
+                $("#std_cou_ask_less_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#std_cou_ask_less_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+        setTimeout(function(){$("div.go-button > div").css({"height":"31px","padding-top":"3px"})},100);
+    </script>
+</div>
+</body>
+</html>
