@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="student_course_lesson_exam">
+    <div data-role="header" data-position="fixed">
+        <a href="student_course_lesson_content.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
+        <h1>Course</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="student_course.html" data-transition="none" id="std_cou_lesson_con_exam_head_1">Home</a></li>
+                <li><a href="student_course_question.html" data-transition="none" id="std_cou_lesson_con_exam_head_2">Question</a></li>
+                <li><a href="student_course_ask.html" data-transition="none" id="std_cou_lesson_con_exam_head_3">Ask</a></li>
+                <li><a href="student_course_lesson_content.html" data-transition="none" class="ui-btn-active ui-state-persist" id="std_cou_lesson_con_exam_head_4">Lesson</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div data-role="content" data-theme="b">
+            <h1 id="s_lesson_header">Examination 1</h1>
+        </div>
+        <form action="#" method="post" id="s_lesson_content_examID-form">
+            <div data-role="header" style="margin-top:15px;">
+                <h3>Choice Exam</h3>
+            </div>
+            <div data-role="content" data-theme="b" id="s_lesson_content_examID">
+                <div data-role="header" data-theme="j">
+                    <p style="margin:10px;">1.คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?</p>
+                </div>
+                <div data-role="content" data-theme="d">
+                    <fieldset data-role="controlgroup" data-theme="d">
+                        <input type="radio" name="s_lesson_content_examID-radio-1" id="s_lesson_content_examID-radio-1-1" value="1"  />
+                        <label for="s_lesson_content_examID-radio-1-1">Apple I</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-1" id="s_lesson_content_examID-radio-1-2" value="2"  />
+                        <label for="s_lesson_content_examID-radio-1-2">ENIAC</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-1" id="s_lesson_content_examID-radio-1-3" value="3"  />
+                        <label for="s_lesson_content_examID-radio-1-3">Javis</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-1" id="s_lesson_content_examID-radio-1-4" value="4"  />
+                        <label for="s_lesson_content_examID-radio-1-4">sony vaio</label>
+                    </fieldset>
+                </div><!--Repeat this-->
+
+                <div data-role="header" data-theme="j">
+                    <p style="margin:10px;">2.คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?</p>
+                </div>
+                <div data-role="content" data-theme="d">
+                    <fieldset data-role="controlgroup" data-theme="d">
+                        <input type="radio" name="s_lesson_content_examID-radio-2" id="s_lesson_content_examID-radio-2-1" value="1"  />
+                        <label for="s_lesson_content_examID-radio-2-1">Apple I</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-2" id="s_lesson_content_examID-radio-2-2" value="2"  />
+                        <label for="s_lesson_content_examID-radio-2-2">ENIAC</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-2" id="s_lesson_content_examID-radio-2-3" value="3"  />
+                        <label for="s_lesson_content_examID-radio-2-3">Javis</label>
+
+                        <input type="radio" name="s_lesson_content_examID-radio-2" id="s_lesson_content_examID-radio-2-4" value="4"  />
+                        <label for="s_lesson_content_examID-radio-2-4">sony vaio</label>
+                    </fieldset>
+                </div><!--Repeat this-->
+            </div>
+
+            <div data-role="header" style="margin-top:15px;">
+                <h3>Writing Exam</h3>
+            </div>
+            <div data-role="content" data-theme="b" id="s_lesson_content_examID">
+
+                <div data-role="header" data-theme="j">
+                    <p style="margin:10px;">1.คอมพิวเตอร์เครื่องแรกมีชื่อว่าอะไร?</p>
+                </div>
+                <div data-role="content" data-theme="d">
+                    <input type="text" name="s_lesson_content_examID-input-1" id="s_lesson_content_examID-input-1" />
+                </div><!--Repeat this-->
+
+            </div>
+
+            <div data-role="content" data-theme="b" style="margin-top:15px;">
+                <input type="submit" value="Send Exam" />
+            </div>
+        </form>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="../teacher/teacher.html" data-transition="none" id="std_cou_lesson_con_exam_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="std_cou_lesson_con_exam_foot_2">Home</a></li>
+                <li><a href="student.html" data-transition="none" id="std_cou_lesson_con_exam_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Lesson</h3>"];
+            for(i=1;i<=3;i++){
+                $("#std_cou_lesson_con_exam_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#std_cou_lesson_con_exam_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
