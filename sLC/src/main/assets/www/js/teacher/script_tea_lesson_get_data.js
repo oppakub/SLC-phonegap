@@ -9,6 +9,7 @@ var send_sid = undefined;
 var val_active = undefined;
 var val_show = undefined;
 var val_eid = undefined;
+var val_hid = undefined;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -24,6 +25,7 @@ function onDeviceReady() {
 		}
 		showListSheet();
 		showListLessonExam();
+		showListLessonHw();
 		checkSetting();
 }
 
@@ -101,9 +103,19 @@ function showListLessonExam() {
 		db.transaction(queryLessonExamDB, errorCB);
 }
 
+function showListLessonHw() {
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryLessonHwDB, errorCB);
+}
+
 // Query the database
 function queryLessonExamDB(tx) {
-	tx.executeSql('SELECT * FROM '+exam_db+' WHERE cid = "'+send_courseid+'"  ORDER BY ename DESC', [], queryLessonExamSuccess, errorCB);
+	tx.executeSql('SELECT * FROM '+exam_db+' WHERE cid = "'+send_courseid+'"  ORDER BY eid DESC', [], queryLessonExamSuccess, errorCB);
+}
+
+// Query the database
+function queryLessonHwDB(tx) {
+	tx.executeSql('SELECT * FROM '+hw_db+' WHERE cid = "'+send_courseid+'" and lid = "'+send_lid+'" ORDER BY hid DESC', [], queryLessonHwSuccess, errorCB);
 }
 
 // Query the success callback
@@ -118,6 +130,19 @@ function queryLessonExamSuccess(tx, results) {
     $("#select-exam-for-lessonID").selectmenu("refresh");
     
 }
+
+// Query the success callback
+function queryLessonHwSuccess(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+			$("#tea_cou_less_list_homework").prepend('<li><a href="teacher_course_homework.html" data-transition="none" name="'+results.rows.item(i).hid+'">'+results.rows.item(i).hname+'</a><a href="#del_HwIDinLess" hid="'+results.rows.item(i).hid+'" hname="'+results.rows.item(i).hname+'" data-rel="popup" data-theme="k" data-transition="slidedown" class="del_exam">Del</a></li>'+"\n").listview('refresh');   
+           		   
+    }
+    
+    
+}
+
+	
 
 function checkSetting() {	
 		// alert("Active : "+send_lactive+"\nShow : "+send_lshow);	
@@ -145,7 +170,7 @@ function querySheetDB(tx) {
 function querySuccessSheet(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){
-		$("#tea_course_list_hw").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).hdoc_link+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).hdoc_id+'">'+results.rows.item(i).hdoc_name+'</a> <a href="#del_HwDocID" data-rel="popup" hdoc_id="'+results.rows.item(i).hdoc_id+'" hdoc_name="'+results.rows.item(i).hdoc_name+'"   data-theme="k" data-transition="slidedown" class="del_exam">Del</a></li> '+"\n").listview('refresh');   
+		//$("#tea_course_list_hw").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).hdoc_link+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).hdoc_id+'">'+results.rows.item(i).hdoc_name+'</a> <a href="#del_HwDocID" data-rel="popup" hdoc_id="'+results.rows.item(i).hdoc_id+'" hdoc_name="'+results.rows.item(i).hdoc_name+'"   data-theme="k" data-transition="slidedown" class="del_exam">Del</a></li> '+"\n").listview('refresh');   
 		
 		$("#tea_cou_less_list_sheet").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).slink+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).sid+'">'+results.rows.item(i).sname+'</a><a href="#del_sheetID" data-rel="popup" data-theme="k" sid="'+results.rows.item(i).sid+'" sname="'+results.rows.item(i).sname+'"  data-transition="slidedown" class="del_exam">Del</a></li>'+"\n").listview('refresh');
 	}
@@ -198,12 +223,29 @@ function deleteSheetDB(tx) {
 	$("#del_sheetID").popup( "close" );
 	$("#tea_cou_less_list_sheet").empty();
 	$("#tea_cou_less_list_sheet").append('<li data-icon="plus" data-theme="j"><a href="teacher_course_lesson_sheet.html" name="new_sheet" data-transition="none">Add Sheet</a></li>').listview('refresh'); 
-	alert(success_msg);	
+	//alert(success_msg);	
 	//onDeviceReady();
 	//showListExam();
 	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 		db.transaction(querySheetDB, errorCB);    
 }
+
+// Populate the database
+function deleteLessonHwDB(tx) { 
+	//tx.executeSql('DELETE FROM '+lesson_sheet_db+' WHERE sid ="'+send_sid+'"');		
+	tx.executeSql('UPDATE '+hw_db+' SET lid = "null" WHERE hid = "'+val_hid+'"');
+
+	$("#del_HwIDinLess").popup( "close" );
+	$("#tea_cou_less_list_homework").empty();
+	$("#tea_cou_less_list_homework").append('<li data-icon="plus" data-theme="j"><a href="teacher_course_lesson_hw.html" data-transition="none" name="new_lesson_hw">Add Homework</a></li>').listview('refresh'); 
+	//alert(success_msg);	
+	//onDeviceReady();
+	//showListExam();
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryLessonHwDB, errorCB);    
+}
+
+
 
 function execUpdateLessonSetting(tx) {
 	tx.executeSql('UPDATE '+lesson_db+' SET lactive = "'+val_active+'" , lshow = "'+val_show+'" WHERE lid = "'+send_lid+'"');
@@ -391,6 +433,41 @@ $( document ).ready(function() {
 			toast('Please connect to the internet');			
 		}
 	});
+	
+	
+	$(document).on("click", "#tea_cou_less_list_homework li a.del_exam" ,function (event) {
+		$("#show_hw_name").text($(this).attr("hname"));
+			val_hid = $(this).attr("hid");
+			//alert(val_hid);	
+	}); 
+	
+	$("#confirm_del_less_hw").click(function() {	
+		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			$.ajax({
+						url: "http://service.oppakub.me/SLC/del_tea_lesson_hw.php",
+						type: 'POST',
+						data:  "hid="+val_hid,
+						dataType : "json",
+						async: false,
+						success: function(data, textStatus, jqXHR){
+						if(data.status == "OK") {
+							//success_msg = data.message;							
+							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+							db.transaction(deleteLessonHwDB, errorCB);	
+					
+						} else {
+							toast(data.message);					
+						}								
+					}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert(jqXHR.responseText);
+						} //end error         
+			});
+		} else {
+			toast('Please connect to the internet');			
+		}
+	});
    
    $('#lesson-setting-active').on('change', function() {
   		//alert( $(this).val() );
@@ -406,6 +483,11 @@ $( document ).ready(function() {
   		//alert( $(this).val() );
   		updateLessonExam();
 	});
+	
+	$(document).on("click", "#tea_cou_less_list_homework li a" ,function (event) {
+		send_hid = $(this).attr("name");
+		//alert(send_eid);
+	}); 
 	
    
 });  // end of jQuery

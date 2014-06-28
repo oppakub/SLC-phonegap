@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_sign_in.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/toast.js"></script>
+
+
+</head>
+
+<body>
+
+<div data-role="page" id="register_step_1">
+
+    <div data-role="header" data-position="fixed">
+        <h1>Sign up</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content" data-theme="b" class="login-shadow" id="sign_in" style="margin:auto;">
+        <form action="http://service.oppakub.me/SLC/sign_in.php" method="post" id="sign_in_form" data-transition="none">
+            <div data-role="fieldcontain" id="sign_in_user">
+                <label for="sign_username">Username:</label>
+                <input type="text" name="username" id="sign_username" value="" placeholder="Username" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="sign_in_pass">
+                <label for="sign_password">Password:</label>
+                <input type="password" name="password" id="sign_password" value="" placeholder="Password" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="sign_in_firstname">
+                <label for="sign_firstname">Firstname:</label>
+                <input type="text" name="firstname" id="sign_firstname" value="" placeholder="Firstname" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="sign_in_lastname">
+                <label for="sign_lastname">Lastname:</label>
+                <input type="text" name="lastname" id="sign_lastname" value="" placeholder="Lastname" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="sign_in_email">
+                <label for="sign_email">Email:</label>
+                <input type="email" name="email" id="sign_email" value="" placeholder="Email" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="sign_in_phone">
+                <label for="sign_phone">PhoneNumber:</label>
+                <input type="tel" name="phone" id="sign_phone" placeholder="phone" data-clear-btn="true" />
+            </div>
+            <div>
+                <input data-theme="b" type="submit" value="Sign Up" id="sign_in_submit"/>
+            </div>
+        </form>
+
+<script>
+    function myF(){
+  //  var fReader = new FileReader();
+  //  alert(document.getElementById("sign_avatar").value);
+  var filePath     = document.getElementById("sign_avatar").value;
+  if(filePath.match(/fakepath/)) {
+                        // update the file-path text using case-insensitive regex
+                        filePath = filePath.replace(/C:\\fakepath\\/i, '');
+                        alert(filePath);
+                    }
+
+   // alert(document.getElementById("sign_avatar").files[0].filePath);
+    }
+
+</script>
+</div>
+    <!-- /content -->
+
+
+    <div data-role="footer" data-position="fixed">
+        <h1 id="af_dis">Night_Fury_TE@M</h1>
+    </div>
+    <!-- /footer -->
+</div>

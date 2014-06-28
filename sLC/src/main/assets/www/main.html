@@ -34,6 +34,9 @@
 <body>
 
 <div data-role="page" id="main">
+    <script type="text/javascript" charset="utf-8" src="js/script_global_var.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_global_fn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_main.js"></script>
     <div data-role="panel" id="main_panel">
         <!-- panel content goes here -->
         <fieldset class="ui-grid-a">
@@ -49,7 +52,7 @@
     <div data-role="header" data-position="fixed">
         <a href="#main_panel" data-role="button" data-theme="a" data-icon="bars" data-inline="true">User</a>
         <h1>SLC</h1>
-        <a href="#logout" data-role="button" data-theme="a" data-inline="true" class="ui-btn-right">Log Out</a>
+        <a href="#logout" data-role="button" data-theme="a" data-inline="true" id="logout" class="ui-btn-right">Log Out</a>
     </div>
     <!-- /header -->
 
@@ -64,12 +67,8 @@
                     <button data-theme="a">Teacher</button>
                 </a></div>
             </fieldset>
-            <p align="center"><a href="test_download.html" target="_blank">Test Download</a></p>
-            <p align="center"><a href="test_camera.html" target="_blank">Test Upload Photo</a></p>
             <p align="center">Support Learning in Classroom</p>
-
             <p align="center">Android Application Contest 2014</p>
-
             <p align="center">Night_Fury_TE@M</p>
         </div>
 
