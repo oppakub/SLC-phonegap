@@ -4,6 +4,14 @@
         <a href="#" data-role="button" data-rel="back" data-transition="none"   data-theme="a" data-icon="arrow-l">Back</a>
         <h1 id="header_title">Add Sheet</h1>
             <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_lesson_sheet_head_1">Home</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_lesson_sheet_head_2">Question</a></li>
+                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_lesson_sheet_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_lesson_sheet_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
     </div><!-- /header -->
     <div data-role="content">
         <div id="box_upload_sheet">
@@ -18,9 +26,9 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="teacher.html" data-transition="none" id="tea_cou_less_foot_1">Teacher</a></li>
-                <li><a href="../main.html" data-transition="none" id="tea_cou_less_foot_2">Home</a></li>
-                <li><a href="../student/student.html" data-transition="none" id="tea_cou_less_foot_3">Student</a></li>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_lesson_sheet_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_lesson_sheet_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_lesson_sheet_foot_3">Student</a></li>
             </ul>
         </div><!-- /navbar footer -->
     </div><!-- /footer -->
@@ -30,10 +38,10 @@
             var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
             var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
             for(i=1;i<=3;i++){
-                $("#tea_cou_less_foot_"+i).html(tablet_footer[i-1]);
+                $("#tea_cou_lesson_sheet_foot_"+i).html(tablet_footer[i-1]);
             }
             for(i=1;i<=4;i++){
-                $("#tea_cou_less_head_"+i).html(tablet_header[i-1]);
+                $("#tea_cou_lesson_sheet_head_"+i).html(tablet_header[i-1]);
             }
         }
     </script>
