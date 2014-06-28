@@ -97,7 +97,7 @@ function showListHW() {
 					} else {
 						//toast(data.message);	
 						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
-						db.transaction(queryExamDB, errorCB);					
+						db.transaction(queryHwDB, errorCB);					
 					}								
 				}, //end success
 					error: function(jqXHR, textStatus, errorThrown) {
@@ -106,7 +106,7 @@ function showListHW() {
 		});
 	} else {
 		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
-		db.transaction(queryExamDB, errorCB);	
+		db.transaction(queryHwDB, errorCB);	
 	}
 }
 
@@ -131,10 +131,75 @@ function queryHwSuccess(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){  
            $("#tea_course_list_homework").prepend('<li><a href="teacher_course_homework.html" data-transition="none" name="'+results.rows.item(i).hid+'">'+results.rows.item(i).hname+'</a><a href="#del_HwID" hid="'+results.rows.item(i).hid+'" hname="'+results.rows.item(i).hname+'" data-rel="popup" data-theme="k" data-transition="slidedown" class="del_exam">Del</a></li>'+"\n").listview('refresh');     
+    } 
+ }   
+/* ################################################################################################################ */
+//Lesson variables
+var llid = new Array();
+var lname = new Array();
+var ldescription = new Array();
+
+function showListLesson() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_tea_lesson.php",
+					type: 'POST',
+					data:  "cid="+send_courseid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+							llid.push(data.data[i].lid);
+							lname.push(data.data[i].lname);
+							ldescription.push(data.data[i].ldescription);			
+						}						
+					
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(insertLesData, errorCB);	
+					
+					} else {
+						//toast(data.message);	
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(queryLesDB, errorCB);					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryLesDB, errorCB);	
+	}
+}
+
+function insertLesData(tx) {
+	var data_len = llid.length;	
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+lesson_db+' (lid , lname , ldescription , cid ,PRIMARY KEY (lid))');    
+	for(var i =0;i<data_len;i++) {	
+		tx.executeSql('INSERT OR IGNORE INTO '+lesson_db+' (lid , lname , ldescription , cid) VALUES ("'+llid[i]+'", "'+lname[i]+'",  "'+ldescription[i]+'" , "'+send_courseid+'")');
     }
     
-/* ################################################################################################################ */
-
-    
+    var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(queryLesDB, errorCB);
 }
+
+// Query the database
+function queryLesDB(tx) {
+	tx.executeSql('SELECT * FROM '+lesson_db+' WHERE cid = "'+send_courseid+'" ORDER BY lid DESC', [], queryLesSuccess, errorCB);
+}
+
+// Query the success callback
+function queryLesSuccess(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){              
+           $("#tea_course_list_lesson").prepend('<li><a href="teacher_course_lesson.html" data-transition="none" name="'+results.rows.item(i).lid+'">'+results.rows.item(i).lname+'</a></li>  '+"\n").listview('refresh');            
+    }
+}
+    
+    
+
 

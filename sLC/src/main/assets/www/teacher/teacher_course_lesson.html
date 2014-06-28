@@ -1,7 +1,8 @@
 <div data-role="page" id="teacher_course_lesson">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_lesson_get_data.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
-        <h1>Basic Computer</h1>
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
+        <h1 id="header_title">Basic Computer</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -15,19 +16,20 @@
     <div data-role="content">
         <div class="ui-grid-a" id="tea_cou_less_name-1">
             <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
-                <h1>Lesson 1</h1>
+                <h1 id="edit_lesson_header">Lesson 1</h1>
             </div>
             <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_less_name_edit()">
                 <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
             </div>
         </div>
-        <form action="#" method="post">
+        <form action="http://service.oppakub.me/SLC/edit_tea_lname.php" method="post" id="edit_lname_form">
+            <input type="hidden" class="hidden_lid" name="lesson-lid-input" />
             <div class="ui-grid-a" id="tea_cou_less_name-2" style="display:none;">
                 <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
                     <h1 style="height:38px;"><input type="text" name="course-less-name-input" id="course-less-name-input" value="Lesson 1" placeholder="Lesson name" /></h1>
                 </div>
                 <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
-                    <h1 style="height:38px;"><input type="submit" value="OK" data-mini="true" /></h1>
+                    <h1 style="height:38px;"><input type="submit" value="OK" id="edit_lname_btn_submit" data-mini="true" /></h1>
                 </div>
             </div>
         </form>
@@ -46,15 +48,16 @@
         <div data-role="collapsible" data-collapsed="false" data-content-theme="b" id="tea_cou_con_coll_LessDes">
             <h3>Lesson description</h3>
             <div id="tea_cou_less_des-edit-1">
-                <p style="text-indent:20px;">
+                <p style="text-indent:20px;" id="tea_less_des">
                     คาบเรียนนี้เรียนเกี่ยวกับประวัติของคอมพิวเตอร์
                 </p>
                 <a href="#" data-role="button" data-icon="edit" data-mini="true" onclick="course_edit()">Edit</a>
             </div>
             <div id="tea_cou_less_des-edit-2" style="display:none;">
-                <form action="#" method="post">
+                <form action="http://service.oppakub.me/SLC/edit_tea_ldes.php" method="post" id="edit_ldes_form">
+                    <input type="hidden" class="hidden_lid" name="lesson-lid-input" />
                     <textarea name="lesson-description-textarea" id="lesson-description-textarea">คาบเรียนนี้เรียนเกี่ยวกับประวัติของคอมพิวเตอร์</textarea>
-                    <input type="submit" value="Submit" data-mini="true" />
+                    <input type="submit" value="Submit" id="edit_ldes_btn_submit" data-mini="true" />
                 </form>
             </div>
         </div>
