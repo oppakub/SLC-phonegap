@@ -8,6 +8,7 @@ var slink = new Array();
 var send_sid = undefined;
 var val_active = undefined;
 var val_show = undefined;
+var val_eid = undefined;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -22,6 +23,7 @@ function onDeviceReady() {
 			setTheNewLesson("Lesson");
 		}
 		showListSheet();
+		showListLessonExam();
 		checkSetting();
 }
 
@@ -94,13 +96,34 @@ function showListSheet() {
 	}
 }
 
+function showListLessonExam() {
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryLessonExamDB, errorCB);
+}
+
+// Query the database
+function queryLessonExamDB(tx) {
+	tx.executeSql('SELECT * FROM '+exam_db+' WHERE cid = "'+send_courseid+'"  ORDER BY ename DESC', [], queryLessonExamSuccess, errorCB);
+}
+
+// Query the success callback
+function queryLessonExamSuccess(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+			if(results.rows.item(i).lid == send_lid)
+           		$("#select-exam-for-lessonID").append('<option value="'+results.rows.item(i).eid+'" selected="selected">'+results.rows.item(i).ename+'</option>'+"\n");    
+           	else
+           		$("#select-exam-for-lessonID").append('<option value="'+results.rows.item(i).eid+'">'+results.rows.item(i).ename+'</option>'+"\n");   
+    }
+    $("#select-exam-for-lessonID").selectmenu("refresh");
+    
+}
+
 function checkSetting() {	
 		// alert("Active : "+send_lactive+"\nShow : "+send_lshow);	
 		$("#lesson-setting-active-"+send_lactive).attr('selected' , true);
 		$("#lesson-setting-show-"+send_lshow).attr('selected' , true);
 }
-
-
 
 // Populate the database
 function insertSheetDB(tx) {
@@ -187,6 +210,12 @@ function execUpdateLessonSetting(tx) {
 	
 }
 
+function execUpdateLessonExam(tx) {
+	tx.executeSql('UPDATE '+exam_db+' SET lid = "'+send_lid+'" WHERE eid = "'+val_eid+'"');
+	
+}
+
+
 function updateLessonSetting() {
 		val_active = $('#lesson-setting-active').val();
   		val_show = $('#lesson-setting-show').val();
@@ -203,6 +232,34 @@ function updateLessonSetting() {
 							//toast(data.message);		
 							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 							db.transaction(execUpdateLessonSetting, errorCB);					
+						}	else {
+							toast(data.message);
+						}
+					}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert(jqXHR.responseText);
+						} //end error         
+			});
+		} else {
+			 toast('Please connect to the internet');	
+		}
+}
+
+function updateLessonExam() {
+		val_eid = $('#select-exam-for-lessonID').val();
+  		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			$.ajax({
+						url: "http://service.oppakub.me/SLC/edit_tea_lesson_exam.php",
+						type: 'POST',
+						data:  "lid="+send_lid+"&eid="+val_eid,
+						dataType : "json",
+						async: false,
+						success: function(data, textStatus, jqXHR){
+						if(data.status == "OK") {						
+							//toast(data.message);		
+							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+							db.transaction(execUpdateLessonExam, errorCB);					
 						}	else {
 							toast(data.message);
 						}
@@ -343,6 +400,11 @@ $( document ).ready(function() {
 	$('#lesson-setting-show').on('change', function() {
   		//alert( $(this).val() );
   		updateLessonSetting();
+	});
+	
+	$('#select-exam-for-lessonID').on('change', function() {
+  		//alert( $(this).val() );
+  		updateLessonExam();
 	});
 	
    
