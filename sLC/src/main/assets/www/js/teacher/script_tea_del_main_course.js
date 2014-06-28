@@ -69,6 +69,41 @@ $( document ).ready(function() {
 		}
 	});
 	
+	/* ################################################################################################################ */
+	
+	$(document).on("click", "#tea_course_list_book li a.del_exam" ,function (event) {
+		$("#show_book_name").text($(this).attr("bname"));
+			send_bid = $(this).attr("bid");	
+	}); 
+	
+	$("#confirm_del_book").click(function() {
+		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			$.ajax({
+						url: "http://service.oppakub.me/SLC/del_tea_book.php",
+						type: 'POST',
+						data:  "bid="+send_bid,
+						dataType : "json",
+						async: false,
+						success: function(data, textStatus, jqXHR){
+						if(data.status == "OK") {
+							success_msg = data.message;							
+							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+							db.transaction(deleteBookDB, errorCB);	
+					
+						} else {
+							toast(data.message);					
+						}								
+					}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert(jqXHR.responseText);
+						} //end error         
+			});
+		} else {
+			toast('Please connect to the internet');			
+		}
+	});
+	
 	
 }); //end jQuery
 
@@ -102,4 +137,20 @@ function deleteHwDB(tx) {
 	//showListExam();
 	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 		db.transaction(queryHwDB, errorCB);    
+}
+
+/* ################################################################################################################ */
+
+// Populate the database
+function deleteBookDB(tx) { 
+	tx.executeSql('DELETE FROM '+book_db+' WHERE bid ="'+send_bid+'"');		
+
+	$("#del_bookID").popup( "close" );
+	$("#tea_course_list_book").empty();
+	$("#tea_course_list_book").append('<li data-icon="plus" data-theme="j"><a href="teacher_course_book.html" data-theme="g" name="new_book" data-transition="none">Add Book</a></li>').listview('refresh'); 
+	alert(success_msg);	
+	//onDeviceReady();
+	//showListExam();
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryBookDB, errorCB);    
 }

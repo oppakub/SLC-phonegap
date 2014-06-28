@@ -1,0 +1,40 @@
+<div data-role="page" id="teacher_course_lesson">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_book_upload.js"></script>
+    <div data-role="header" data-position="fixed">
+        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
+        <h1 id="header_title">Add Book</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div id="box_upload_book">
+            <form action="http://service.oppakub.me/SLC/upload_book.php" method="post" id="tea_upload_book_form" data-transition="none" enctype="multipart/form-data">
+                <input type="text" name="bookName" id="tea_book_name" value="" placeholder="Enter Book Name" data-clear-btn="true"/>
+                <input type="file" name="fileName" id="tea_book_file">
+                <input type="hidden" name="cid" id="tea_book_cid">
+                <input data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext=""  type="submit" value="Add Book" id="tea_btn_upload_book"/>
+            </form>
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_less_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_less_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_less_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_less_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_less_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+    </script>
+</div>

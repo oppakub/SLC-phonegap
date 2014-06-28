@@ -8,6 +8,7 @@ var hw_db = "SLC_HOMEWORK";
 var hw_choice_db = "SLC_HOMEWORK_CHOICE";
 var hw_write_db = "SLC_HOMEWORK_WRITE";
 var lesson_db = "SLC_LESSON";
+var book_db = "SLC_BOOK";
 var database_name = "Database";
 var database_version = "1.0";
 var database_displayname = "SLC";
@@ -19,5 +20,5 @@ var send_courseid = undefined;
 var send_eid = undefined;
 var send_hid = undefined;
 var send_lid = undefined;
-
+var send_bid = undefined;
 

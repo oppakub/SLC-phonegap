@@ -201,5 +201,76 @@ function queryLesSuccess(tx, results) {
 }
     
     
+/* ################################################################################################################ */
+//Book variables
+var bid = new Array();
+var bname = new Array();
+var blink = new Array();
+var btype = new Array();
+var bdate_created = new Array();
 
+function showListBook() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_tea_book.php",
+					type: 'POST',
+					data:  "cid="+send_courseid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+							bid.push(data.data[i].bid);
+							bname.push(data.data[i].bname);
+							blink.push(data.data[i].blink);		
+							btype.push(data.data[i].btype);		
+							bdate_created.push(data.data[i].bdate_created);	
+						}						
+					
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(insertBookData, errorCB);	
+					
+					} else {
+						//toast(data.message);	
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(queryBookDB, errorCB);					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(queryBookDB, errorCB);	
+	}
+}
+
+function insertBookData(tx) {
+	var data_len = bid.length;	
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+book_db+' (bid , bname , blink , btype , bdate_created , cid ,PRIMARY KEY (bid))');    
+	for(var i =0;i<data_len;i++) {	
+		tx.executeSql('INSERT OR IGNORE INTO '+book_db+' (bid , bname , blink , btype , bdate_created , cid) VALUES ("'+bid[i]+'", "'+bname[i]+'",  "'+blink[i]+'" ,  "'+btype[i]+'" ,  "'+bdate_created[i]+'" , "'+send_courseid+'")');
+    }
+    
+    var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(queryBookDB, errorCB);
+}
+
+// Query the database
+function queryBookDB(tx) {
+	tx.executeSql('SELECT * FROM '+book_db+' WHERE cid = "'+send_courseid+'" ORDER BY bid DESC', [], queryBookSuccess, errorCB);
+}
+
+// Query the success callback
+function queryBookSuccess(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){              
+           //$("#tea_course_list_lesson").prepend('<li><a href="teacher_course_lesson.html" data-transition="none" name="'+results.rows.item(i).lid+'">'+results.rows.item(i).lname+'</a></li>  '+"\n").listview('refresh');      
+           $("#tea_course_list_book").prepend('<li><a href="'+results.rows.item(i).blink+'" target="_blank" data-transition="none" name="'+results.rows.item(i).bid+'"><img src="../img/book-'+results.rows.item(i).btype+'.png"><h3>'+results.rows.item(i).bname+'</h3><p>Added : '+results.rows.item(i).bdate_created+'</p> </a><a href="#del_bookID" data-rel="popup" data-theme="k" data-transition="slidedown" bid="'+results.rows.item(i).bid+'" bname="'+results.rows.item(i).bname+'"  class="del_exam">Del</a><!-- Delete Book Button--> </li><!--Do repeat for any book-->'+"\n").listview('refresh');        
+    }
+}
+    
 

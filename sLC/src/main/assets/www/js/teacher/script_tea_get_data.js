@@ -49,6 +49,7 @@ function querySuccess(tx, results) {
 	showListExam();
 	showListHW();
 	showListLesson();
+	showListBook();
 	//alert(results.rows.item(0).ccode);
 }
 

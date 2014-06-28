@@ -3,7 +3,7 @@
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_list_main_course.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_del_main_course.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="#" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
+        <a href="teacher.html" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">Back</a>
         <h1>Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
@@ -18,7 +18,7 @@
     <div data-role="content">
         <div class="ui-grid-a" id="tea_cou_name-1">
             <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
-                <h1 id="edit_cname">Basic Computer</h1>
+                <h1 id="edit_cname"></h1>
             </div>
             <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_name_edit()">
                 <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
@@ -28,7 +28,7 @@
             <input type="hidden" class="hidden_ccode" name="course-code-input" />
         <div class="ui-grid-a" id="tea_cou_name-2" style="display:none;">
                 <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
-                    <h1 style="height:38px;"><input type="text" name="course-name-input" id="course-name-input" value="Basic Computer" placeholder="Course name" /></h1>
+                    <h1 style="height:38px;"><input type="text" name="course-name-input" id="course-name-input" value="" placeholder="Course name" /></h1>
                 </div>
                 <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
                     <h1 style="height:38px;"><input type="submit" value="OK" id="edit_cname_btn_submit" data-mini="true" /></h1>
@@ -51,14 +51,14 @@
             <h3>Course description</h3>
             <div id="tea_cou_con_coll_CouDes-1">
                 <p style="text-indent:20px;" id="tea_cou_des">
-                    วิชานี้สอนเกี่ยวกับคอมพิวเตอร์เบื้องต้น
+
                 </p>
                 <a href="#" data-role="button" data-icon="edit" data-mini="true" onclick="course_edit()">Edit</a>
             </div><!--When pushed edit button the course edit form below will showed -->
             <div id="tea_cou_con_coll_CouDes-2" style="display:none;">
                 <form action="http://service.oppakub.me/SLC/edit_tea_cdes.php" method="post" id="edit_cdes_form">
                     <input type="hidden" class="hidden_ccode" name="course-code-input" />
-                    <textarea name="course-description-textarea" id="course-description-textarea">วิชานี้สอนเกี่ยวกับคอมพิวเตอร์เบื้องต้น</textarea>
+                    <textarea name="course-description-textarea" id="course-description-textarea"></textarea>
                     <input type="submit" value="Submit" id="edit_cdes_btn_submit" data-mini="true" />
                 </form>
             </div><!--this form is hidden-->
@@ -78,65 +78,20 @@
             </div><!--LESSON-->
             <div data-role="collapsible" data-theme="a" id="tea_cou_con_coll_book">
                 <h3>BOOK</h3>
+                <div data-role="popup" data-position-to="window" id="del_bookID">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>Book : <i><span id="show_book_name"></span></i></p>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true" id="confirm_del_book">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Book Popup-->
                 <ul data-role="listview" data-split-icon="delete" id="tea_course_list_book">
-                    <li data-theme="g" id="bookID_1">
-                        <a href="#" onclick="book_active(1)">
-                            <img src="img/album-bb.jpg">
-                            <h3>Basic Computer Component</h3>
-                            <p>By Bank</p>
-                        </a><!-- Tap to Active this book state green is active, white is non-active-->
-                        <a href="#del_bookID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Delete Book 1</a><!-- Delete Book Button-->
-                        <div data-role="popup" data-position-to="window" id="del_bookID_1">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Book Popup-->
-                    </li><!--Do repeat for any book-->
-                    <li data-theme="c" id="bookID_2">
-                        <a href="#" onclick="book_active(2)">
-                            <img src="img/album-hc.jpg">
-                            <h3>Computer Software</h3>
-                            <p>By Oppa</p>
-                        </a>
-                        <a href="#del_bookID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Delete Book 2</a>
-                        <div data-role="popup" data-position-to="window" id="del_bookID_2">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Book Popup-->
-                    </li>
-                    <li data-theme="g" id="bookID_3">
-                        <a href="#"  onclick="book_active(3)">
-                            <img src="img/album-ws.jpg">
-                            <h3>Basic Computer Component</h3>
-                            <p>By Yune</p>
-                        </a>
-                        <a href="#del_bookID_3" data-rel="popup" data-theme="k" data-transition="slidedown">Delete Book 3</a>
-                        <div data-role="popup" data-position-to="window" id="del_bookID_3">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Book Popup-->
-                    </li>
-                    <li data-icon="plus" data-theme="j"><a href="#" data-theme="g">Add Book</a></li>
+                    <li data-icon="plus" data-theme="j"><a href="teacher_course_book.html" data-theme="g" name="new_book" data-transition="none">Add Book</a></li>
                 </ul>
             </div>
             <div data-role="collapsible" data-theme="a" id="tea_cou_con_coll_exam">
