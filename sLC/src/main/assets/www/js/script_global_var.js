@@ -23,4 +23,6 @@ var send_eid = undefined;
 var send_hid = undefined;
 var send_lid = undefined;
 var send_bid = undefined;
+var send_lactive = undefined;
+var send_lshow = undefined;
 

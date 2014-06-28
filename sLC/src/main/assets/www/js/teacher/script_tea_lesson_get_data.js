@@ -6,6 +6,8 @@ var sname = new Array();
 var slink = new Array();
 
 var send_sid = undefined;
+var val_active = undefined;
+var val_show = undefined;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -19,8 +21,8 @@ function onDeviceReady() {
 		} else {
 			setTheNewLesson("Lesson");
 		}
-
 		showListSheet();
+		checkSetting();
 }
 
 function setTheNewLesson(lname) {
@@ -91,6 +93,14 @@ function showListSheet() {
 		db.transaction(querySheetDB, errorCB);	
 	}
 }
+
+function checkSetting() {	
+		// alert("Active : "+send_lactive+"\nShow : "+send_lshow);	
+		$("#lesson-setting-active-"+send_lactive).attr('selected' , true);
+		$("#lesson-setting-show-"+send_lshow).attr('selected' , true);
+}
+
+
 
 // Populate the database
 function insertSheetDB(tx) {
@@ -170,6 +180,40 @@ function deleteSheetDB(tx) {
 	//showListExam();
 	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 		db.transaction(querySheetDB, errorCB);    
+}
+
+function execUpdateLessonSetting(tx) {
+	tx.executeSql('UPDATE '+lesson_db+' SET lactive = "'+val_active+'" , lshow = "'+val_show+'" WHERE lid = "'+send_lid+'"');
+	
+}
+
+function updateLessonSetting() {
+		val_active = $('#lesson-setting-active').val();
+  		val_show = $('#lesson-setting-show').val();
+  		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			$.ajax({
+						url: "http://service.oppakub.me/SLC/edit_tea_lesson_setting.php",
+						type: 'POST',
+						data:  "lid="+send_lid+"&lactive="+val_active+"&lshow="+val_show,
+						dataType : "json",
+						async: false,
+						success: function(data, textStatus, jqXHR){
+						if(data.status == "OK") {						
+							//toast(data.message);		
+							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+							db.transaction(execUpdateLessonSetting, errorCB);					
+						}	else {
+							toast(data.message);
+						}
+					}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert(jqXHR.responseText);
+						} //end error         
+			});
+		} else {
+			 toast('Please connect to the internet');	
+		}
 }
 
 //jQuery    
@@ -291,6 +335,15 @@ $( document ).ready(function() {
 		}
 	});
    
+   $('#lesson-setting-active').on('change', function() {
+  		//alert( $(this).val() );
+  		updateLessonSetting();
+	});
+	
+	$('#lesson-setting-show').on('change', function() {
+  		//alert( $(this).val() );
+  		updateLessonSetting();
+	});
 	
    
 });  // end of jQuery

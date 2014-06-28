@@ -16,7 +16,7 @@
     <div data-role="content">
         <div class="ui-grid-a" id="tea_cou_less_name-1">
             <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
-                <h1 id="edit_lesson_header">Lesson 1</h1>
+                <h1 id="edit_lesson_header"></h1>
             </div>
             <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_less_name_edit()">
                 <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
@@ -26,7 +26,7 @@
             <input type="hidden" class="hidden_lid" name="lesson-lid-input" />
             <div class="ui-grid-a" id="tea_cou_less_name-2" style="display:none;">
                 <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
-                    <h1 style="height:38px;"><input type="text" name="course-less-name-input" id="course-less-name-input" value="Lesson 1" placeholder="Lesson name" /></h1>
+                    <h1 style="height:38px;"><input type="text" name="course-less-name-input" id="course-less-name-input" value="" placeholder="Lesson name" /></h1>
                 </div>
                 <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
                     <h1 style="height:38px;"><input type="submit" value="OK" id="edit_lname_btn_submit" data-mini="true" /></h1>
@@ -49,14 +49,14 @@
             <h3>Lesson description</h3>
             <div id="tea_cou_less_des-edit-1">
                 <p style="text-indent:20px;" id="tea_less_des">
-                    คาบเรียนนี้เรียนเกี่ยวกับประวัติของคอมพิวเตอร์
+
                 </p>
                 <a href="#" data-role="button" data-icon="edit" data-mini="true" onclick="course_edit()">Edit</a>
             </div>
             <div id="tea_cou_less_des-edit-2" style="display:none;">
                 <form action="http://service.oppakub.me/SLC/edit_tea_ldes.php" method="post" id="edit_ldes_form">
                     <input type="hidden" class="hidden_lid" name="lesson-lid-input" />
-                    <textarea name="lesson-description-textarea" id="lesson-description-textarea">คาบเรียนนี้เรียนเกี่ยวกับประวัติของคอมพิวเตอร์</textarea>
+                    <textarea name="lesson-description-textarea" id="lesson-description-textarea"></textarea>
                     <input type="submit" value="Submit" id="edit_ldes_btn_submit" data-mini="true" />
                 </form>
             </div>
@@ -70,38 +70,20 @@
         <div data-role="collapsible-set" id="tea_cou_less_con_coll">
             <div data-role="collapsible" data-theme="a" id="tea_cou_less_con_coll_sheet">
                 <h3>Sheet</h3>
+                <div data-role="popup" data-position-to="window" id="del_sheetID">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>Sheet : <i><span id="show_sheet_name"></span></i></p>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true" id="confirm_del_sheet">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Sheet Popup-->
                 <ul data-role="listview" data-split-icon="delete" id="tea_cou_less_list_sheet">
-                    <li>
-                        <a href="#">History of computer</a><!--Go to this exam-->
-                        <a href="#del_sheetID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
-                        <div data-role="popup" data-position-to="window" id="del_sheetID_1">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#DeleteSheet1" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Sheet Popup-->
-                    </li><!--Do repeat for any sheet-->
-                    <li>
-                        <a href="#">Component of computer</a><!--Go to this exam-->
-                        <a href="#del_sheetID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a><!--Delete This Exam-->
-                        <div data-role="popup" data-position-to="window" id="del_sheetID_2">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#DeleteSheet2" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Sheet Popup-->
-                    </li>
-                    <li data-icon="plus" data-theme="j"><a href="#">Add Sheet</a></li>
+                    <li data-icon="plus" data-theme="j"><a href="teacher_course_lesson_sheet.html" name="new_sheet" data-transition="none">Add Sheet</a></li>
                 </ul>
             </div><!--Sheet-->
             <div data-role="collapsible" data-theme="a" id="tea_cou_less_con_coll_homework">
@@ -156,15 +138,15 @@
                     <div class="ui-block-a" style="text-align:center;">
                         <label for="lesson-setting-active">Active</label>
                         <select name="lesson-setting-active" id="lesson-setting-active" data-role="slider">
-                            <option value="0">off</option>
-                            <option value="1">on</option>
+                            <option value="N" id="lesson-setting-active-N">off</option>
+                            <option value="Y" id="lesson-setting-active-Y">on</option>
                         </select>
                     </div>
                     <div class="ui-block-b" style="text-align:center;">
                         <label for="lesson-setting-show">Show</label>
                         <select name="lesson-setting-show" id="lesson-setting-show" data-role="slider">
-                            <option value="0">off</option>
-                            <option value="1">on</option>
+                            <option value="N" id="lesson-setting-show-N">off</option>
+                            <option value="Y" id="lesson-setting-show-Y">on</option>
                         </select>
                     </div>
                 </div>

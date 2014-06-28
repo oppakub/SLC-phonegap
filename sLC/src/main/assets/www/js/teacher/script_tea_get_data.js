@@ -169,6 +169,8 @@ $( document ).ready(function() {
 	
 	$(document).on("click", "#tea_course_list_lesson li a" ,function (event) {
 		send_lid = $(this).attr("name");
+		send_lactive = $(this).attr("lactive");
+		send_lshow = $(this).attr("lshow");
 		//alert(send_eid);
 	}); 
    

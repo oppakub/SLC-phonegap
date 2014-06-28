@@ -138,6 +138,8 @@ function queryHwSuccess(tx, results) {
 var llid = new Array();
 var lname = new Array();
 var ldescription = new Array();
+var lactive = new Array();
+var lshow = new Array();
 
 function showListLesson() {
 	var chk_connect = checkConnection();
@@ -154,7 +156,9 @@ function showListLesson() {
 						for(var i =0;i<data_len;i++) {
 							llid.push(data.data[i].lid);
 							lname.push(data.data[i].lname);
-							ldescription.push(data.data[i].ldescription);			
+							ldescription.push(data.data[i].ldescription);	
+							lactive.push(data.data[i].lactive);
+							lshow.push(data.data[i].lshow);		
 						}						
 					
 						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
@@ -178,9 +182,9 @@ function showListLesson() {
 
 function insertLesData(tx) {
 	var data_len = llid.length;	
-	tx.executeSql('CREATE TABLE IF NOT EXISTS '+lesson_db+' (lid , lname , ldescription , cid ,PRIMARY KEY (lid))');    
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+lesson_db+' (lid , lname , ldescription , lactive , lshow , cid ,PRIMARY KEY (lid))');    
 	for(var i =0;i<data_len;i++) {	
-		tx.executeSql('INSERT OR IGNORE INTO '+lesson_db+' (lid , lname , ldescription , cid) VALUES ("'+llid[i]+'", "'+lname[i]+'",  "'+ldescription[i]+'" , "'+send_courseid+'")');
+		tx.executeSql('INSERT OR IGNORE INTO '+lesson_db+' (lid , lname , ldescription , lactive , lshow , cid) VALUES ("'+llid[i]+'", "'+lname[i]+'",  "'+ldescription[i]+'" , "'+lactive[i]+'" , "'+lshow[i]+'" , "'+send_courseid+'")');
     }
     
     var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
@@ -196,7 +200,7 @@ function queryLesDB(tx) {
 function queryLesSuccess(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){              
-           $("#tea_course_list_lesson").prepend('<li><a href="teacher_course_lesson.html" data-transition="none" name="'+results.rows.item(i).lid+'">'+results.rows.item(i).lname+'</a></li>  '+"\n").listview('refresh');            
+           $("#tea_course_list_lesson").prepend('<li><a href="teacher_course_lesson.html" data-transition="none" name="'+results.rows.item(i).lid+'" lactive="'+results.rows.item(i).lactive+'" lshow="'+results.rows.item(i).lshow+'">'+results.rows.item(i).lname+'</a></li>  '+"\n").listview('refresh');            
     }
 }
     
