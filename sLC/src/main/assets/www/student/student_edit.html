@@ -32,17 +32,28 @@
         <a href="#SubmitChange" data-role="button" data-theme="a">Done</a>
     </div><!-- /header -->
     <div data-role="content">
-        <ul data-role="listview" data-autodividers="true" data-filter="true" id="tea_con_list">
-            <li data-icon="delete"><a href="#">Information Science</a></li>
-            <li data-icon="delete"><a href="#">Mathematic 2</a></li>
+        <ul data-role="listview" data-theme="h" data-autodividers="true" data-filter="true" id="std_edit_con_list">
+
         </ul>
+        <div data-role="popup" data-position-to="window" id="del_s-courseID">
+            <div data-role="header" data-theme="f">
+                <h1>Delete?</h1>
+            </div><!--Header Delete Popup-->
+            <div data-role="content">
+                <h3>Are you sure to delete?</h3>
+                <p>Course : <i><span id="show_course_name"></span></i></p>
+                <p>This action cannot be undone.</p>
+                <a href="#" data-role="button" data-theme="k" data-inline="true" id="tea_confirm_del_course">Delete</a>
+                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+            </div><!--Content Delete Popup-->
+        </div><!-- Delete Course Popup-->
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
                 <li><a href="../teacher/teacher.html" data-transition="none" id="stu_foot_t">Teacher</a></li>
                 <li><a href="../main.html" data-transition="none" id="stu_foot_h">Home</a></li>
-                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="stu_foot_s">Student</a></li>
+                <li><a href="student.html" data-transition="none" class="ui-btn-active ui-state-persist" id="stu_foot_s">Student</a></li>
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
