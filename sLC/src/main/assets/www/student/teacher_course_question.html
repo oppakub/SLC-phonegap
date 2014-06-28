@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="../cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                navigator.app.backHistory();
+            }
+        }
+    </script>
+</head>
+<body>
+<div data-role="page" id="student_course_question_lesson">
+    <div data-role="header" data-position="fixed">
+        <a href="student.html" data-role="button" data-rel="back" data-theme="a" data-icon="arrow-l">back</a>
+        <h1>Course</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="student_course.html" data-transition="none" id="std_cou_ques_head_1">Home</a></li>
+                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="std_cou_ques_head_2">Question</a></li>
+                <li><a href="student_course_ask.html" data-transition="none" id="std_cou_ques_head_3">Ask</a></li>
+                <li><a href="student_course_lesson.html" data-transition="none" id="std_cou_ques_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div data-role="header">
+            <h3>Lesson 1</h3>
+        </div>
+        <div data-role="content">
+            <p style="color:#777;text-align:right;">16 June 2012</p>
+            <hr>
+            <div class="ui-grid-a q-block-1" style="margin:15px 0px 15px 0px;" id="s-cID-lID_q-questionID-1"><!--Replace questionID-1-->
+                <div class="ui-block-a" style="width:20%;">
+                    <img src="../img/icon-user-default.png" class="img-shadow img-radius" style="width:100%;"><!--Replace src"..."-->
+                    <p class="q-name">ครู</p><!--Replace student name-->
+                </div>
+                <div class="ui-block-b"  style="width:80%;padding:10px 0px 0px 15px;">
+                    <div style="text-align:left;">
+                        <div class="q-question">
+                            <p class="no-p">คอมพิวเตอร์คำนวณโดยใช้เลขฐานใด?</p><!--Replace student question-->
+                        </div>
+                        <p class="q-time">10.30 AM</p><!--Replace time is ask by student-->
+                    </div>
+                    <div style="text-align:right;" id="s-questionID-1"><!--Replace id so have 2 part is questionID and 1(number of question)-->
+                        <form action="#" method="post" id="s-questionID-1-form"><!--Replace questionID-1-->
+                            <div class="q-answer" id="s-questionID-1-div1-1" onclick="answer_edit('questionID',1)"><!--For function answer_edit(x); x is answer number-->
+                                ฐาน 2 ครับ<!--Replace question of teacher-->
+                                <img src="img/Editing-Edit-icon.png" width="10" style="display:inline;"/><!--Replace src="..."-->
+                            </div><!--Display answer before push is normal text-->
+
+                            <div class="q-answer" id="s-questionID-1-div1-2" style="display:none;"><!--Replace questionID-1-->
+                                <input type="text" data-clear-btn="true" name="s-questionID-1-input" id="s-questionID-1-input" value="ฐาน 2 ครับ" placeholder="Answer" /><!--Replace questionID-1 and value-->
+                            </div><!--Display answer in input tag after push-->
+
+                            <div id="s-questionID-1-div2-1"><!--Replace questionID-1-->
+                                <p class="q-time" style="display:inline-block;">10.31 AM</p><!--Replace time is answer by teacher-->
+                            </div><!--Display time only before push-->
+
+                            <div id="s-questionID-1-div2-2" style="display:none;"><!--Replace questionID-1-->
+                                <p class="q-time" style="display:inline-block;margin-right:5px;">10.31 AM</p><!--Replace time is answer by teacher-->
+                                <div class="q-edit" onclick="$('#s-questionID-1-form').submit();">OK</div><!--Replace questionID-1-->
+                                <div class="q-edit" onclick="answer_cancel('questionID',1)">Cancel</div><!--Replace questionID and number(1)-->
+                            </div><!--Display time and OK button after push-->
+                        </form>
+                    </div>
+                </div>
+            </div><!--Question is answered--><!--Repeat this for question is answered-->
+
+            <div class="ui-grid-a rType-question" id="s-cID-lID_r-questionID-1"><!--Replace questionID-1-->
+                <div class="ui-block-a" style="width:80%;">
+                    <div class="ui-grid-a r-box">
+                        <div class="ui-block-a" style="width:20%;padding: 2px;">
+                            <img src="../img/icon-user-default.png" class="img-radius r-img"><!--Replace src="..."-->
+                        </div><!--Image of student user-->
+                        <div class="ui-block-b" style="width:80%;padding:2px;">
+                            <p class="no-p r-name">ครู <span class="q-time">10.35 AM</span></p><!--Replace name and time-->
+                            <p class="r-question">DDR คืออะไร?</p><!--Replace question-->
+                        </div><!--Name of student, ask time and question from student-->
+                    </div>
+                    <div class="rType-form" style="display:none;">
+                        <form action="#" method="post" id="s-cID-lID_r-questionID-1-form">
+                            <input type="text" data-clear-btn="true" name="s-cID-lID_r-questionID-1-input" id="s-cID-lID_r-questionID-1-input" value="" placeholder="Answer" onblur="answer_blur('questionID',1)"/>
+                        </form><!--Replace questionID-1 both id of form and input-->
+                    </div><!--Form for type answer you must define right "id" and define right attribute of answer_blur() function is "questionID" and number of question in list-->
+                </div>
+                <div class="ui-block-b rType-b-1" style="width:20%;cursor:pointer;" onclick="answer_reply('questionID',1)">
+                    <p class="r-reply">Reply</p>
+                </div><!--Reply button for show input tag for answer question and show ok button for submit form answer-->
+                <div class="ui-block-b rType-b-2" style="width:20%;cursor:pointer;display:none;" onclick="$('#s-cID-lID_r-questionID-1-form').submit();">
+                    <p class="r-reply">OK</p>
+                </div><!--OK button for submit answer form -->
+            </div><!--Question is not answered--><!--Repeat this for question is not answered-->
+
+        </div>
+
+        <div data-role="header">
+            <h3>Lesson 3</h3>
+        </div>
+        <div data-role="content">
+            <p style="color:#777;text-align:right;">23 June 2012</p>
+            <hr>
+
+            <div class="ui-grid-a rType-question" id="s-cID-lID_r-questionID-2"><!--Replace questionID-2-->
+                <div class="ui-block-a" style="width:80%;">
+                    <div class="ui-grid-a r-box">
+                        <div class="ui-block-a" style="width:20%;padding: 2px;">
+                            <img src="../img/icon-user-default.png" class="img-radius r-img"><!--Replace src="..."-->
+                        </div><!--Image of student user-->
+                        <div class="ui-block-b" style="width:80%;padding:2px;">
+                            <p class="no-p r-name">ครู <span class="q-time">10.36 AM</span></p><!--Replace name and time-->
+                            <p class="r-question">จงยกตัวอย่างของอุปกรณ์?</p><!--Replace question-->
+                        </div><!--Name of student, ask time and question from student-->
+                    </div>
+                    <div class="rType-form" style="display:none;">
+                        <form action="#" method="post" id="s-cID-lID_r-questionID-2-form">
+                            <input type="text" data-clear-btn="true" name="s-cID-lID_r-questionID-2-input" id="s-cID-lID_r-questionID-2-input" value="" placeholder="Answer" onblur="answer_blur('questionID',2)"/>
+                        </form><!--Replace questionID-2 both id of form and input-->
+                    </div><!--Form for type answer you must define right "id" and define right attribute of answer_blur() function is "questionID" and number of question in list-->
+                </div>
+                <div class="ui-block-b rType-b-1" style="width:20%;cursor:pointer;" onclick="answer_reply('questionID',2)"><!--Replace attribute 'questionID' and 'number'-->
+                    <p class="r-reply">Reply</p>
+                </div><!--Reply button for show input tag for answer question and show ok button for submit form answer-->
+                <div class="ui-block-b rType-b-2" style="width:20%;cursor:pointer;display:none;" onclick="$('#s-cID-lID_r-questionID-2-form').submit();"><!--Replace 'questionID-2'-->
+                    <p class="r-reply">OK</p>
+                </div><!--OK button for submit answer form -->
+            </div><!--Question is not answered--><!--Repeat this for question is not answered-->
+
+            <div class="ui-grid-a q-block-1" style="margin:15px 0px 15px 0px;" id="s-cID-lID_q-questionID-2"><!--Replace questionID-2-->
+                <div class="ui-block-a" style="width:20%;">
+                    <img src="../img/icon-user-default.png" class="img-shadow img-radius" style="width:100%;"><!--Replace src"..."-->
+                    <p class="q-name">ครู</p><!--Replace student name-->
+                </div>
+                <div class="ui-block-b"  style="width:80%;padding:10px 0px 0px 15px;">
+                    <div style="text-align:left;">
+                        <div class="q-question">
+                            <p class="no-p">ก่อนที่จะมี PCI-Express เราใช้อะไร?</p><!--Replace student question-->
+                        </div>
+                        <p class="q-time">11.30 AM</p><!--Replace time is ask by student-->
+                    </div>
+                    <div style="text-align:right;" id="s-questionID-2"><!--Replace id so have 2 part is questionID and 2(number of question)-->
+                        <form action="#" method="post" id="s-questionID-2-form"><!--Replace questionID-2-->
+                            <div class="q-answer" id="s-questionID-2-div1-1" onclick="answer_edit('questionID',2)"><!--For function answer_edit(x,y);x is question id, y is answer number-->
+                                VGA Slot ครับ<!--Replace question of teacher-->
+                                <img src="img/Editing-Edit-icon.png" width="10" style="display:inline;"/><!--Replace src="..."-->
+                            </div><!--Display answer before push is normal text-->
+
+                            <div class="q-answer" id="s-questionID-2-div1-2" style="display:none;"><!--Replace questionID-2-->
+                                <input type="text" data-clear-btn="true" name="s-questionID-2-input" id="s-questionID-2-input" value="VGA Slot ครับ" placeholder="Answer" /><!--Replace questionID-1 and value-->
+                            </div><!--Display answer in input tag after push-->
+
+                            <div id="s-questionID-2-div2-1"><!--Replace questionID-2-->
+                                <p class="q-time" style="display:inline-block;">11.31 AM</p><!--Replace time is answer by teacher-->
+                            </div><!--Display time only before push-->
+
+                            <div id="s-questionID-2-div2-2" style="display:none;"><!--Replace questionID-2-->
+                                <p class="q-time" style="display:inline-block;margin-right:5px;">11.31 AM</p><!--Replace time is answer by teacher-->
+                                <div class="q-edit" onclick="$('#s-questionID-2-form').submit();">OK</div><!--Replace questionID-2-->
+                                <div class="q-edit" onclick="answer_cancel('questionID',2)">Cancel</div><!--Replace questionID and number(2)-->
+                            </div><!--Display time and OK button after push-->
+                        </form>
+                    </div>
+                </div>
+            </div><!--Question is answered--><!--Repeat this for question is answered-->
+        </div>
+        <script type="text/javascript" charset="utf-8">
+            if(window.innerWidth > 480){
+                $("div.q-block-1 > div.ui-block-a").css("width","10%");
+                $("div.q-block-1 > div.ui-block-b").css("width","90%");
+                $("div.q-question").css("padding","10px 15px 10px 15px");
+                $("div.q-answer").css("padding","10px 15px 10px 15px");
+                $(".rType-question > div.ui-block-a").css("width","90%");
+                $(".rType-question > div.ui-block-b").css("width","10%");
+                $("div.r-box > div.ui-block-a").css({"width":"10%","padding":"10px"});
+                $("div.r-box > div.ui-block-b").css({"width":"90%","padding":"10px"});
+            }
+            function answer_edit(x,y){
+                $("#s-"+x+"-"+y+"-div1-1").css("display","none");
+                $("#s-"+x+"-"+y+"-div1-2").css("display","inline-block");
+                $("#s-"+x+"-"+y+"-div2-1").css("display","none");
+                $("#s-"+x+"-"+y+"-div2-2").css("display","block");
+                $("#s-"+x+"-"+y+"-input").focus();
+            }
+            function answer_cancel(x,y){
+                $("#s-"+x+"-"+y+"-div1-1").css("display","inline-block");
+                $("#s-"+x+"-"+y+"-div1-2").css("display","none");
+                $("#s-"+x+"-"+y+"-div2-1").css("display","block");
+                $("#s-"+x+"-"+y+"-div2-2").css("display","none");
+            }
+            function answer_reply(x,y){
+                $("#s-cID-lID_r-"+x+"-"+y+" > div.ui-block-a > div.rType-form").css("display","block");
+                $("#s-cID-lID_r-"+x+"-"+y+" > div.rType-b-1").css("display","none");
+                $("#s-cID-lID_r-"+x+"-"+y+" > div.rType-b-2").css("display","block");
+                $("#s-cID-lID_r-"+x+"-"+y+"-input").focus();
+            }
+            function answer_blur(x,y){
+                if($("#s-cID-lID_r-"+x+"-"+y+"-input").val()==""){
+                    $("#s-cID-lID_r-"+x+"-"+y+" > div.ui-block-a > div.rType-form").css("display","none");
+                    $("#s-cID-lID_r-"+x+"-"+y+" > div.rType-b-1").css("display","block");
+                    $("#s-cID-lID_r-"+x+"-"+y+" > div.rType-b-2").css("display","none");
+                }
+            }
+        </script>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="../teacher/teacher.html" data-transition="none" id="std_cou_ques_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="std_cou_ques_foot_2">Home</a></li>
+                <li><a href="student.html" data-transition="none" id="std_cou_ques_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Lesson</h3>"];
+            for(i=1;i<=3;i++){
+                $("#std_cou_ques_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#std_cou_ques_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+    </script>
+</div>
+</body>
+</html>
