@@ -1,17 +1,17 @@
-<div data-role="page" id="teacher_course_lesson">
-    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_book_upload.js"></script>
+<div data-role="page" id="teacher_course_lesson_sheet">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_sheet_upload.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="teacher.html" data-role="button" data-transition="none" data-theme="a" data-icon="arrow-l">Back</a>
-        <h1 id="header_title">Add Book</h1>
-        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <a href="#" data-role="button" data-rel="back" data-transition="none"   data-theme="a" data-icon="arrow-l">Back</a>
+        <h1 id="header_title">Add Sheet</h1>
+            <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
     </div><!-- /header -->
     <div data-role="content">
-        <div id="box_upload_book">
-            <form action="http://service.oppakub.me/SLC/upload_book.php" method="post" id="tea_upload_book_form" data-transition="none" enctype="multipart/form-data">
-                <input type="text" name="bookName" id="tea_book_name" value="" placeholder="Enter Book Name" data-clear-btn="true"/>
-                <input type="file" name="fileName" id="tea_book_file">
-                <input type="hidden" name="cid" id="tea_book_cid">
-                <input data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext=""  type="submit" value="Add Book" id="tea_btn_upload_book"/>
+        <div id="box_upload_sheet">
+            <form action="http://service.oppakub.me/SLC/upload_sheet.php" method="post" id="tea_upload_sheet_form" data-transition="none" enctype="multipart/form-data">
+                <input type="text" name="sheetName" id="tea_sheet_name" value="" placeholder="Enter Sheet Name" data-clear-btn="true"/>
+                <input type="file" name="fileName" id="tea_sheet_file">
+                <input type="hidden" name="lid" id="tea_sheet_lid">
+                <input data-theme="b" data-textonly="false" data-textvisible="false" data-msgtext=""  type="submit" value="Add Sheet" id="tea_btn_upload_sheet"/>
             </form>
         </div>
     </div><!-- /content -->

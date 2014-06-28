@@ -1,6 +1,12 @@
 var edit_lname = undefined;
 var edit_ldes = undefined;
 
+var sid = new Array();
+var sname = new Array();
+var slink = new Array();
+
+var send_sid = undefined;
+
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
 
@@ -13,6 +19,8 @@ function onDeviceReady() {
 		} else {
 			setTheNewLesson("Lesson");
 		}
+
+		showListSheet();
 }
 
 function setTheNewLesson(lname) {
@@ -47,6 +55,66 @@ var chk_connect = checkConnection();
 	} else {
 		toast('Please connect to the internet');	
 		return false;
+	}
+}
+
+function showListSheet() {
+	var chk_connect = checkConnection();
+	if(chk_connect != "no") {
+		$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_tea_lesson_sheet.php",
+					type: 'POST',
+					data:  "lid="+send_lid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {						
+						//toast(data.message);		
+						var data_len = data.data.length;					
+						for(var i =0;i<data_len;i++) {
+								sid.push(data.data[i].sid);
+								sname.push(data.data[i].sname);								
+								slink.push(data.data[i].slink);
+						}	
+						
+						var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+						db.transaction(insertSheetDB, errorCB);
+						
+					}	
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+	} else {
+		 var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(querySheetDB, errorCB);	
+	}
+}
+
+// Populate the database
+function insertSheetDB(tx) {
+	var data_len = sid.length;	 
+	tx.executeSql('CREATE TABLE IF NOT EXISTS '+lesson_sheet_db+' (sid , sname , slink , lid , PRIMARY KEY (sid))');    
+	for(var i =0;i<data_len;i++) {	
+		tx.executeSql('INSERT OR IGNORE INTO '+lesson_sheet_db+' (sid , sname , slink , lid) VALUES ("'+sid[i]+'", "'+sname[i]+'", "'+slink[i]+'" , "'+send_lid+'")');
+    }  
+    var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+	db.transaction(querySheetDB, errorCB);	
+}
+
+// Query the database
+function querySheetDB(tx) {
+	tx.executeSql('SELECT * FROM '+lesson_sheet_db+' WHERE lid = "'+send_lid+'"', [], querySuccessSheet, errorCB);
+}
+
+// Query the success callback
+function querySuccessSheet(tx, results) {
+	var len = results.rows.length;
+	for (var i=0; i<len; i++){
+		$("#tea_course_list_hw").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).hdoc_link+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).hdoc_id+'">'+results.rows.item(i).hdoc_name+'</a> <a href="#del_HwDocID" data-rel="popup" hdoc_id="'+results.rows.item(i).hdoc_id+'" hdoc_name="'+results.rows.item(i).hdoc_name+'"   data-theme="k" data-transition="slidedown" class="del_exam">Del</a></li> '+"\n").listview('refresh');   
+		
+		$("#tea_cou_less_list_sheet").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).slink+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).sid+'">'+results.rows.item(i).sname+'</a><a href="#del_sheetID" data-rel="popup" data-theme="k" sid="'+results.rows.item(i).sid+'" sname="'+results.rows.item(i).sname+'"  data-transition="slidedown" class="del_exam">Del</a></li>'+"\n").listview('refresh');
 	}
 }
 
@@ -88,6 +156,20 @@ function execUpdateLdes(tx) {
 	$("#lesson-description-textarea").html(edit_ldes);
 	$("#tea_cou_less_des-edit-1").css("display","block");
    $("#tea_cou_less_des-edit-2").css("display","none");
+}
+
+// Populate the database
+function deleteSheetDB(tx) { 
+	tx.executeSql('DELETE FROM '+lesson_sheet_db+' WHERE sid ="'+send_sid+'"');		
+
+	$("#del_sheetID").popup( "close" );
+	$("#tea_cou_less_list_sheet").empty();
+	$("#tea_cou_less_list_sheet").append('<li data-icon="plus" data-theme="j"><a href="teacher_course_lesson_sheet.html" name="new_sheet" data-transition="none">Add Sheet</a></li>').listview('refresh'); 
+	alert(success_msg);	
+	//onDeviceReady();
+	//showListExam();
+	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+		db.transaction(querySheetDB, errorCB);    
 }
 
 //jQuery    
@@ -176,7 +258,38 @@ $( document ).ready(function() {
    });  
    //end of Edit Lesson Description Form
    
-   
+   $(document).on("click", "#tea_cou_less_list_sheet li a.del_exam" ,function (event) {
+		$("#show_sheet_name").text($(this).attr("sname"));
+			send_sid = $(this).attr("sid");	
+	}); 
+	
+	$("#confirm_del_sheet").click(function() {
+		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			$.ajax({
+						url: "http://service.oppakub.me/SLC/del_tea_lesson_sheet.php",
+						type: 'POST',
+						data:  "sid="+send_sid,
+						dataType : "json",
+						async: false,
+						success: function(data, textStatus, jqXHR){
+						if(data.status == "OK") {
+							success_msg = data.message;							
+							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
+							db.transaction(deleteSheetDB, errorCB);	
+					
+						} else {
+							toast(data.message);					
+						}								
+					}, //end success
+						error: function(jqXHR, textStatus, errorThrown) {
+							alert(jqXHR.responseText);
+						} //end error         
+			});
+		} else {
+			toast('Please connect to the internet');			
+		}
+	});
    
 	
    

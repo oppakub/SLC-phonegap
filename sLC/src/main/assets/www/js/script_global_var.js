@@ -9,6 +9,7 @@ var hw_choice_db = "SLC_HOMEWORK_CHOICE";
 var hw_write_db = "SLC_HOMEWORK_WRITE";
 var hw_docs_db = "SLC_HOMEWORK_DOCS";
 var lesson_db = "SLC_LESSON";
+var lesson_sheet_db = "SLC_LESSON_SHEET";
 var book_db = "SLC_BOOK";
 var database_name = "Database";
 var database_version = "1.0";
