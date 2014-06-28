@@ -269,7 +269,7 @@ function queryBookSuccess(tx, results) {
 	var len = results.rows.length;
 	for (var i=0; i<len; i++){              
            //$("#tea_course_list_lesson").prepend('<li><a href="teacher_course_lesson.html" data-transition="none" name="'+results.rows.item(i).lid+'">'+results.rows.item(i).lname+'</a></li>  '+"\n").listview('refresh');      
-           $("#tea_course_list_book").prepend('<li><a href="'+results.rows.item(i).blink+'" target="_blank" data-transition="none" name="'+results.rows.item(i).bid+'"><img src="../img/book-'+results.rows.item(i).btype+'.png"><h3>'+results.rows.item(i).bname+'</h3><p>Added : '+results.rows.item(i).bdate_created+'</p> </a><a href="#del_bookID" data-rel="popup" data-theme="k" data-transition="slidedown" bid="'+results.rows.item(i).bid+'" bname="'+results.rows.item(i).bname+'"  class="del_exam">Del</a><!-- Delete Book Button--> </li><!--Do repeat for any book-->'+"\n").listview('refresh');        
+           $("#tea_course_list_book").prepend('<li><a href="#" onclick="window.open(\''+results.rows.item(i).blink+'\', \'_system\');" data-transition="none" name="'+results.rows.item(i).bid+'"><img src="../img/book-'+results.rows.item(i).btype+'.png"><h3>'+results.rows.item(i).bname+'</h3><p>Added : '+results.rows.item(i).bdate_created+'</p> </a><a href="#del_bookID" data-rel="popup" data-theme="k" data-transition="slidedown" bid="'+results.rows.item(i).bid+'" bname="'+results.rows.item(i).bname+'"  class="del_exam">Del</a><!-- Delete Book Button--> </li><!--Do repeat for any book-->'+"\n").listview('refresh');        
     }
 }
     

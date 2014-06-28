@@ -2,8 +2,8 @@
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_hw_get_data.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_hw_add_question.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="teacher.html" data-role="button" data-theme="a" data-icon="arrow-l">Back</a>
-        <h1 id="header_title">Basic Computer</h1>
+        <a href="teacher_course.html" data-role="button" data-transition="none" data-theme="a" data-icon="arrow-l">Back</a>
+        <h1 id="header_title"></h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -68,41 +68,23 @@
         </div>
         <div style="margin-top:15px;">
             <div data-role="header">
-                <h3>Homework Document file</h3>
+                <h3>Homework Docs</h3>
             </div>
             <div data-role="content" data-theme="d">
-                <ul data-role="listview" data-split-icon="delete">
-                    <li>
-                        <a href="#" data-transition="none">Acura</a>
-                        <a href="#del_HwDocID_1" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_HwDocID_1">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Homework Popup-->
-                    </li>
-                    <li>
-                        <a href="#" data-transition="none">Audi</a>
-                        <a href="#del_HwDocID_2" data-rel="popup" data-theme="k" data-transition="slidedown">Del</a>
-                        <div data-role="popup" data-position-to="window" id="del_HwDocID_2">
-                            <div data-role="header" data-theme="f">
-                                <h1>Delete?</h1>
-                            </div><!--Header Delete Popup-->
-                            <div data-role="content">
-                                <h3>Are you sure to delete?</h3>
-                                <p>This action cannot be undone.</p>
-                                <a href="#" data-role="button" data-theme="k" data-inline="true">Delete</a>
-                                <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
-                            </div><!--Content Delete Popup-->
-                        </div><!-- Delete Homework Popup-->
-                    </li>
-                    <li data-icon="plus" data-theme="g"><a href="#" data-transition="none">Add file</a></li>
+                <div data-role="popup" data-position-to="window" id="del_HwDocID">
+                    <div data-role="header" data-theme="f">
+                        <h1>Delete?</h1>
+                    </div><!--Header Delete Popup-->
+                    <div data-role="content">
+                        <h3>Are you sure to delete?</h3>
+                        <p>Docs : <i><span id="show_docs_name"></span></i></p>
+                        <p>This action cannot be undone.</p>
+                        <a href="#" data-role="button" data-theme="k" data-inline="true" id="confirm_del_docs">Delete</a>
+                        <a href="#" data-rel="back" data-role="button" data-theme="c" data-inline="true">Cancel</a>
+                    </div><!--Content Delete Popup-->
+                </div><!-- Delete Homework Popup-->
+                <ul data-role="listview" data-split-icon="delete" id="tea_course_list_hw">
+                    <li data-icon="plus" data-theme="g"><a href="teacher_course_homework_docs.html" data-transition="none" name="new_hw_docs">Add Docs</a></li>
                 </ul>
             </div>
         </div>
