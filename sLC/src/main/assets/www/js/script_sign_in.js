@@ -39,7 +39,7 @@ $( document ).ready(function() {
 					} //end error         
 				});
 				e.preventDefault(); //Prevent Default action. 
-				//e.unbind();
+				e.unbind();
 			}); 
    });  
 });

@@ -5,6 +5,9 @@ var ccode = new Array();
 var stu_uid = undefined;
 var tea_uid = new Array();
 
+var stu_cid = undefined;
+var stu_cname = undefined;
+
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
     
@@ -97,6 +100,17 @@ function querySuccess(tx, results) {
 	var len = results.rows.length;
 	//console.log("'+user_db+' table: " + len + " rows found.");
 	for (var i=0; i<len; i++){
-            $("#stu_con_list").append('<li><a href="#" data-transition="none" name="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
+            $("#stu_con_list").append('<li><a href="student_course.html" data-transition="none" name="'+results.rows.item(i).cid+'" ccode="'+results.rows.item(i).ccode+'">'+results.rows.item(i).cname+'</a></li>'+"\n").listview('refresh');
     }
 }
+
+
+//jQuery    
+$( document ).ready(function() {
+	$(document).on("click", "#stu_con_list li a" ,function (event) {
+		stu_cid = $(this).attr("name");
+		stu_cname = $(this).text();
+		//alert(stu_cid);
+		//alert(send_eid);
+	}); 
+});
