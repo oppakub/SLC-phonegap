@@ -5,6 +5,7 @@
 
 var edit_cname = undefined;
 var edit_cdes = undefined;
+var tea_uid = undefined;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -27,6 +28,8 @@ function queryUserDB(tx) {
 
 // Query the success callback
 function querySuccessUser(tx, results) {
+tea_uid = results.rows.item(0).uid;
+//alert(tea_uid);
 	var db = window.openDatabase(database_name,database_version, database_displayname, database_size);										
 	db.transaction(queryCourseDB, errorCB);	
 }
