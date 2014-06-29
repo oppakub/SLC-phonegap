@@ -12,17 +12,17 @@
     <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
 </head>
 <body>
-<div data-role="page" id="teacher_course_exam_w-score">
+<div data-role="page" id="teacher_course_homework_w-score">
     <div data-role="header" data-position="fixed">
-        <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <a href="teacher_course_homework.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
         <h1 id="header_title">Basic Computer</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
-                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_w-score_head_1">Home</a></li>
-                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_exam_w-score_head_2">Question</a></li>
-                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_exam_w-score_head_3">Ask</a></li>
-                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_exam_w-score_head_4">Student</a></li>
+                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_homework_w-score_head_1">Home</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_homework_w-score_head_2">Question</a></li>
+                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_homework_w-score_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_homework_w-score_head_4">Student</a></li>
             </ul>
         </div><!-- /navbar header -->
     </div><!-- /header -->
@@ -32,7 +32,7 @@
                 <div data-role="content" data-theme="b" style="margin-bottom:15px;">
                     <input type="submit" value="Save Score" data-mini="true" data-theme="e"/>
                 </div>
-                <table id="teacher_course_exam_w-score-table" style="width: 100%;text-align: center;border-bottom:2px solid #ddd;">
+                <table id="teacher_course_homework_w-score-table" style="width: 100%;text-align: center;border-bottom:2px solid #ddd;">
                     <tr>
                         <td style="width: 20%;border-bottom: 2px solid #999;"><b>No.</b></td>
                         <td style="width: 60%;border-bottom: 2px solid #999;"><b>Student name</b></td>
@@ -44,7 +44,7 @@
                         <td onclick="score_edit($(this))" style="cursor:pointer;">
                             <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
                             <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                                <input type="text" name="homework_w-score-1-input" id="homework_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
                             </div>
                         </td>
                     </tr>
@@ -54,7 +54,7 @@
                         <td onclick="score_edit($(this))" style="cursor:pointer;">
                             <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
                             <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                                <input type="text" name="homework_w-score-1-input" id="homework_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
                             </div>
                         </td>
                     </tr>
@@ -64,7 +64,7 @@
                         <td onclick="score_edit($(this))" style="cursor:pointer;">
                             <div class="object1">25<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
                             <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="25" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                                <input type="text" name="homework_w-score-1-input" id="homework_w-score-1-input" value="25" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
                             </div>
                         </td>
                     </tr>
@@ -74,7 +74,7 @@
                         <td onclick="score_edit($(this))" style="cursor:pointer;">
                             <div class="object1">30<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
                             <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="30" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                                <input type="text" name="homework_w-score-1-input" id="homework_w-score-1-input" value="30" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
                             </div>
                         </td>
                     </tr>
@@ -86,9 +86,9 @@
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="teacher.html" data-transition="none" id="tea_cou_exam_w-score_foot_1">Teacher</a></li>
-                <li><a href="../main.html" data-transition="none" id="tea_cou_exam_w-score_foot_2">Home</a></li>
-                <li><a href="../student/student.html" data-transition="none" id="tea_cou_exam_w-score_foot_3">Student</a></li>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_homework_w-score_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_homework_w-score_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_homework_w-score_foot_3">Student</a></li>
             </ul>
         </div><!-- /navbar footer -->
     </div><!-- /footer -->
@@ -98,10 +98,10 @@
             var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
             var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
             for(i=1;i<=3;i++){
-                $("#tea_cou_exam_w-score_foot_"+i).html(tablet_footer[i-1]);
+                $("#tea_cou_homework_w-score_foot_"+i).html(tablet_footer[i-1]);
             }
             for(i=1;i<=4;i++){
-                $("#tea_cou_exam_w-score_head_"+i).html(tablet_header[i-1]);
+                $("#tea_cou_homework_w-score_head_"+i).html(tablet_header[i-1]);
             }
         }
         function score_edit(x){

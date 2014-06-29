@@ -16,7 +16,7 @@
     <div data-role="header" data-position="fixed">
         <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
         <h1 id="header_title">Basic Computer</h1>
-        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <a href="#" data-role="button" data-theme="a" data-transition="none" onclick="$('#examID_w-score').submit();">Save Score</a>
         <div data-role="navbar">
             <ul>
                 <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_w-answer_head_1">Home</a></li>
@@ -28,7 +28,7 @@
     </div><!-- /header -->
     <div data-role="content">
         <div data-role="content">
-            <form action="#" method="post">
+            <form action="#" method="post" id="examID_w-score" data-transition="none">
                 <div data-role="collapsible-set">
                     <div data-role="header" data-theme="l">
                         <p style="margin-left:15px;">Student name</p>
