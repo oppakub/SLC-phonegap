@@ -10,7 +10,7 @@ var edit_cdes = undefined;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
-function onDeviceReady() {           
+function onDeviceReady() {   
 		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
 		db.transaction(queryUserDB, errorCB);
 }
@@ -173,6 +173,8 @@ $( document ).ready(function() {
 		send_lshow = $(this).attr("lshow");
 		//alert(send_eid);
 	}); 
+	
+	$("#tea_cou_con_coll_Cou-code-p").text(send_coursecode);   
    
 });  // end of jQuery
 
