@@ -10,26 +10,6 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        document.addEventListener("deviceready", onDeviceReady, false);
-        function onDeviceReady() {
-            document.addEventListener("backbutton", backKeyDown, true);
-            navigator.app.overrideBackbutton(true);
-            function backKeyDown() {
-                //alert($.mobile.activePage.attr("id"));
-                if($.mobile.activePage.attr("id") == "main") {
-                    if(navigator.app){
-                            navigator.app.exitApp();
-                    }else if(navigator.device){
-                            navigator.device.exitApp();
-                    }
-                } else {
-                    navigator.app.backHistory();
-                }
-            }
-        }
-    </script>
 </head>
 <body>
 <div data-role="page" id="teacher_course_exam_c-score">
@@ -39,78 +19,50 @@
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
-                <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_head_1">Home</a></li>
-                <li><a href="#" data-transition="none" id="tea_cou_exam_head_2">Question</a></li>
-                <li><a href="#" data-transition="none" id="tea_cou_exam_head_3">Ask</a></li>
-                <li><a href="#" data-transition="none" id="tea_cou_exam_head_4">Student</a></li>
+                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_c-score_head_1">Home</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_exam_c-score_head_2">Question</a></li>
+                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_exam_c-score_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_exam_c-score_head_4">Student</a></li>
             </ul>
         </div><!-- /navbar header -->
     </div><!-- /header -->
     <div data-role="content">
-        <div class="ui-grid-a" id="tea_cou_exam_name-1">
-            <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;">
-                <h1 id="edit_exam_header">Exam 1</h1>
-            </div>
-            <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;cursor:pointer;" onclick="course_exam_name_edit()">
-                <h1><img src="img/Editing-Edit-icon.png" width="20" /></h1>
-            </div>
-        </div>
-        <form action="http://service.oppakub.me/SLC/edit_tea_ename.php" method="post" id="edit_ename_form">
-            <input type="hidden" id="hidden_ename" name="course-exam-id-input" />
-            <div class="ui-grid-a" id="tea_cou_exam_name-2" style="display:none;">
-                <div data-role="content" class="ui-block-a" data-theme="b" style="width:83%;padding:0px 15px 0px 15px;">
-                    <h1 style="height:38px;"><input type="text" name="course-exam-name-input" id="course-exam-name-input" value="Exam 1" placeholder="Exam name" /></h1>
-                </div>
-                <div data-role="content" class="ui-block-b" data-theme="d" style="width:17%;text-align:center;">
-                    <h1 style="height:38px;"><input type="submit" value="OK" id="edit_ename_btn_submit" data-mini="true" /></h1>
-                </div>
-            </div>
-        </form>
-        <script type="text/javascript" charset="utf-8">
-            if(window.innerWidth > 480){
-                $("#tea_cou_exam_name-1 > div.ui-block-a").css("width","93%");
-                $("#tea_cou_exam_name-1 > div.ui-block-b").css("width","7%");
-                $("#tea_cou_exam_name-2 > div.ui-block-a").css("width","93%");
-                $("#tea_cou_exam_name-2 > div.ui-block-b").css("width","7%");
-            }
-            function course_exam_name_edit(){
-                $("#tea_cou_exam_name-1").css("display","none");
-                $("#tea_cou_exam_name-2").css("display","block");
-            }
-        </script>
-        <div data-role="content" data-theme="b">
-            <ul data-role="listview" data-theme="d" id="teacher_course_exam-score-ul">
-                <li><a href="#">Choice Score</a></li>
-                <li><a href="#">Writing Score</a></li>
-            </ul>
-        </div>
-        <div style="margin-top:15px;">
-            <div data-role="header">
-                <h3>Choice Exam</h3>
-            </div>
-            <div data-role="content" data-theme="b">
-                <div data-role="collapsible-set" id="set_choice_question">
-                    <a href="#" data-role="button" data-theme="g" data-mini="true" id="exam_add_choice_question">Add Question</a>
-                </div>
-            </div>
-        </div>
-        <div style="margin-top:15px;">
-            <div data-role="header">
-                <h3>Writing Exam</h3>
-            </div>
-            <div data-role="content" data-theme="b">
-                <div data-role="collapsible-set" id="set_write_question">
-                    <a href="#" data-role="button" data-theme="g" data-mini="true" id="exam_add_write_question">Add Question</a>
-                </div>
-            </div>
+        <div data-role="content">
+            <table id="teacher_course_exam_c-score-table" style="width: 100%;text-align: center;">
+                <tr>
+                    <td style="width: 20%;border-bottom: 2px solid #999;"><b>No.</b></td>
+                    <td style="width: 60%;border-bottom: 2px solid #999;"><b>Student name</b></td>
+                    <td style="width: 20%;border-bottom: 2px solid #999;"><b>Score</b></td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>Oppa</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Yune</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Jame</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Grape</td>
+                    <td>20</td>
+                </tr>
+            </table>
         </div>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
         <div data-role="navbar">
             <ul>
-                <li><a href="teacher.html" data-transition="none" id="tea_cou_exam_foot_1">Teacher</a></li>
-                <li><a href="../main.html" data-transition="none" id="tea_cou_exam_foot_2">Home</a></li>
-                <li><a href="../student/student.html" data-transition="none" id="tea_cou_exam_foot_3">Student</a></li>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_exam_c-score_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_exam_c-score_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_exam_c-score_foot_3">Student</a></li>
             </ul>
         </div><!-- /navbar footer -->
     </div><!-- /footer -->
@@ -120,10 +72,10 @@
             var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
             var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
             for(i=1;i<=3;i++){
-                $("#tea_cou_exam_foot_"+i).html(tablet_footer[i-1]);
+                $("#tea_cou_exam_c-score_foot_"+i).html(tablet_footer[i-1]);
             }
             for(i=1;i<=4;i++){
-                $("#tea_cou_exam_head_"+i).html(tablet_header[i-1]);
+                $("#tea_cou_exam_c-score_head_"+i).html(tablet_header[i-1]);
             }
         }
     </script>
