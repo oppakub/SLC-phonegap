@@ -1,3 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/toast.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            document.addEventListener("backbutton", backKeyDown, true);
+            navigator.app.overrideBackbutton(true);
+            function backKeyDown() {
+                //alert($.mobile.activePage.attr("id"));
+                if($.mobile.activePage.attr("id") == "main") {
+                    if(navigator.app){
+                            navigator.app.exitApp();
+                    }else if(navigator.device){
+                            navigator.device.exitApp();
+                    }
+                } else {
+                    navigator.app.backHistory();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
 <div data-role="page" id="teacher_course_hw">
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_hw_get_data.js"></script>
     <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_hw_add_question.js"></script>
@@ -46,6 +80,13 @@
                 $("#tea_cou_hw_name-2").css("display","block");
             }
         </script>
+        <div data-role="content" data-theme="b">
+            <ul data-role="listview" data-theme="d" id="teacher_course_homework-score-ul">
+                <li><a href="teacher_course_homework_c-score.html" data-transition="none">Choice Score</a></li>
+                <li><a href="teacher_course_homework_w-answer.html" data-transition="none">Writing Answer</a></li>
+                <li><a href="teacher_course_homework_w-score.html" data-transition="none">Writing Score</a></li>
+            </ul>
+        </div>
         <div style="margin-top:15px;">
             <div data-role="header">
                 <h3>Choice Homework</h3>
@@ -68,7 +109,7 @@
         </div>
         <div style="margin-top:15px;">
             <div data-role="header">
-                <h3>Homework Docs</h3>
+                <h3>Homework File</h3>
             </div>
             <div data-role="content" data-theme="d">
                 <div data-role="popup" data-position-to="window" id="del_HwDocID">
@@ -84,7 +125,7 @@
                     </div><!--Content Delete Popup-->
                 </div><!-- Delete Homework Popup-->
                 <ul data-role="listview" data-split-icon="delete" id="tea_course_list_hw">
-                    <li data-icon="plus" data-theme="g"><a href="teacher_course_homework_docs.html" data-transition="none" name="new_hw_docs">Add Docs</a></li>
+                    <li data-icon="plus" data-theme="g"><a href="teacher_course_homework_docs.html" data-transition="none" name="new_hw_docs">Add File</a></li>
                 </ul>
             </div>
         </div>
@@ -112,3 +153,5 @@
         }
     </script>
 </div>
+</body>
+</html>
