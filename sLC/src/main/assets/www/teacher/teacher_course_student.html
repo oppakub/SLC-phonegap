@@ -32,7 +32,7 @@
         <div data-role="navbar">
             <ul>
                 <li><a href="teacher_course.html" data-transition="none" id="tea_cou_std_head_1">Home</a></li>
-                <li><a href="teacher_course_question_lesson.html" data-transition="none" id="tea_cou_std_head_2">Question</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_std_head_2">Question</a></li>
                 <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_std_head_3">Ask</a></li>
                 <li><a href="#" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_std_head_4">Student</a></li>
             </ul>
@@ -60,8 +60,9 @@
                 x.css("background-color","#222");
                 setTimeout(function(){x.css("background-color",old_css)},300);
             }
-            function user_change_state(x){
+            function user_change_state(x,y){
                 if(x.attr("data-theme")=="e"){
+					statusMember(y.id,"Y");
                     x.attr("data-theme","g");
                     x.removeClass("ui-btn-up-e").removeClass("ui-btn-hover-e");
                     x.addClass("ui-btn-up-g");
@@ -79,6 +80,7 @@
                         $(this).text("(Allow)");
                     } );
                 }else if(x.attr("data-theme")=="g"){
+					statusMember(y.id,"B");
                     x.attr("data-theme","k");
                     x.removeClass("ui-btn-up-g").removeClass("ui-btn-hover-g");
                     x.addClass("ui-btn-up-k");
@@ -96,6 +98,7 @@
                         $(this).text("(Deny)");
                     } );
                 }else if(x.attr("data-theme")=="k"){
+					statusMember(y.id,"Y");
                     x.attr("data-theme","g");
                     x.removeClass("ui-btn-up-k").removeClass("ui-btn-hover-k");
                     x.addClass("ui-btn-up-g");

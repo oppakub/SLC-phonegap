@@ -1,3 +1,8 @@
+var stu_hid = undefined;
+var stu_hname = undefined;
+var stu_eid = undefined;
+var stu_ename = undefined;
+
 //jQuery    
 $( document ).ready(function() {		
 	$(".header_title").html(stu_cname);	
@@ -11,6 +16,16 @@ $( document ).ready(function() {
 	} else {
 		toast('Please connect to the internet.');
 	}
+	
+	$(document).on("click", "#std_cou_less_list-homework li a" ,function (event) {
+			stu_hid = $(this).attr("name");
+			stu_hname = $(this).text();
+	});
+	
+	$(document).on("click", "#std_cou_less_list-exam li a" ,function (event) {
+			stu_eid = $(this).attr("name");
+			stu_ename = $(this).text();
+	});
 });
 
 function showStuLessonSheetList() {
