@@ -108,7 +108,7 @@ function showTeaAskQuestion() {
 										
 											}
 										
-											$("#show_ask_stu_question_box").append(aquestion + areply);
+											$("#show_ask_stu_question_box").append(aquestion + areply).trigger('create');
             						}
 							}	
 										
