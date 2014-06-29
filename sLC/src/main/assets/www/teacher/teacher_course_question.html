@@ -1,7 +1,8 @@
 <div data-role="page" id="teacher_course_question">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_question_get_data.js"></script>
     <div data-role="header" data-position="fixed">
         <a href="teacher.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
-        <h1>Course</h1>
+        <h1 id="header_title">Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -13,13 +14,7 @@
         </div><!-- /navbar header -->
     </div><!-- /header -->
     <div data-role="content">
-        <ul data-role="listview" data-filter="true">
-            <li><a href="teacher_course_question_lesson.html" data-transition="none">Lesson 1</a></li>
-            <li><a href="#" data-transition="none">Lesson 3</a></li>
-            <li><a href="#" data-transition="none">Lesson 4</a></li>
-            <li><a href="#" data-transition="none">Lesson 6</a></li>
-            <li><a href="#" data-transition="none">Lesson 7</a></li>
-            <li><a href="#" data-transition="none">Other</a></li>
+        <ul data-role="listview" data-filter="true" id="teacher_course_list_question">
         </ul>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">
