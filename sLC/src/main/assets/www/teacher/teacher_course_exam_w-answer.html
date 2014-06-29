@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="teacher_course_exam_w-answer">
+    <div data-role="header" data-position="fixed">
+        <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1 id="header_title">Basic Computer</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_w-answer_head_1">Home</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_exam_w-answer_head_2">Question</a></li>
+                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_exam_w-answer_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_exam_w-answer_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div data-role="content">
+            <form action="#" method="post">
+                <div data-role="collapsible-set">
+                    <div data-role="header" data-theme="l">
+                        <p style="margin-left:15px;">Student name</p>
+                    </div>
+
+                    <div data-role="collapsible" data-content-theme="b" id="stdID-1_examID">
+                        <h3 id="stdID-1_examID-name">Yune</h3><!--Student name-->
+
+                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-1">
+                            <p>1.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-1_examID_w-answer-1-checkbox" id="stdID-1_examID_w-answer-1-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-1_examID_w-answer-1-checkbox">My name is yune</label><!--Answer-->
+                        </div><!--Repeat this for any question of this student user-->
+
+                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-2">
+                            <p>2.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-1_examID_w-answer-2-checkbox" id="stdID-1_examID_w-answer-2-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-1_examID_w-answer-2-checkbox">My name is yune</label><!--Answer-->
+                        </div>
+
+                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-3">
+                            <p>3.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-1_examID_w-answer-3-checkbox" id="stdID-1_examID_w-answer-3-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-1_examID_w-answer-3-checkbox">My name is yune</label><!--Answer-->
+                        </div>
+                        <div class="ui-grid-a" id="stdID-1_examID_w-score">
+                            <div data-role="content" class="ui-block-a" data-theme="b" style="width:40%;">
+                                <h3 style="text-align:center;">Score</h3>
+                            </div>
+                            <div data-role="content" class="ui-block-b" data-theme="d" style="width:60%;">
+                                <h3 style="text-align:center;" id="stdID-1_examID_w-score-h3">0</h3>
+                                <input type="hidden" name="stdID-1_examID_w-score-input" id="stdID-1_examID_w-score-input" value="0"/>
+                            </div>
+                        </div>
+
+                    </div><!--Repeat this for any student user in course-->
+
+                    <div data-role="collapsible" data-content-theme="b" id="stdID-2_examID">
+                        <h3 id="stdID-2_examID-name">Oppa</h3><!--Student name-->
+
+                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-1">
+                            <p>1.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-2_examID_w-answer-1-checkbox" id="stdID-2_examID_w-answer-1-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-2_examID_w-answer-1-checkbox">My name is Oppa</label><!--Answer-->
+                        </div><!--Repeat this for any question of this student user-->
+
+                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-2">
+                            <p>2.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-2_examID_w-answer-2-checkbox" id="stdID-2_examID_w-answer-2-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-2_examID_w-answer-2-checkbox">My name is Oppa</label><!--Answer-->
+                        </div>
+
+                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-3">
+                            <p>3.What is your name?</p><!--Question-->
+                            <input type="checkbox" name="stdID-2_examID_w-answer-3-checkbox" id="stdID-2_examID_w-answer-3-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
+                            <label for="stdID-2_examID_w-answer-3-checkbox">My name is Oppa</label><!--Answer-->
+                        </div>
+                        <div class="ui-grid-a" id="stdID-2_examID_w-score">
+                            <div data-role="content" class="ui-block-a" data-theme="b" style="width:40%;">
+                                <h3 style="text-align:center;">Score</h3>
+                            </div>
+                            <div data-role="content" class="ui-block-b" data-theme="d" style="width:60%;">
+                                <h3 style="text-align:center;" id="stdID-2_examID_w-score-h3">0</h3>
+                                <input type="hidden" name="stdID-2_examID_w-score-input" id="stdID-2_examID_w-score-input" value="0"/>
+                            </div>
+                        </div>
+
+                    </div><!--Repeat this for any student user in course-->
+
+                </div>
+                <div data-role="content" data-theme="b" style="margin-bottom:15px;">
+                    <input type="submit" value="Save Score" data-mini="true" data-theme="e"/>
+                </div>
+            </form>
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_exam_w-answer_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_exam_w-answer_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_exam_w-answer_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_exam_w-answer_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_exam_w-answer_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+        $(".w_answer:odd").addClass("ui-body-b");
+        function score_check(y){
+            var x;
+            y.parent().parent().parent().find("div.ui-grid-a > div.ui-block-b ").each(function(i,j){
+                x=$(this);
+            });
+            var temp = parseInt(x.find("h3").text());
+            setTimeout(function(){
+                if(y.parent().find("label").attr("data-icon")=="checkbox-on"){
+                    temp+=1;
+                    x.find("h3").text(temp);
+                    x.find("input").val(temp);
+                }else{
+                    temp-=1;
+                    x.find("h3").text(temp);
+                    x.find("input").val(temp);
+                }
+             },100);
+        }
+    </script>
+</div>
+</body>
+</html>

@@ -46,6 +46,7 @@
             <div data-role="content" data-theme="b" style="padding:20px;" id="tca_student_user-s-content">
 
                 <ul data-role="listview" data-split-icon="info" data-split-theme="e" data-theme="e" id="tca_student_user-s-list">
+
                 </ul>
 
             </div>
@@ -66,6 +67,10 @@
                     x.addClass("ui-btn-up-g");
                     x.find("a.ui-btn-up-e").addClass("ui-btn-up-g");
                     x.find("a.ui-btn-up-e").removeClass("ui-btn-up-e").removeClass("ui-btn-hover-e");
+                     x.find("span.ui-btn-up-e").each(function(i,v){
+                        $(this).addClass("ui-btn-up-g");
+                        $(this).removeClass("ui-btn-up-e").removeClass("ui-btn-hover-e");
+                    } );
                     x.find("span.ui-icon-info").each(function(i,v){
                         $(this).addClass("ui-icon-check");
                         $(this).removeClass("ui-icon-info");
@@ -79,6 +84,10 @@
                     x.addClass("ui-btn-up-k");
                     x.find("a.ui-btn-up-g").addClass("ui-btn-up-k");
                     x.find("a.ui-btn-up-g").removeClass("ui-btn-up-g").removeClass("ui-btn-hover-g");
+                    x.find("span.ui-btn-up-g").each(function(i,v){
+                        $(this).addClass("ui-btn-up-k");
+                        $(this).removeClass("ui-btn-up-g").removeClass("ui-btn-hover-g");
+                    } );
                     x.find("span.ui-icon-check").each(function(i,v){
                         $(this).addClass("ui-icon-minus");
                         $(this).removeClass("ui-icon-check");
@@ -92,6 +101,10 @@
                     x.addClass("ui-btn-up-g");
                     x.find("a.ui-btn-up-k").addClass("ui-btn-up-g");
                     x.find("a.ui-btn-up-k").removeClass("ui-btn-up-k").removeClass("ui-btn-hover-k");
+                    x.find("span.ui-btn-up-k").each(function(i,v){
+                        $(this).addClass("ui-btn-up-g");
+                        $(this).removeClass("ui-btn-up-k").removeClass("ui-btn-hover-k");
+                    } );
                     x.find("span.ui-icon-minus").each(function(i,v){
                         $(this).addClass("ui-icon-check");
                         $(this).removeClass("ui-icon-minus");
