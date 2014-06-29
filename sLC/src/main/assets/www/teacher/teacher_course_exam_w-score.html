@@ -13,9 +13,10 @@
 </head>
 <body>
 <div data-role="page" id="teacher_course_exam_w-score">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_exam_w_score.js"></script>
     <div data-role="header" data-position="fixed">
         <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
-        <h1 id="header_title">Basic Computer</h1>
+        <h1 class="header_title"></h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -28,55 +29,18 @@
     </div><!-- /header -->
     <div data-role="content">
         <div data-role="content">
-            <form action="#" method="post">
+            <form action="http://service.oppakub.me/SLC/tea_show_exam_score_write_update.php" method="post" id="save_exam_w_score_form">
+                <input type="hidden" name="count" id="save_exam_w_score_count" />
+                <input type="hidden" name="eid" id="save_exam_w_score_eid" />
+                <input type="hidden" name="cid" id="save_exam_w_score_cid" />
                 <div data-role="content" data-theme="b" style="margin-bottom:15px;">
-                    <input type="submit" value="Save Score" data-mini="true" data-theme="e"/>
+                    <input type="submit" value="Save Score" data-mini="true" id="save_exam_w_score_btn" data-theme="e"/>
                 </div>
                 <table id="teacher_course_exam_w-score-table" style="width: 100%;text-align: center;border-bottom:2px solid #ddd;">
                     <tr>
                         <td style="width: 20%;border-bottom: 2px solid #999;"><b>No.</b></td>
                         <td style="width: 60%;border-bottom: 2px solid #999;"><b>Student name</b></td>
                         <td style="width: 20%;border-bottom: 2px solid #999;"><b>Score</b></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Oppa</td>
-                        <td onclick="score_edit($(this))" style="cursor:pointer;">
-                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
-                            <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Yune</td>
-                        <td onclick="score_edit($(this))" style="cursor:pointer;">
-                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
-                            <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Jame</td>
-                        <td onclick="score_edit($(this))" style="cursor:pointer;">
-                            <div class="object1">25<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
-                            <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="25" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Grape</td>
-                        <td onclick="score_edit($(this))" style="cursor:pointer;">
-                            <div class="object1">30<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
-                            <div class="object2" style="display:none;">
-                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="30" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
-                            </div>
-                        </td>
                     </tr>
                 </table>
             </form>
