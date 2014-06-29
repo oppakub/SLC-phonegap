@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SLC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="../js/jquery.mobile-1.3.1.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="teacher_course_exam_w-score">
+    <div data-role="header" data-position="fixed">
+        <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1 id="header_title">Basic Computer</h1>
+        <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_w-score_head_1">Home</a></li>
+                <li><a href="teacher_course_question.html" data-transition="none" id="tea_cou_exam_w-score_head_2">Question</a></li>
+                <li><a href="teacher_course_ask.html" data-transition="none" id="tea_cou_exam_w-score_head_3">Ask</a></li>
+                <li><a href="teacher_course_student.html" data-transition="none" id="tea_cou_exam_w-score_head_4">Student</a></li>
+            </ul>
+        </div><!-- /navbar header -->
+    </div><!-- /header -->
+    <div data-role="content">
+        <div data-role="content">
+            <form action="#" method="post">
+                <div data-role="content" data-theme="b" style="margin-bottom:15px;">
+                    <input type="submit" value="Save Score" data-mini="true" data-theme="e"/>
+                </div>
+                <table id="teacher_course_exam_w-score-table" style="width: 100%;text-align: center;border-bottom:2px solid #ddd;">
+                    <tr>
+                        <td style="width: 20%;border-bottom: 2px solid #999;"><b>No.</b></td>
+                        <td style="width: 60%;border-bottom: 2px solid #999;"><b>Student name</b></td>
+                        <td style="width: 20%;border-bottom: 2px solid #999;"><b>Score</b></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Oppa</td>
+                        <td onclick="score_edit($(this))">
+                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
+                            <div class="object2" style="display:none;">
+                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Yune</td>
+                        <td onclick="score_edit($(this))">
+                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
+                            <div class="object2" style="display:none;">
+                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Jame</td>
+                        <td onclick="score_edit($(this))">
+                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
+                            <div class="object2" style="display:none;">
+                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Grape</td>
+                        <td onclick="score_edit($(this))">
+                            <div class="object1">20<img src="img/Editing-Edit-icon.png" style="width:12px;"></div>
+                            <div class="object2" style="display:none;">
+                                <input type="text" name="exam_w-score-1-input" id="exam_w-score-1-input" value="20" placeholder="Score" style="text-align:center;" onblur="score_blur($(this))"/>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <p style="color:#aaa;text-align:center;">กดที่คะแนนของนักเรียนแต่ละคนเพื่อแก้ไข</p>
+        </div>
+    </div><!-- /content -->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="teacher.html" data-transition="none" id="tea_cou_exam_w-score_foot_1">Teacher</a></li>
+                <li><a href="../main.html" data-transition="none" id="tea_cou_exam_w-score_foot_2">Home</a></li>
+                <li><a href="../student/student.html" data-transition="none" id="tea_cou_exam_w-score_foot_3">Student</a></li>
+            </ul>
+        </div><!-- /navbar footer -->
+    </div><!-- /footer -->
+    <script type="text/javascript" charset="utf-8">
+        //alert("You are Student!!");
+        if(window.innerWidth > 480){
+            var tablet_footer = ["<h3>Teacher</h3>","<h3>Home</h3>","<h3>Student</h3>"];
+            var tablet_header = ["<h3>Home</h3>","<h3>Question</h3>","<h3>Ask</h3>","<h3>Student</h3>"];
+            for(i=1;i<=3;i++){
+                $("#tea_cou_exam_w-score_foot_"+i).html(tablet_footer[i-1]);
+            }
+            for(i=1;i<=4;i++){
+                $("#tea_cou_exam_w-score_head_"+i).html(tablet_header[i-1]);
+            }
+        }
+        function score_edit(x){
+            x.find("div.object1").each(function(i,j){
+                $(this).css("display","none");
+            });
+            x.find("div.object2").each(function(i,j){
+                $(this).css("display","block");
+            });
+            x.find("input").focus();
+        }
+        function score_blur(x){
+            var edit_img = '<img src="img/Editing-Edit-icon.png" style="width:12px;">';
+            x.parent().parent(".object2").css("display","none");
+            x.parent().parent().parent().find(".object1").css("display","block");
+            x.parent().parent().parent().find(".object1").html(x.val()+edit_img);
+        }
+    </script>
+</div>
+</body>
+</html>
