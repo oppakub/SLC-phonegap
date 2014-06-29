@@ -170,4 +170,5 @@ function sendTeaAnswer(get_qid,mode) {
 				e.unbind();
 			});
 			getForm.submit();
+			
 }
