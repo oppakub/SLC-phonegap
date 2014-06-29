@@ -1,3 +1,7 @@
+var stu_lid = undefined;
+var stu_lname = undefined;
+var stu_ldes = undefined;
+
 //jQuery    
 $( document ).ready(function() {		
 	$(".header_title").html(stu_cname);	
@@ -13,7 +17,7 @@ $( document ).ready(function() {
 					if(data.status == "OK") {
 						var data_len = data.data.length;					
 						for(var i =0;i<data_len;i++) {
-								$("#stu_list_lesson").append('<li><a href="student_course_lesson_content.html" data-transition="none" name="'+data.data[i].lid+'">'+data.data[i].lname+' </a></li>'+"\n").trigger('create');     				
+								$("#stu_list_lesson").append('<li><a href="student_course_lesson_content.html" data-transition="none" name="'+data.data[i].lid+'" ldes="'+data.data[i].ldescription+'">'+data.data[i].lname+' </a></li>'+"\n").trigger('create');     				
 						}	
 										
 					} else {
@@ -27,4 +31,10 @@ $( document ).ready(function() {
 	} else {
 		toast('Please connect to the internet.');
 	}
+	
+	$(document).on("click", "#stu_list_lesson li a" ,function (event) {
+		stu_lid = $(this).attr("name");
+		stu_ldes = $(this).attr("ldes");
+		stu_lname = $(this).text();
+	}); 
 });

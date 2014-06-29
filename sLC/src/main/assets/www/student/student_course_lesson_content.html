@@ -1,7 +1,8 @@
-<div data-role="page" id="student_course_lesson">
+<div data-role="page" id="student_course_lesson_content">
+    <script type="text/javascript" charset="utf-8" src="../js/student/script_stu_show_lesson_content.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="student_course_lesson.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-        <h1>Course</h1>
+        <a href="student_course_lesson.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1 class="header_title">Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -14,13 +15,13 @@
     </div><!-- /header -->
     <div data-role="content">
         <div data-role="content" data-theme="b">
-            <h1 id="s_lesson_header">Lesson 1</h1>
+            <h1 id="s_lesson_header">Lesson</h1>
         </div>
         <div data-role="collapsible" data-collapsed="false" data-content-theme="b" id="std_cou_coll-LessDes">
             <h3>Lesson description</h3>
             <div id="std_cou_less_des-box">
                 <p style="text-indent:20px;" id="std_less_des-text">
-                    คาบนี้จะอธิบายเกี่ยวกับสิ่งที่จะได้เรียนในวิชานี้
+
                 </p>
             </div>
         </div>
@@ -28,42 +29,16 @@
             <div data-role="collapsible" data-theme="a" id="std_cou_less_coll-sheet">
                 <h3>Sheet</h3>
                 <ul data-role="listview" id="std_cou_less_list-sheet">
-
-                    <li>
-                        <a href="#" data-transition="none">
-                            <img src="img/album-bb.jpg">
-                            <h3>Slide chapter 1</h3>
-                            <p>Teacher A.</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#" data-transition="none">
-                            <img src="img/album-hc.jpg">
-                            <h3>Sheet reference chapter 1</h3>
-                            <p>Writing by B. professor</p>
-                        </a>
-                    </li>
-
                 </ul>
             </div><!--Sheet-->
             <div data-role="collapsible" data-theme="a" id="std_cou_less_coll-homework">
                 <h3>Homework</h3>
                 <ul data-role="listview" id="std_cou_less_list-homework">
-                    <li>
-                        <a href="student_course_lesson_content_hw.html"  data-transition="none">Homework 1</a>
-                    </li><!--Do repeat for any homework-->
-                    <li>
-                        <a href="#">Homework 3</a>
-                    </li>
                 </ul>
             </div><!--Homework-->
             <div data-role="collapsible" data-theme="a" id="tea_cou_less_coll-exam">
                 <h3>Examination</h3>
                 <ul data-role="listview" id="std_cou_less_list-exam">
-                    <li>
-                        <a href="student_course_lesson_content_exam.html"  data-transition="none">Examination 1</a>
-                    </li><!--Only have 1 exam-->
                 </ul>
             </div><!--Examination-->
             <div data-role="collapsible" data-theme="a" id="tea_cou_less_coll-score">
