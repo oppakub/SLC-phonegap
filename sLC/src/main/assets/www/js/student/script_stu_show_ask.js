@@ -27,4 +27,10 @@ $( document ).ready(function() {
 	} else {
 		toast('Please connect to the internet.');
 	}
+	
+	$(document).on("click", "#stu_list_ask li a" ,function (event) {
+		stu_lid = $(this).attr("name");
+		stu_lname = $(this).text();
+		//alert(send_eid);
+	}); 
 });

@@ -8,6 +8,9 @@ var tea_uid = new Array();
 var stu_cid = undefined;
 var stu_cname = undefined;
 
+var stu_lid = undefined;
+var stu_lname = undefined;
+
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
     
