@@ -24,9 +24,10 @@
 </head>
 <body>
 <div data-role="page" id="student_course_lesson_hw">
+    <script type="text/javascript" charset="utf-8" src="../js/student/script_stu_show_lesson_content_hw.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="student_course_lesson_content.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-        <h1>Course</h1>
+        <a href="student_course_lesson_content.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1 class="header_title">Course</h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -100,7 +101,7 @@
             </div>
 
             <div data-role="content" data-theme="b" style="margin-top:15px;">
-                <input type="submit" value="ส่งการบ้าน" />
+                <input type="button" value="ส่งการบ้าน" id="stu_btn_submit_hw"/>
             </div>
         </form>
 

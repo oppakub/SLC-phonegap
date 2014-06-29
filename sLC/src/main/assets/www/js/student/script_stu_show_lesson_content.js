@@ -37,9 +37,9 @@ function showStuLessonSheetList() {
 					async: false,
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {
-						var data_len = data.data.length;					
+						var data_len = data.data.length;	
+						$("#std_cou_less_list-sheet").empty();				
 						for(var i =0;i<data_len;i++) {
-								$("#std_cou_less_list-sheet").empty();
 								$("#std_cou_less_list-sheet").append('<li><a href="#" onclick="window.open(\''+data.data[i].slink+'\', \'_system\');" data-transition="none" name="'+data.data[i].sid+'">'+data.data[i].sname+'</a></li>'+"\n").trigger('create');   				
 						}	
 										
@@ -63,9 +63,9 @@ function showStuLessonHwList() {
 					async: false,
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {
-						var data_len = data.data.length;					
+						var data_len = data.data.length;		
+						$("#std_cou_less_list-homework").empty();			
 						for(var i =0;i<data_len;i++) {
-								$("#std_cou_less_list-homework").empty();
 								$("#std_cou_less_list-homework").append('<li><a href="student_course_lesson_content_hw.html" data-transition="none" name="'+data.data[i].hid+'">'+data.data[i].hname+'</a></li>'+"\n").trigger('create');   				
 						}	
 										
@@ -89,9 +89,9 @@ function showStuLessonExamList() {
 					async: false,
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {
-						var data_len = data.data.length;					
+						var data_len = data.data.length;	
+						$("#std_cou_less_list-exam").empty();				
 						for(var i =0;i<data_len;i++) {
-								$("#std_cou_less_list-exam").empty();
 								$("#std_cou_less_list-exam").append('<li><a href="student_course_lesson_content_exam.html" data-transition="none" name="'+data.data[i].eid+'">'+data.data[i].ename+'</a></li>'+"\n").trigger('create');   				
 						}	
 										
