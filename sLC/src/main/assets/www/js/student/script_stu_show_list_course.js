@@ -17,6 +17,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 // Cordova is ready
 function onDeviceReady() {           
 		var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
+		var chk_connect = checkConnection();
+		if(chk_connect != "no") {
+			//alert('clear');
+			db.transaction(clearDB, errorCB);		
+		}
 		db.transaction(queryUserDB, errorCB);
 }
 

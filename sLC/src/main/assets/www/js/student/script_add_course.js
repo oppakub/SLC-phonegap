@@ -86,7 +86,7 @@ function errorCB(err) {
 
 // Populate the database
 function populateDB(tx) {    
-    tx.executeSql('INSERT INTO '+course_db+' (cid , cname , cdescription, ccode , stu_uid, tea_uid) VALUES ("'+cid+'", "'+cname+'", "'+cdescription+'", "'+ccode+'", "'+stu_uid+'" , "'+tea_uid+'")');
+    //tx.executeSql('INSERT INTO '+course_db+' (cid , cname , cdescription, ccode , stu_uid, tea_uid) VALUES ("'+cid+'", "'+cname+'", "'+cdescription+'", "'+ccode+'", "'+stu_uid+'" , "'+tea_uid+'")');
 }
 
 function successCB() {
@@ -94,8 +94,9 @@ function successCB() {
    // db.transaction(queryDB, errorCB);
    //alert("eiei");
     //alert('Joined this course');
-	$(location).attr('href','student.html');
-	//$.mobile.changePage('student.html', { transition: "none", changeHash: false });
+	//$(location).attr('href','student.html');
+	toast('Please wait for approving');
+	$.mobile.changePage('student.html', { transition: "none", changeHash: false });
 }
 
 // Query the success callback
