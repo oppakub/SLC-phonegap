@@ -13,6 +13,7 @@ $( document ).ready(function() {
 		showStuLessonSheetList();
 		showStuLessonHwList();
 		showStuLessonExamList();
+		showStuLessonScore();
 	} else {
 		toast('Please connect to the internet.');
 	}
@@ -27,6 +28,58 @@ $( document ).ready(function() {
 			stu_ename = $(this).text();
 	});
 });
+
+function showStuLessonScore() {
+	//Hw Score
+	$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_stu_course_lesson_score_hw.php",
+					type: 'POST',
+					data:  "lid="+stu_lid+"&uid="+stu_uid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						var data_len = data.data.length;	
+									
+						for(var i =0;i<data_len;i++) {
+							$("#tea_cou_less_coll-score").append('<p>'+data.data[i].hname+' : choice : '+data.data[i].hmc_cscore+' , writing : '+data.data[i].hmc_wscore+'</p>');				
+						}	
+										
+					} else {
+					
+						//toast(data.message);					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+		
+	//Exam Score
+	$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_stu_course_lesson_score_exam.php",
+					type: 'POST',
+					data:  "lid="+stu_lid+"&uid="+stu_uid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						var data_len = data.data.length;	
+									
+						for(var i =0;i<data_len;i++) {
+							$("#tea_cou_less_coll-score").append('<p>'+data.data[i].ename+' : choice : '+data.data[i].exc_cscore+' , writing : '+data.data[i].exc_wscore+'</p>');				
+						}	
+										
+					} else {
+					
+						//toast(data.message);					
+					}								
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+}
 
 function showStuLessonSheetList() {
 	$.ajax({
