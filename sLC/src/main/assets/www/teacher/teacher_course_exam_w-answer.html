@@ -13,10 +13,11 @@
 </head>
 <body>
 <div data-role="page" id="teacher_course_exam_w-answer">
+    <script type="text/javascript" charset="utf-8" src="../js/teacher/script_tea_exam_w_answer.js"></script>
     <div data-role="header" data-position="fixed">
         <a href="teacher_course_exam.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
-        <h1 id="header_title">Basic Computer</h1>
-        <a href="#" data-role="button" data-theme="a" data-transition="none" onclick="$('#examID_w-score').submit();">Save Score</a>
+        <h1 class="header_title"></h1>
+
         <div data-role="navbar">
             <ul>
                 <li><a href="teacher_course.html" data-transition="none" class="ui-btn-active ui-state-persist" id="tea_cou_exam_w-answer_head_1">Home</a></li>
@@ -28,81 +29,21 @@
     </div><!-- /header -->
     <div data-role="content">
         <div data-role="content">
-            <form action="#" method="post" id="examID_w-score" data-transition="none">
-                <div data-role="collapsible-set">
+
+                <div data-role="collapsible-set" id="exam_w_score_set">
                     <div data-role="header" data-theme="l">
-                        <p style="margin-left:15px;">Student name</p>
+                        <p style="margin-left:15px;">Student who sent exam</p>
                     </div>
 
-                    <div data-role="collapsible" data-content-theme="b" id="stdID-1_examID">
-                        <h3 id="stdID-1_examID-name">Yune</h3><!--Student name-->
+                    
 
-                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-1">
-                            <p>1.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-1_examID_w-answer-1-checkbox" id="stdID-1_examID_w-answer-1-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-1_examID_w-answer-1-checkbox">My name is yune</label><!--Answer-->
-                        </div><!--Repeat this for any question of this student user-->
 
-                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-2">
-                            <p>2.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-1_examID_w-answer-2-checkbox" id="stdID-1_examID_w-answer-2-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-1_examID_w-answer-2-checkbox">My name is yune</label><!--Answer-->
-                        </div>
 
-                        <div data-role="content" class="w_answer" id="stdID-1_examID_w-answer-3">
-                            <p>3.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-1_examID_w-answer-3-checkbox" id="stdID-1_examID_w-answer-3-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-1_examID_w-answer-3-checkbox">My name is yune</label><!--Answer-->
-                        </div>
-                        <div class="ui-grid-a" id="stdID-1_examID_w-score">
-                            <div data-role="content" class="ui-block-a" data-theme="b" style="width:40%;">
-                                <h3 style="text-align:center;">Score</h3>
-                            </div>
-                            <div data-role="content" class="ui-block-b" data-theme="d" style="width:60%;">
-                                <h3 style="text-align:center;" id="stdID-1_examID_w-score-h3">0</h3>
-                                <input type="hidden" name="stdID-1_examID_w-score-input" id="stdID-1_examID_w-score-input" value="0"/>
-                            </div>
-                        </div>
 
-                    </div><!--Repeat this for any student user in course-->
-
-                    <div data-role="collapsible" data-content-theme="b" id="stdID-2_examID">
-                        <h3 id="stdID-2_examID-name">Oppa</h3><!--Student name-->
-
-                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-1">
-                            <p>1.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-2_examID_w-answer-1-checkbox" id="stdID-2_examID_w-answer-1-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-2_examID_w-answer-1-checkbox">My name is Oppa</label><!--Answer-->
-                        </div><!--Repeat this for any question of this student user-->
-
-                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-2">
-                            <p>2.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-2_examID_w-answer-2-checkbox" id="stdID-2_examID_w-answer-2-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-2_examID_w-answer-2-checkbox">My name is Oppa</label><!--Answer-->
-                        </div>
-
-                        <div data-role="content" class="w_answer" id="stdID-2_examID_w-answer-3">
-                            <p>3.What is your name?</p><!--Question-->
-                            <input type="checkbox" name="stdID-2_examID_w-answer-3-checkbox" id="stdID-2_examID_w-answer-3-checkbox" class="custom" data-theme="d" onchange="score_check($(this))"/>
-                            <label for="stdID-2_examID_w-answer-3-checkbox">My name is Oppa</label><!--Answer-->
-                        </div>
-                        <div class="ui-grid-a" id="stdID-2_examID_w-score">
-                            <div data-role="content" class="ui-block-a" data-theme="b" style="width:40%;">
-                                <h3 style="text-align:center;">Score</h3>
-                            </div>
-                            <div data-role="content" class="ui-block-b" data-theme="d" style="width:60%;">
-                                <h3 style="text-align:center;" id="stdID-2_examID_w-score-h3">0</h3>
-                                <input type="hidden" name="stdID-2_examID_w-score-input" id="stdID-2_examID_w-score-input" value="0"/>
-                            </div>
-                        </div>
-
-                    </div><!--Repeat this for any student user in course-->
 
                 </div>
-                <div data-role="content" data-theme="b" style="margin-bottom:15px;">
-                    <input type="submit" value="Save Score" data-mini="true" data-theme="e"/>
-                </div>
-            </form>
+
+
         </div>
     </div><!-- /content -->
     <div data-role="footer" data-position="fixed">

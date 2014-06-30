@@ -81,7 +81,7 @@ function gradeWriteHw() {
 		$.ajax({
 					url: "http://service.oppakub.me/SLC/stu_send_hw_write.php",
 					type: 'POST',
-					data:  "ans="+tmp_ans+"&qNo="+tmp_qNo,
+					data:  "ans="+tmp_ans+"&qNo="+tmp_qNo+"&uid="+stu_uid,
 					dataType : "json",
 					async: false,
 					success: function(data, textStatus, jqXHR){
