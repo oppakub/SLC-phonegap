@@ -3,6 +3,10 @@ $( document ).ready(function() {
 	$(".header_title").html(stu_cname);	
 	showQuestion();
 	
+	$("#stu_question_refresh").click(function() {
+		toast("refreshing...");
+		showQuestion();
+	});
 	
 	
 });
