@@ -41,13 +41,16 @@
     <script type="text/javascript" charset="utf-8" src="js/script_global_var.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/script_global_fn.js"></script>
     <script type="text/javascript" charset="utf-8" src="js/script_main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/script_profile.js"></script>
     <div data-role="panel" id="main_panel">
         <!-- panel content goes here -->
         <fieldset class="ui-grid-a">
-            <div class="ui-block-a" style="width:35%;"><img src="img/icon-user-default.png" class="img-radius img-shadow" style="width:100%;"><center><a>Edit</a></center></div>
+            <div class="ui-block-a" style="width:35%;"><img id="main_avatar" src="img/icon-user-default.png" class="img-radius img-shadow" style="width:100%;"></div>
             <div class="ui-block-b" style="width:65%;padding-left:10px;">
-                <p>Username</p>
-                <p>Name</p>
+                <p id="main_username">Username</p>
+                <p id="main_name">Name</p>
+                <p id="main_email">Email</p>
+                <p id="main_phone"></p>
             </div>
         </fieldset>
     </div>

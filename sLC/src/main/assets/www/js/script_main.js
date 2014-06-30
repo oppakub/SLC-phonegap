@@ -1,7 +1,7 @@
 $( document ).ready(function() {	
 	$("#logout").click(function() {
-		alert('Logout successful.');
 		clearData();
+		alert('Logout successful.');
 		$(location).attr('href','auth.html');
 	});
 });

@@ -5,6 +5,7 @@ var firstname = undefined;
 var lastname = undefined;
 var email = undefined;
 var phone = undefined;
+var avatar = undefined;
 
 // Wait for Cordova to load
 document.addEventListener("deviceready", onDeviceReady, false);
@@ -20,8 +21,8 @@ function onDeviceReady() {
 // Populate the database
 function populateDB(tx) {
 	tx.executeSql('DROP TABLE IF EXISTS '+user_db+'');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS '+user_db+' (uid unique, username unique, firstname, lastname, email, phone , session)');
-    tx.executeSql('INSERT INTO '+user_db+' (uid, username, firstname, lastname, email, phone , session) VALUES ("'+uid+'", "'+username+'", "'+firstname+'", "'+lastname+'", "'+email+'", "'+phone+'", "'+session+'")');    
+    tx.executeSql('CREATE TABLE IF NOT EXISTS '+user_db+' (uid unique, username unique, firstname, lastname, email, phone , avatar , session)');
+    tx.executeSql('INSERT INTO '+user_db+' (uid, username, firstname, lastname, email, phone , avatar , session) VALUES ("'+uid+'", "'+username+'", "'+firstname+'", "'+lastname+'", "'+email+'", "'+phone+'",  "'+avatar+'",  "'+session+'")');    
 }
 
 //ErrorCB
@@ -108,6 +109,7 @@ $( document ).ready(function() {
 							lastname = data.data.lastname;
 							email = data.data.email;
 							phone = data.data.phone;
+							avatar = data.data.avatar;
 							var db = window.openDatabase(database_name,database_version, database_displayname, database_size);
         					db.transaction(populateDB, errorCB);		
         					alert("welcome "+username);
