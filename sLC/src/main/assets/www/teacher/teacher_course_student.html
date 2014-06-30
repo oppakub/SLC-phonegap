@@ -77,7 +77,7 @@
                         $(this).removeClass("ui-icon-info");
                     } );
                     x.find("span.status").each(function(i,v){
-                        $(this).text("(Allow)");
+                        $(this).text("Joined");
                     } );
                 }else if(x.attr("data-theme")=="g"){
 					statusMember(y.id,"B");
@@ -95,7 +95,7 @@
                         $(this).removeClass("ui-icon-check");
                     } );
                     x.find("span.status").each(function(i,v){
-                        $(this).text("(Deny)");
+                        $(this).text("Blocked");
                     } );
                 }else if(x.attr("data-theme")=="k"){
 					statusMember(y.id,"Y");
@@ -113,7 +113,7 @@
                         $(this).removeClass("ui-icon-minus");
                     } );
                     x.find("span.status").each(function(i,v){
-                        $(this).text("(Allow)");
+                        $(this).text("Joined");
                     } );
                 }
             }

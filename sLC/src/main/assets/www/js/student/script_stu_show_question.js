@@ -113,7 +113,7 @@ function showQuestion() {
 							}	
 										
 						} else {
-							//toast(data.message);					
+							toast(data.message);					
 						}								
 					}, //end success
 						error: function(jqXHR, textStatus, errorThrown) {
