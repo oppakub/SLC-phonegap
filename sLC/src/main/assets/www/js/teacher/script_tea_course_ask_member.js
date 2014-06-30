@@ -48,7 +48,7 @@ function sendQuestion(x){
          	async: false,
          	success: function(data, textStatus, jqXHR){
                  if(data.status == "OK") {
-                    alert(data.message);
+                    toast(data.message);
                  } else {
                      toast(data.message);
                  }
