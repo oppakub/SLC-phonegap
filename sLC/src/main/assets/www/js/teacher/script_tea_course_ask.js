@@ -37,7 +37,7 @@ function addNewQuestion(){
          	async: false,
          	success: function(data, textStatus, jqXHR){
                  if(data.status == "OK") {
-                     $("#askID_question_ul").prepend('<li id="askQuestion_'+send_courseid+'_'+data.data[i].qNo+'"><a href="#" id="askQuestion2_'+send_courseid+'_'+data.data[i].qNo+'" onclick="question_select($(this),this.id)">'+data.data.question+'</a><a href="#" data-theme="k" onclick="deleteQuestion(this.id)" id="askQuestion_del_'+data.data[i].qNo+'">Del</a></li>').listview('refresh');
+                     $("#askID_question_ul").prepend('<li id="askQuestion_'+send_courseid+'_'+data.data.qNo+'"><a href="#" id="askQuestion2_'+send_courseid+'_'+data.data.qNo+'" onclick="question_select($(this),this.id)">'+data.data.question+'</a><a href="#" data-theme="k" onclick="deleteQuestion(this.id)" id="askQuestion_del_'+data.data.qNo+'">Del</a></li>').listview('refresh');
                      document.getElementById("askID_question_quick_input").value = "";
                  } else {
                      toast(data.message);
