@@ -24,9 +24,10 @@
 </head>
 <body>
 <div data-role="page" id="student_course_question">
+<script type="text/javascript" charset="utf-8" src="../js/student/script_stu_show_question.js"></script>
     <div data-role="header" data-position="fixed">
-        <a href="student.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">back</a>
-        <h1>Course</h1>
+        <a href="student.html" data-role="button" data-theme="a" data-icon="arrow-l" data-transition="none">Back</a>
+        <h1 class="header_title"></h1>
         <!--<a href="teacher_edit.html" data-role="button" data-theme="a" data-icon="edit" data-transition="none" data-iconpos="right">Edit</a>-->
         <div data-role="navbar">
             <ul>
@@ -37,145 +38,14 @@
             </ul>
         </div><!-- /navbar header -->
     </div><!-- /header -->
-    <div data-role="content">
-        <div data-role="header">
-            <h3>Lesson 1</h3>
-        </div>
-        <div data-role="content">
-            <p style="color:#777;text-align:right;">16 June 2012</p>
-            <hr>
-            <div class="ui-grid-a q-block-1" style="margin:15px 0px 15px 0px;" id="s-cID-lID_q-questionID-1"><!--Replace questionID-1-->
-                <div class="ui-block-a" style="width:20%;">
-                    <img src="../img/icon-user-default.png" class="img-shadow img-radius" style="width:100%;"><!--Replace src"..."-->
-                    <p class="q-name">ครู</p><!--Replace student name-->
-                </div>
-                <div class="ui-block-b"  style="width:80%;padding:10px 0px 0px 15px;">
-                    <div style="text-align:left;">
-                        <div class="q-question">
-                            <p class="no-p">คอมพิวเตอร์คำนวณโดยใช้เลขฐานใด?</p><!--Replace student question-->
-                        </div>
-                        <p class="q-time">10.30 AM</p><!--Replace time is ask by student-->
-                    </div>
-                    <div style="text-align:right;" id="s-questionID-1"><!--Replace id so have 2 part is questionID and 1(number of question)-->
-                        <form action="#" method="post" id="s-questionID-1-form"><!--Replace questionID-1-->
-                            <div class="q-answer" id="s-questionID-1-div1-1" onclick="answer_edit('questionID',1)"><!--For function answer_edit(x); x is answer number-->
-                                ฐาน 2 ครับ<!--Replace question of teacher-->
-                                <img src="img/Editing-Edit-icon.png" width="10" style="display:inline;"/><!--Replace src="..."-->
-                            </div><!--Display answer before push is normal text-->
+    <div data-role="content" >
+        <div data-role="content" id="stu_show_question">
 
-                            <div class="q-answer" id="s-questionID-1-div1-2" style="display:none;"><!--Replace questionID-1-->
-                                <input type="text" data-clear-btn="true" name="s-questionID-1-input" id="s-questionID-1-input" value="ฐาน 2 ครับ" placeholder="Answer" /><!--Replace questionID-1 and value-->
-                            </div><!--Display answer in input tag after push-->
+            
 
-                            <div id="s-questionID-1-div2-1"><!--Replace questionID-1-->
-                                <p class="q-time" style="display:inline-block;">10.31 AM</p><!--Replace time is answer by teacher-->
-                            </div><!--Display time only before push-->
 
-                            <div id="s-questionID-1-div2-2" style="display:none;"><!--Replace questionID-1-->
-                                <p class="q-time" style="display:inline-block;margin-right:5px;">10.31 AM</p><!--Replace time is answer by teacher-->
-                                <div class="q-edit" onclick="$('#s-questionID-1-form').submit();">OK</div><!--Replace questionID-1-->
-                                <div class="q-edit" onclick="answer_cancel('questionID',1)">Cancel</div><!--Replace questionID and number(1)-->
-                            </div><!--Display time and OK button after push-->
-                        </form>
-                    </div>
-                </div>
-            </div><!--Question is answered--><!--Repeat this for question is answered-->
 
-            <div class="ui-grid-a rType-question" id="s-cID-lID_r-questionID-1"><!--Replace questionID-1-->
-                <div class="ui-block-a" style="width:80%;">
-                    <div class="ui-grid-a r-box">
-                        <div class="ui-block-a" style="width:20%;padding: 2px;">
-                            <img src="../img/icon-user-default.png" class="img-radius r-img"><!--Replace src="..."-->
-                        </div><!--Image of student user-->
-                        <div class="ui-block-b" style="width:80%;padding:2px;">
-                            <p class="no-p r-name">ครู <span class="q-time">10.35 AM</span></p><!--Replace name and time-->
-                            <p class="r-question">DDR คืออะไร?</p><!--Replace question-->
-                        </div><!--Name of student, ask time and question from student-->
-                    </div>
-                    <div class="rType-form" style="display:none;">
-                        <form action="#" method="post" id="s-cID-lID_r-questionID-1-form">
-                            <input type="text" data-clear-btn="true" name="s-cID-lID_r-questionID-1-input" id="s-cID-lID_r-questionID-1-input" value="" placeholder="Answer" onblur="answer_blur('questionID',1)"/>
-                        </form><!--Replace questionID-1 both id of form and input-->
-                    </div><!--Form for type answer you must define right "id" and define right attribute of answer_blur() function is "questionID" and number of question in list-->
-                </div>
-                <div class="ui-block-b rType-b-1" style="width:20%;cursor:pointer;" onclick="answer_reply('questionID',1)">
-                    <p class="r-reply">Reply</p>
-                </div><!--Reply button for show input tag for answer question and show ok button for submit form answer-->
-                <div class="ui-block-b rType-b-2" style="width:20%;cursor:pointer;display:none;" onclick="$('#s-cID-lID_r-questionID-1-form').submit();">
-                    <p class="r-reply">OK</p>
-                </div><!--OK button for submit answer form -->
-            </div><!--Question is not answered--><!--Repeat this for question is not answered-->
 
-        </div>
-
-        <div data-role="header">
-            <h3>Lesson 3</h3>
-        </div>
-        <div data-role="content">
-            <p style="color:#777;text-align:right;">23 June 2012</p>
-            <hr>
-
-            <div class="ui-grid-a rType-question" id="s-cID-lID_r-questionID-2"><!--Replace questionID-2-->
-                <div class="ui-block-a" style="width:80%;">
-                    <div class="ui-grid-a r-box">
-                        <div class="ui-block-a" style="width:20%;padding: 2px;">
-                            <img src="../img/icon-user-default.png" class="img-radius r-img"><!--Replace src="..."-->
-                        </div><!--Image of student user-->
-                        <div class="ui-block-b" style="width:80%;padding:2px;">
-                            <p class="no-p r-name">ครู <span class="q-time">10.36 AM</span></p><!--Replace name and time-->
-                            <p class="r-question">จงยกตัวอย่างของอุปกรณ์?</p><!--Replace question-->
-                        </div><!--Name of student, ask time and question from student-->
-                    </div>
-                    <div class="rType-form" style="display:none;">
-                        <form action="#" method="post" id="s-cID-lID_r-questionID-2-form">
-                            <input type="text" data-clear-btn="true" name="s-cID-lID_r-questionID-2-input" id="s-cID-lID_r-questionID-2-input" value="" placeholder="Answer" onblur="answer_blur('questionID',2)"/>
-                        </form><!--Replace questionID-2 both id of form and input-->
-                    </div><!--Form for type answer you must define right "id" and define right attribute of answer_blur() function is "questionID" and number of question in list-->
-                </div>
-                <div class="ui-block-b rType-b-1" style="width:20%;cursor:pointer;" onclick="answer_reply('questionID',2)"><!--Replace attribute 'questionID' and 'number'-->
-                    <p class="r-reply">Reply</p>
-                </div><!--Reply button for show input tag for answer question and show ok button for submit form answer-->
-                <div class="ui-block-b rType-b-2" style="width:20%;cursor:pointer;display:none;" onclick="$('#s-cID-lID_r-questionID-2-form').submit();"><!--Replace 'questionID-2'-->
-                    <p class="r-reply">OK</p>
-                </div><!--OK button for submit answer form -->
-            </div><!--Question is not answered--><!--Repeat this for question is not answered-->
-
-            <div class="ui-grid-a q-block-1" style="margin:15px 0px 15px 0px;" id="s-cID-lID_q-questionID-2"><!--Replace questionID-2-->
-                <div class="ui-block-a" style="width:20%;">
-                    <img src="../img/icon-user-default.png" class="img-shadow img-radius" style="width:100%;"><!--Replace src"..."-->
-                    <p class="q-name">ครู</p><!--Replace student name-->
-                </div>
-                <div class="ui-block-b"  style="width:80%;padding:10px 0px 0px 15px;">
-                    <div style="text-align:left;">
-                        <div class="q-question">
-                            <p class="no-p">ก่อนที่จะมี PCI-Express เราใช้อะไร?</p><!--Replace student question-->
-                        </div>
-                        <p class="q-time">11.30 AM</p><!--Replace time is ask by student-->
-                    </div>
-                    <div style="text-align:right;" id="s-questionID-2"><!--Replace id so have 2 part is questionID and 2(number of question)-->
-                        <form action="#" method="post" id="s-questionID-2-form"><!--Replace questionID-2-->
-                            <div class="q-answer" id="s-questionID-2-div1-1" onclick="answer_edit('questionID',2)"><!--For function answer_edit(x,y);x is question id, y is answer number-->
-                                VGA Slot ครับ<!--Replace question of teacher-->
-                                <img src="img/Editing-Edit-icon.png" width="10" style="display:inline;"/><!--Replace src="..."-->
-                            </div><!--Display answer before push is normal text-->
-
-                            <div class="q-answer" id="s-questionID-2-div1-2" style="display:none;"><!--Replace questionID-2-->
-                                <input type="text" data-clear-btn="true" name="s-questionID-2-input" id="s-questionID-2-input" value="VGA Slot ครับ" placeholder="Answer" /><!--Replace questionID-1 and value-->
-                            </div><!--Display answer in input tag after push-->
-
-                            <div id="s-questionID-2-div2-1"><!--Replace questionID-2-->
-                                <p class="q-time" style="display:inline-block;">11.31 AM</p><!--Replace time is answer by teacher-->
-                            </div><!--Display time only before push-->
-
-                            <div id="s-questionID-2-div2-2" style="display:none;"><!--Replace questionID-2-->
-                                <p class="q-time" style="display:inline-block;margin-right:5px;">11.31 AM</p><!--Replace time is answer by teacher-->
-                                <div class="q-edit" onclick="$('#s-questionID-2-form').submit();">OK</div><!--Replace questionID-2-->
-                                <div class="q-edit" onclick="answer_cancel('questionID',2)">Cancel</div><!--Replace questionID and number(2)-->
-                            </div><!--Display time and OK button after push-->
-                        </form>
-                    </div>
-                </div>
-            </div><!--Question is answered--><!--Repeat this for question is answered-->
         </div>
         <script type="text/javascript" charset="utf-8">
             if(window.innerWidth > 480){
