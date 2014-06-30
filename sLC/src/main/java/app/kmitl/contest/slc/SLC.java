@@ -31,7 +31,7 @@ public class SLC extends CordovaActivity
         super.init();
         // Set by <content src="index.html" /> in config.xml
         super.setIntegerProperty("splashscreen", R.drawable.demo_welcome);
-        super.loadUrl(Config.getStartUrl(),500);
+        super.loadUrl(Config.getStartUrl(),2000);
         //super.loadUrl("file:///android_asset/www/index.html");
     }
 }
