@@ -1,2 +1,3 @@
+include ':facebookLib'
 include ':sLCCordovaLib'
 include ':sLC'
