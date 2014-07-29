@@ -2,46 +2,40 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-d76baf6ff644aed30d5703c109a8424b51784902.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/SLC/sLCCordovaLib/unspecified/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="b997700ce08a3850a328fd0faf0751439e7b20fd"/>
-    <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-bca9cd8c8082330ef7549e0398af852faae531fd.jar"
-        jar="/Applications/Android Studio.app/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
-    <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-88c06750c65c26fd3f38b86ddcae5f722e3f664d.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
-    <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-c171990d833d85b87475fa4f378344f6c9d4b1d2.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\classes-d1171ad07f0fbb41f667000ba592c731b7179108.jar"
+        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
     <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-9d1c4115b79f99f36d6b5ed8c10177214a9df6ec.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\classes-fc545d9ddcae263b1a52cb37d82c32b30464efef.jar"
+        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\classes-4b26ae5d060f154b4ec726c36540fcda70444081.jar"
+        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\SLC-phonegap\facebookLib\unspecified\classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="075d2f8c229882e157ed4eb19f998eb2c9827d7b"/>
+    <item
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\bolts-e01563a2fa9a3a044066604af720543a6150fd4d.jar"
+        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\SLC-phonegap\facebookLib\unspecified\libs\bolts.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="1e5ba33c837d05dcca9dc40a0ab458f8599d7aef"/>
+    <item
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-e88651e1c3507c02734a24ff01f1a621b5e8d89b.jar"
+        jar="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
     <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/classes-b3af061c9ba75f431496f0cb8a11aefaa07b9d59.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/SLC/facebookLib/unspecified/classes.jar"
+        dex="C:\Users\bankultimate\AndroidStudioProjects\SLC-phonegap\sLC\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-2612d8b29a14a7c596d73dbe457ace9d5a3d99be.jar"
+        jar="C:\Users\bankultimate\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="e9d3b44c28055ba6e77a56e4919f028548ff8268"/>
-    <item
-        dex="/Users/oppakub/Developer/AndroidStudio/SLC/sLC/build/intermediates/pre-dexed/debug/bolts-41b3d5d99ceba8be6e02f8e9e67851e0174cbaf6.jar"
-        jar="/Users/oppakub/Developer/AndroidStudio/SLC/build/intermediates/exploded-aar/SLC/facebookLib/unspecified/libs/bolts.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1e5ba33c837d05dcca9dc40a0ab458f8599d7aef"/>
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
 
 </pre-dex-items>
