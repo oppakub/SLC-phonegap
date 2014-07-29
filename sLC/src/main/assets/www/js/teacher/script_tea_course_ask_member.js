@@ -40,6 +40,7 @@
 function sendQuestion(x){
     var sendQUid = x.substr(x.lastIndexOf('_')+1);
     var quesNum = ($("#askID_question_input").attr('name')).substr(($("#askID_question_input").attr('name')).lastIndexOf('_')+1);
+    if(quesNum != "input"){
          $.ajax({
          	url: "http://service.oppakub.me/SLC/send_ask_in_course.php",
          	type: 'POST',
@@ -57,6 +58,9 @@ function sendQuestion(x){
          		alert(jqXHR.responseText);
          	} //end error
          });
+     } else {
+        toast("Please choose your question before");
+     }
 }
 
 function broadcastQuestion(){

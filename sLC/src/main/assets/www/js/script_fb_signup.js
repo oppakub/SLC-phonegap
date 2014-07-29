@@ -3,11 +3,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
 function onDeviceReady() {
-	if (!window.cordova) {
-		facebookConnectPlugin.browserInit(522533731207943);
-	}
+	//if (!window.cordova) {
+	//	facebookConnectPlugin.browserInit(522533731207943);
+	//}
 
-	facebookConnectPlugin.logout(function (success) {}, function (error) {});
+	//facebookConnectPlugin.logout(function (success) {}, function (error) {});
 
 	var fbLoginSuccess = function (userData) {
 		//alert("UserInfo: " + JSON.stringify(userData));
@@ -25,12 +25,12 @@ function onDeviceReady() {
 		fbError
 	);
 	
-	var fbGraphSuccess = function (data) {
+	var fbGraphSuccess = function (fbdata) {
 		//alert("data: " + JSON.stringify(data));
-		var user_id = data.id;
-		var user_fname = data.first_name;
-		var user_lname = data.last_name;
-		var user_email = data.email;
+		var user_id = fbdata.id;
+		var user_fname = fbdata.first_name;
+		var user_lname = fbdata.last_name;
+		var user_email = fbdata.email;
 		var user_name = user_fname+user_lname;
 		
 		//check existing user
@@ -43,6 +43,7 @@ function onDeviceReady() {
 					success: function(data, textStatus, jqXHR){
 					if(data.status == "OK") {							
 						//$("#sign_username").val(user_name.toLowerCase());
+						//alert(user_fname);
 						$("#sign_firstname").val(user_fname);
 						$("#sign_lastname").val(user_lname);
 						$("#sign_email").val(user_email);
@@ -101,6 +102,7 @@ var $this = $( "#before_check_fb"),
 						} else {
 							//alert(data.message);
 							toast(data.message);
+							//$(location).attr('href','auth.html');
 						}
 						//$.mobile.changePage('#show_dialog', "{transition: 'pop', role: 'dialog'}");										
 					}, //end success

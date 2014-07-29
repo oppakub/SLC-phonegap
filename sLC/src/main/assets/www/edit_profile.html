@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/toast.js"></script>
+
+
+</head>
+
+<body>
+
+<div data-role="page" id="edit_profile">
+
+    <div data-role="header" data-position="fixed">
+        <a href="#" data-rel="back" data-icon="arrow-l" data-role="button" data-transition="none" >Back</a>
+        <h1>Edit Profile</h1>
+    </div>
+    <!-- /header -->
+
+    <div data-role="content" data-theme="b" class="login-shadow" id="sign_in" style="margin:auto;">
+        <script type="text/javascript" charset="utf-8" src="js/script_edit_profile.js"></script>
+        <form action="http://service.oppakub.me/SLC/edit_profile.php" method="post" id="edit_profile_form" data-transition="none">
+            <div data-role="fieldcontain" id="edit_firstname_field">
+                <label for="edit_firstname">Firstname: *</label>
+                <input type="text" name="firstname" id="edit_firstname" value="" placeholder="Firstname" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="edit_lastname_field">
+                <label for="edit_lastname">Lastname: *</label>
+                <input type="text" name="lastname" id="edit_lastname" value="" placeholder="Lastname" data-clear-btn="true" />
+            </div>
+            <div data-role="fieldcontain" id="edit_phone_field">
+                <label for="edit_phone">PhoneNumber:</label>
+                <input type="tel" name="phone" id="edit_phone" placeholder="Phone Number" data-clear-btn="true" />
+            </div>
+            <div>
+                <input type="hidden" name="username" id="edit_username" />
+                <input data-theme="b" type="submit" value="Submit" id="edit_profile_submit"/>
+            </div>
+        </form>
+
+
+    </div>
+    <!-- /content -->
+
+
+    <div data-role="footer" data-position="fixed">
+        <h1 id="af_dis">Night_Fury_TE@M</h1>
+    </div>
+    <!-- /footer -->
+</div>
