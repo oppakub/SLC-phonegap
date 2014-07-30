@@ -65,23 +65,27 @@ function sendQuestion(x){
 
 function broadcastQuestion(){
 var quesNumB = ($("#askID_question_input").attr('name')).substr(($("#askID_question_input").attr('name')).lastIndexOf('_')+1);
-         $.ajax({
-         	url: "http://service.oppakub.me/SLC/broadcast_ask_in_course.php",
-         	type: 'POST',
-         	data: "cid="+send_courseid+"&qNo="+quesNumB,
-         	dataType : "json",
-         	async: false,
-         	success: function(data, textStatus, jqXHR){
-                 if(data.status == "OK") {
-                    alert(data.message);
-                 } else {
-                     toast(data.message);
-                 }
-         	}, //end success
-         	error: function(jqXHR, textStatus, errorThrown) {
-         		alert(jqXHR.responseText);
-         	} //end error
-         });
+		if(quesNumB != "input"){
+			 $.ajax({
+				url: "http://service.oppakub.me/SLC/broadcast_ask_in_course.php",
+				type: 'POST',
+				data: "cid="+send_courseid+"&qNo="+quesNumB,
+				dataType : "json",
+				async: false,
+				success: function(data, textStatus, jqXHR){
+					 if(data.status == "OK") {
+						alert(data.message);
+					 } else {
+						 toast(data.message);
+					 }
+				}, //end success
+				error: function(jqXHR, textStatus, errorThrown) {
+					alert(jqXHR.responseText);
+				} //end error
+			 });
+		 } else {
+        toast("Please choose your question before");
+     }
 }
 
 function showQuestionReply(x){
