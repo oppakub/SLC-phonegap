@@ -8,7 +8,12 @@ $( document ).ready(function() {
 	//alert(stu_eid);
 	var chk_connect = checkConnection();
 	if(chk_connect != "no") {
-		showStuLessonExamDataList();
+		if (checkStuDidExam() == 1) {
+			showStuLessonExamDataList();
+		} else {
+			alert("You did this");
+			$.mobile.changePage('student_course_lesson_content.html', { transition: "none", changeHash: false });		
+		}
 	} else {
 		toast('Please connect to the internet.');
 	}
@@ -21,6 +26,26 @@ $( document ).ready(function() {
 	});
 	
 });
+
+function checkStuDidExam() {
+	var return_status = 0;
+	$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_stu_course_lesson_didexam.php",
+					type: 'POST',
+					data:  "uid="+stu_uid+"&eid="+stu_eid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						return_status = 1;
+					} 	
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+		return return_status;
+}
 
 function setExamStatus() {
 	$.ajax({

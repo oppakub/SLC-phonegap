@@ -8,8 +8,13 @@ $( document ).ready(function() {
 	//alert(stu_eid);
 	var chk_connect = checkConnection();
 	if(chk_connect != "no") {
-		showStuLessonHwDataList();
-		showStuLessonHwFileList();
+		if (checkStuDidHw() == 1) {
+			showStuLessonHwDataList();
+			showStuLessonHwFileList();
+		} else {
+			alert("You did this");
+			$.mobile.changePage('student_course_lesson_content.html', { transition: "none", changeHash: false });		
+		}
 	} else {
 		toast('Please connect to the internet.');
 	}
@@ -22,6 +27,26 @@ $( document ).ready(function() {
 	});
 	
 });
+
+function checkStuDidHw() {
+	var return_status = 0;
+	$.ajax({
+					url: "http://service.oppakub.me/SLC/chk_stu_course_lesson_didhw.php",
+					type: 'POST',
+					data:  "uid="+stu_uid+"&hid="+stu_hid,
+					dataType : "json",
+					async: false,
+					success: function(data, textStatus, jqXHR){
+					if(data.status == "OK") {
+						return_status = 1;
+					} 	
+				}, //end success
+					error: function(jqXHR, textStatus, errorThrown) {
+						alert(jqXHR.responseText);
+					} //end error         
+		});
+		return return_status;
+}
 
 function setHwStatus() {
 	$.ajax({
