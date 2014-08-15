@@ -3,9 +3,9 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
 function onDeviceReady() {
-	//if (!window.cordova) {
-	//	facebookConnectPlugin.browserInit(522533731207943);
-	//}
+	if (!window.cordova) {
+		facebookConnectPlugin.browserInit(522533731207943);
+	}
 
 	//facebookConnectPlugin.logout(function (success) {}, function (error) {});
 
@@ -20,7 +20,7 @@ function onDeviceReady() {
 		$(location).attr('href','auth.html');
 	}
 
-	facebookConnectPlugin.login(["public_profile"],
+	facebookConnectPlugin.login(["public_profile","email"],
 		fbLoginSuccess,
 		fbError
 	);
